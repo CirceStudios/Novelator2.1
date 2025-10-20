@@ -21,17 +21,20 @@ class AnalisisCacheManagerTTLTest {
     }
 
     @Test
-    void testTTLBecomesStale() throws Exception {
+    void testTTLDeterministicUsingSetLastUpdated() {
+        // TTL 100 ms
         cacheManager.setTtlMillis(100);
         Map<String, ClassMetadata> entries = new HashMap<>();
         entries.put("X", mock(ClassMetadata.class));
         cacheManager.putAll(entries);
 
+        // Fresh immediately after putAll
+        cacheManager.setLastUpdatedMillis(System.currentTimeMillis());
         assertFalse(cacheManager.isStale(), "Cache no debe estar stale inmediatamente después de putAll");
 
-        // wait beyond TTL
-        Thread.sleep(150);
-
-        assertTrue(cacheManager.isStale(), "Cache debe considerarse stale tras superar el TTL");
+        // Make the lastUpdated appear in the past beyond the TTL
+        long past = System.currentTimeMillis() - 200L;
+        cacheManager.setLastUpdatedMillis(past);
+        assertTrue(cacheManager.isStale(), "Cache debe considerarse stale tras simular tiempo pasado mayor al TTL");
     }
 }
