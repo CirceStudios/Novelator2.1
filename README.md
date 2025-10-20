@@ -92,4 +92,5 @@ INSTRUCCIONES DE USO:
 - Haz tu pregunta al código pirata.
 - Confirma con s dos veces (Problemas con el scanner)
 - Gozatelo viendo a los piratas debatir sobre su propio código!! xD
+- Tendrás que setear tu variable de entorno de tu api de DeepSeek!!
 
