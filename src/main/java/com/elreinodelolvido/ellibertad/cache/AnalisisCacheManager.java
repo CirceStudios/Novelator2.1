@@ -9,9 +9,10 @@ import java.io.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * AnalisisCacheManager: cache central simple para compartir resultados de escaneo/analisis.
+ * AnalisisCacheManager: cache central para compartir resultados de escaneo/analisis.
  * - Thread-safe
  * - Persistencia opcional a disco (autogen-output/cache/analisis-cache.json)
+ * - TTL configurable para invalidar cache automáticamente
  */
 public class AnalisisCacheManager {
     private final ConcurrentMap<String, ClassMetadata> classMap = new ConcurrentHashMap<>();
@@ -19,8 +20,33 @@ public class AnalisisCacheManager {
     private final ObjectMapper mapper = new ObjectMapper();
     private final Path persistence = Paths.get("autogen-output/cache/analisis-cache.json");
 
+    // TTL in milliseconds. If <= 0, TTL is disabled.
+    private volatile long ttlMillis = 0L;
+
+    public AnalisisCacheManager() {}
+
+    // Constructor with TTL (ms)
+    public AnalisisCacheManager(long ttlMillis) {
+        this.ttlMillis = ttlMillis;
+    }
+
     public boolean isEmpty() {
         return classMap.isEmpty();
+    }
+
+    public boolean isStale() {
+        long last = lastUpdated.get();
+        if (last <= 0) return true; // treat as stale when never updated
+        if (ttlMillis <= 0) return false; // TTL disabled
+        return (System.currentTimeMillis() - last) > ttlMillis;
+    }
+
+    public void setTtlMillis(long ttlMillis) {
+        this.ttlMillis = ttlMillis;
+    }
+
+    public long getTtlMillis() {
+        return ttlMillis;
     }
 
     public void putAll(Map<String, ClassMetadata> entries) {

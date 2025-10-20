@@ -9,7 +9,7 @@ import javax.inject.Inject;
 
 /**
  * Cambios mínimos para asegurar que cada debate arranque con datos frescos.
- * - Si cache vacía, ejecuta scanProjectTurbo() y pone resultados en cache.
+ * - Si cache vacía o stale, ejecuta scanProjectTurbo() y pone resultados en cache.
  * - Llama a analisisRapidoConMetricas() para enriquecer contexto.
  */
 public class FusorDeDebatesAutonomo {
@@ -25,8 +25,8 @@ public class FusorDeDebatesAutonomo {
 
     // Punto de entrada del debate (simplificado)
     public void iniciarDebateAutonomo(String proyectoPath) {
-        // 1) Si no hay datos en cache, hacemos un escaneo previo (bloqueante, breve)
-        if (cacheManager.isEmpty()) {
+        // 1) Si no hay datos en cache o la cache está stale, hacemos un escaneo previo (bloqueante, breve)
+        if (cacheManager.isEmpty() || cacheManager.isStale()) {
             Map<String, ClassMetadata> scanResult = projectScanner.scanProjectTurbo(proyectoPath);
             if (scanResult != null && !scanResult.isEmpty()) {
                 cacheManager.putAll(scanResult);
@@ -37,7 +37,6 @@ public class FusorDeDebatesAutonomo {
         List<ClassMetadata> contexto = new ArrayList<>(cacheManager.getAll().values());
 
         // 3) Ejecutar análisis rápido (métricas) para enriquecer debate
-        // Nota: analisisRapidoConMetricas puede aceptar lista/clases según impl.
         Map<String, Object> metricas = analisisManager.analisisRapidoConMetricas(contexto);
 
         // 4) Iniciar debate pasando datos frescos y métricas
