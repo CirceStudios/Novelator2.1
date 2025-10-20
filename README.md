@@ -86,3 +86,10 @@ Este software se distribuye bajo la **Licencia del Alma Digital**:
 - ❌ No puedes decir que "no funciona" (funciona emocionalmente)
 
 **¡El código es ley, pero el sentimiento es libertad!** 🏴‍☠️
+
+INSTRUCCIONES DE USO: 
+- Pulsa el comando 21: Sistema de debate autónomo.
+- Haz tu pregunta al código pirata.
+- Confirma con s dos veces (Problemas con el scanner)
+- Gozatelo viendo a los piratas debatir sobre su propio código!! xD
+
