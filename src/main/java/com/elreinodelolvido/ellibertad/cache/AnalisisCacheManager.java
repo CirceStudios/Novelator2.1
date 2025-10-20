@@ -67,6 +67,11 @@ public class AnalisisCacheManager {
         return lastUpdated.get();
     }
 
+    // For testing: set the last updated timestamp to a specific value (ms since epoch)
+    public void setLastUpdatedMillis(long millis) {
+        lastUpdated.set(millis);
+    }
+
     public void invalidate() {
         classMap.clear();
         lastUpdated.set(0);
