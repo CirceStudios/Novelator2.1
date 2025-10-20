@@ -1071,4 +1071,4 @@ import java.util.concurrent.locks.*;
 3. 🏴‍☠️ Volver al menú principal completo
 0. 🚪 Salir del sistema
 
-🎯 Selecciona una opción: 
+🎯 Selecciona una opción: 💥 ERROR CRÍTICO EN SISTEMA PRINCIPAL: No line found
