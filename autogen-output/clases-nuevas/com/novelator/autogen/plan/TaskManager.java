@@ -9,26 +9,25 @@ import java.util.concurrent.ConcurrentMap;
 
 /**
  * Clase base generada automáticamente desde el plan para la gestión de tareas.
- * Proporciona funcionalidades completas para crear, gestionar y rastrear tareas
- * de manera concurrente y segura.
+ * Implementa un sistema robusto y thread-safe para la administración de tareas
+ * con capacidades de seguimiento y estado.
  */
 public class TaskManager {
     
+    // Campos/atributos
+    private final ConcurrentMap<String, Task> tasks;
+    private final Object lock;
+    
     /**
-     * Representa una tarea individual con identificador único y estado.
+     * Representa una tarea individual con estado y metadatos.
      */
     public static class Task {
         private final String id;
-        private String description;
+        private final String description;
         private TaskStatus status;
-        private long createdAt;
+        private final long createdAt;
         private long updatedAt;
         
-        /**
-         * Constructor para crear una nueva tarea.
-         * 
-         * @param description Descripción de la tarea
-         */
         public Task(String description) {
             this.id = UUID.randomUUID().toString();
             this.description = description;
@@ -37,56 +36,59 @@ public class TaskManager {
             this.updatedAt = this.createdAt;
         }
         
-        // Getters y setters
+        // Getters
         public String getId() { return id; }
         public String getDescription() { return description; }
-        public void setDescription(String description) { 
-            this.description = description; 
-            this.updatedAt = System.currentTimeMillis();
-        }
         public TaskStatus getStatus() { return status; }
-        public void setStatus(TaskStatus status) { 
-            this.status = status; 
-            this.updatedAt = System.currentTimeMillis();
-        }
         public long getCreatedAt() { return createdAt; }
         public long getUpdatedAt() { return updatedAt; }
         
+        // Setters con actualización de timestamp
+        public void setStatus(TaskStatus status) {
+            this.status = status;
+            this.updatedAt = System.currentTimeMillis();
+        }
+        
         @Override
         public String toString() {
-            return String.format("Task{id='%s', description='%s', status=%s}", 
-                               id, description, status);
+            return String.format("Task{id='%s', description='%s', status=%s, created=%d, updated=%d}", 
+                               id, description, status, createdAt, updatedAt);
         }
     }
     
     /**
-     * Enumeración que representa los posibles estados de una tarea.
+     * Enumeración de estados posibles para una tarea.
      */
     public enum TaskStatus {
         PENDING,
         IN_PROGRESS,
         COMPLETED,
-        CANCELLED
+        CANCELLED,
+        FAILED
     }
     
-    private final ConcurrentMap<String, Task> tasks;
+    // Constructores
     
     /**
      * Constructor por defecto que inicializa el gestor de tareas.
      */
     public TaskManager() {
         this.tasks = new ConcurrentHashMap<>();
+        this.lock = new Object();
     }
     
+    // Métodos implementados
+    
     /**
-     * Crea una nueva tarea y la añade al gestor.
+     * Crea una nueva tarea con la descripción proporcionada.
      * 
-     * @param description Descripción de la tarea a crear
+     * @param description Descripción de la tarea
      * @return La tarea creada
+     * @throws IllegalArgumentException si la descripción es nula o vacía
      */
     public Task createTask(String description) {
         if (description == null || description.trim().isEmpty()) {
-            throw new IllegalArgumentException("La descripción de la tarea no puede estar vacía");
+            throw new IllegalArgumentException("La descripción de la tarea no puede ser nula o vacía");
         }
         
         Task task = new Task(description.trim());
@@ -95,9 +97,9 @@ public class TaskManager {
     }
     
     /**
-     * Obtiene una tarea por su identificador único.
+     * Obtiene una tarea por su ID.
      * 
-     * @param taskId Identificador de la tarea
+     * @param taskId ID de la tarea
      * @return La tarea encontrada o null si no existe
      */
     public Task getTask(String taskId) {
@@ -107,7 +109,7 @@ public class TaskManager {
     /**
      * Actualiza el estado de una tarea específica.
      * 
-     * @param taskId Identificador de la tarea
+     * @param taskId ID de la tarea
      * @param status Nuevo estado de la tarea
      * @return true si la actualización fue exitosa, false si la tarea no existe
      */
@@ -121,29 +123,9 @@ public class TaskManager {
     }
     
     /**
-     * Actualiza la descripción de una tarea específica.
-     * 
-     * @param taskId Identificador de la tarea
-     * @param description Nueva descripción de la tarea
-     * @return true si la actualización fue exitosa, false si la tarea no existe
-     */
-    public boolean updateTaskDescription(String taskId, String description) {
-        if (description == null || description.trim().isEmpty()) {
-            throw new IllegalArgumentException("La descripción de la tarea no puede estar vacía");
-        }
-        
-        Task task = tasks.get(taskId);
-        if (task != null) {
-            task.setDescription(description.trim());
-            return true;
-        }
-        return false;
-    }
-    
-    /**
      * Elimina una tarea del gestor.
      * 
-     * @param taskId Identificador de la tarea a eliminar
+     * @param taskId ID de la tarea a eliminar
      * @return true si la eliminación fue exitosa, false si la tarea no existe
      */
     public boolean deleteTask(String taskId) {
@@ -151,7 +133,7 @@ public class TaskManager {
     }
     
     /**
-     * Obtiene todas las tareas existentes en el gestor.
+     * Obtiene todas las tareas existentes.
      * 
      * @return Lista de todas las tareas
      */
@@ -162,7 +144,7 @@ public class TaskManager {
     /**
      * Obtiene las tareas filtradas por estado.
      * 
-     * @param status Estado por el que filtrar
+     * @param status Estado por el cual filtrar
      * @return Lista de tareas con el estado especificado
      */
     public List<Task> getTasksByStatus(TaskStatus status) {
@@ -176,35 +158,29 @@ public class TaskManager {
     }
     
     /**
-     * Obtiene el número total de tareas en el gestor.
+     * Obtiene el número total de tareas gestionadas.
      * 
-     * @return Cantidad total de tareas
+     * @return Cantidad de tareas
      */
     public int getTaskCount() {
         return tasks.size();
     }
     
     /**
-     * Obtiene el número de tareas filtradas por estado.
+     * Limpia todas las tareas completadas del gestor.
      * 
-     * @param status Estado por el que filtrar
-     * @return Cantidad de tareas con el estado especificado
+     * @return Número de tareas eliminadas
      */
-    public int getTaskCountByStatus(TaskStatus status) {
-        return getTasksByStatus(status).size();
+    public int clearCompletedTasks() {
+        int initialSize = tasks.size();
+        tasks.entrySet().removeIf(entry -> entry.getValue().getStatus() == TaskStatus.COMPLETED);
+        return initialSize - tasks.size();
     }
     
     /**
-     * Limpia todas las tareas del gestor.
-     */
-    public void clearAllTasks() {
-        tasks.clear();
-    }
-    
-    /**
-     * Verifica si existe una tarea con el identificador especificado.
+     * Verifica si existe una tarea con el ID especificado.
      * 
-     * @param taskId Identificador de la tarea
+     * @param taskId ID de la tarea a verificar
      * @return true si la tarea existe, false en caso contrario
      */
     public boolean containsTask(String taskId) {

@@ -8,141 +8,106 @@ import java.util.function.Supplier;
 
 /**
  * Clase base generada automáticamente desde el plan.
- * Ejecuta planes de texto autónomos con capacidades de procesamiento asíncrono.
+ * Ejecuta planes de texto autónomos de manera asíncrona y gestiona
+ * el ciclo de vida de las tareas planificadas.
  */
 public class PlanExecutor {
     
     private final ExecutorService executorService;
-    private volatile boolean isRunning;
-    private final Object lock = new Object();
+    private volatile boolean isShutdown;
     
     /**
      * Constructor por defecto que inicializa el executor con un pool de hilos fijo.
      */
     public PlanExecutor() {
         this.executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
-        this.isRunning = false;
+        this.isShutdown = false;
     }
     
     /**
      * Constructor que permite especificar el número de hilos del pool.
      * 
      * @param threadPoolSize número de hilos en el pool de ejecución
+     * @throws IllegalArgumentException si threadPoolSize es menor o igual a 0
      */
     public PlanExecutor(int threadPoolSize) {
+        if (threadPoolSize <= 0) {
+            throw new IllegalArgumentException("El tamaño del pool de hilos debe ser mayor a 0");
+        }
         this.executorService = Executors.newFixedThreadPool(threadPoolSize);
-        this.isRunning = false;
+        this.isShutdown = false;
     }
     
     /**
-     * Ejecuta una tarea de forma asíncrona y retorna un CompletableFuture con el resultado.
+     * Ejecuta una tarea planificada de manera asíncrona.
      * 
-     * @param <T> tipo del resultado
      * @param taskSupplier proveedor de la tarea a ejecutar
-     * @return CompletableFuture que contendrá el resultado de la ejecución
+     * @param <T> tipo del resultado de la tarea
+     * @return CompletableFuture que representa la ejecución asíncrona
+     * @throws IllegalStateException si el executor está apagado
      */
-    public <T> CompletableFuture<T> executeAsync(Supplier<T> taskSupplier) {
-        synchronized (lock) {
-            if (!isRunning) {
-                throw new IllegalStateException("PlanExecutor no está en ejecución");
-            }
+    public <T> CompletableFuture<T> executePlan(Supplier<T> taskSupplier) {
+        if (isShutdown) {
+            throw new IllegalStateException("PlanExecutor está apagado, no se pueden ejecutar nuevas tareas");
         }
         
         return CompletableFuture.supplyAsync(taskSupplier, executorService);
     }
     
     /**
-     * Ejecuta una tarea Runnable de forma asíncrona.
+     * Ejecuta una tarea Runnable de manera asíncrona.
      * 
      * @param task tarea a ejecutar
-     * @return CompletableFuture que se completará cuando termine la tarea
+     * @return CompletableFuture que representa la ejecución asíncrona
+     * @throws IllegalStateException si el executor está apagado
      */
-    public CompletableFuture<Void> executeAsync(Runnable task) {
-        synchronized (lock) {
-            if (!isRunning) {
-                throw new IllegalStateException("PlanExecutor no está en ejecución");
-            }
+    public CompletableFuture<Void> executeRunnablePlan(Runnable task) {
+        if (isShutdown) {
+            throw new IllegalStateException("PlanExecutor está apagado, no se pueden ejecutar nuevas tareas");
         }
         
         return CompletableFuture.runAsync(task, executorService);
     }
     
     /**
-     * Inicia el PlanExecutor, permitiendo la ejecución de tareas.
-     */
-    public void start() {
-        synchronized (lock) {
-            if (isRunning) {
-                throw new IllegalStateException("PlanExecutor ya está en ejecución");
-            }
-            isRunning = true;
-        }
-    }
-    
-    /**
-     * Detiene el PlanExecutor y libera los recursos del executor service.
-     * No acepta nuevas tareas pero permite completar las existentes.
-     */
-    public void stop() {
-        synchronized (lock) {
-            if (!isRunning) {
-                throw new IllegalStateException("PlanExecutor no está en ejecución");
-            }
-            isRunning = false;
-        }
-        executorService.shutdown();
-    }
-    
-    /**
-     * Detiene inmediatamente el PlanExecutor, interrumpiendo todas las tareas en ejecución.
-     */
-    public void stopImmediately() {
-        synchronized (lock) {
-            if (!isRunning) {
-                throw new IllegalStateException("PlanExecutor no está en ejecución");
-            }
-            isRunning = false;
-        }
-        executorService.shutdownNow();
-    }
-    
-    /**
-     * Verifica si el PlanExecutor está en estado de ejecución.
+     * Verifica si el executor está apagado.
      * 
-     * @return true si está ejecutando, false en caso contrario
+     * @return true si el executor está apagado, false en caso contrario
      */
-    public boolean isRunning() {
-        synchronized (lock) {
-            return isRunning;
+    public boolean isShutdown() {
+        return isShutdown;
+    }
+    
+    /**
+     * Inicia el proceso de apagado del executor.
+     * Las tareas en ejecución continuarán, pero no se aceptarán nuevas tareas.
+     */
+    public void shutdown() {
+        if (!isShutdown) {
+            executorService.shutdown();
+            isShutdown = true;
         }
     }
     
     /**
-     * Ejecuta una tarea de procesamiento de texto específica del plan.
+     * Intenta detener todas las tareas en ejecución inmediatamente.
      * 
-     * @param textContent contenido de texto a procesar
-     * @return resultado del procesamiento del texto
+     * @return lista de tareas que estaban pendientes de ejecución
      */
-    public String processTextPlan(String textContent) {
-        if (textContent == null || textContent.trim().isEmpty()) {
-            throw new IllegalArgumentException("El contenido de texto no puede ser nulo o vacío");
+    public void shutdownNow() {
+        if (!isShutdown) {
+            executorService.shutdownNow();
+            isShutdown = true;
         }
-        
-        // Implementación base para procesamiento de texto
-        return "Procesado: " + textContent.trim() + " | Estado: " + 
-               (isRunning ? "EJECUTANDO" : "DETENIDO");
     }
     
     /**
-     * Ejecuta una tarea de análisis de contenido fallido.
+     * Verifica si todas las tareas han terminado después del apagado.
      * 
-     * @param analysisData datos de análisis a procesar
-     * @return mensaje indicando el estado del análisis fallido
+     * @return true si todas las tareas han terminado, false en caso contrario
      */
-    public String executeFailedAnalysis(String analysisData) {
-        return "❌ Análisis fallido procesado: " + 
-               (analysisData != null ? analysisData : "Sin datos") + 
-               " | Timestamp: " + System.currentTimeMillis();
+    public boolean isTerminated() {
+        return executorService.isTerminated();
     }
 }
 ```

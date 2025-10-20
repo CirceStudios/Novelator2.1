@@ -7,264 +7,225 @@ import java.util.concurrent.locks.*;
 
 /**
  * Clase base generada automáticamente desde el plan.
- * Coordina recursos del sistema utilizando composición y patrones de diseño robustos.
- * 
- * <p>Esta clase gestiona la asignación, liberación y monitoreo de recursos
- * en un entorno de procesamiento autónomo de texto.</p>
+ * Coordina recursos del sistema con gestión automática de dependencias
+ * y sincronización thread-safe.
  */
 public class ResourceCoordinator {
     
     // Campos/atributos
     private final Map<String, Object> resourceRegistry;
-    private final Set<String> lockedResources;
-    private final ReentrantLock coordinationLock;
-    private final Condition resourceAvailable;
-    private final ScheduledExecutorService maintenanceExecutor;
-    private volatile boolean isActive;
+    private final Map<String, Set<String>> dependencyGraph;
+    private final ReentrantReadWriteLock coordinationLock;
+    private final ExecutorService resourceExecutor;
+    private volatile boolean isShutdown;
     
-    // Constantes de configuración
-    private static final int DEFAULT_MAX_RESOURCES = 100;
-    private static final long MAINTENANCE_INTERVAL_MS = 30000L;
-    private static final long RESOURCE_TIMEOUT_MS = 60000L;
+    // Constructores
     
     /**
-     * Constructor por defecto que inicializa el coordinador con configuración predeterminada.
+     * Constructor por defecto que inicializa el coordinador con configuración básica.
      */
     public ResourceCoordinator() {
         this.resourceRegistry = new ConcurrentHashMap<>();
-        this.lockedResources = ConcurrentHashMap.newKeySet();
-        this.coordinationLock = new ReentrantLock(true);
-        this.resourceAvailable = coordinationLock.newCondition();
-        this.maintenanceExecutor = Executors.newSingleThreadScheduledExecutor();
-        this.isActive = true;
-        
-        initializeMaintenanceTask();
+        this.dependencyGraph = new ConcurrentHashMap<>();
+        this.coordinationLock = new ReentrantReadWriteLock();
+        this.resourceExecutor = Executors.newCachedThreadPool();
+        this.isShutdown = false;
     }
     
     /**
-     * Constructor con configuración personalizada de límites.
+     * Constructor con configuración personalizada del executor.
      * 
-     * @param maxResources número máximo de recursos permitidos
+     * @param executorService ExecutorService personalizado para gestión de recursos
      */
-    public ResourceCoordinator(int maxResources) {
-        this();
-        // La configuración de límites se aplica en los métodos de adquisición
+    public ResourceCoordinator(ExecutorService executorService) {
+        this.resourceRegistry = new ConcurrentHashMap<>();
+        this.dependencyGraph = new ConcurrentHashMap<>();
+        this.coordinationLock = new ReentrantReadWriteLock();
+        this.resourceExecutor = executorService;
+        this.isShutdown = false;
     }
     
+    // Métodos implementados
+    
     /**
-     * Registra un nuevo recurso en el coordinador.
+     * Registra un recurso en el coordinador con identificador único.
      * 
-     * @param resourceId identificador único del recurso
-     * @param resource objeto recurso a registrar
-     * @return true si el registro fue exitoso, false si el recurso ya existe
+     * @param resourceId Identificador único del recurso
+     * @param resource Objeto recurso a registrar
+     * @return true si el registro fue exitoso, false si ya existe
      */
     public boolean registerResource(String resourceId, Object resource) {
         if (resourceId == null || resource == null) {
-            throw new IllegalArgumentException("Resource ID and resource object cannot be null");
+            throw new IllegalArgumentException("Resource ID and resource cannot be null");
         }
         
-        coordinationLock.lock();
+        coordinationLock.writeLock().lock();
         try {
             if (resourceRegistry.containsKey(resourceId)) {
                 return false;
             }
-            
             resourceRegistry.put(resourceId, resource);
-            resourceAvailable.signalAll();
+            dependencyGraph.putIfAbsent(resourceId, new HashSet<>());
             return true;
         } finally {
-            coordinationLock.unlock();
+            coordinationLock.writeLock().unlock();
         }
     }
     
     /**
-     * Adquiere un recurso para uso exclusivo.
+     * Obtiene un recurso registrado por su identificador.
      * 
-     * @param resourceId identificador del recurso a adquirir
-     * @return el recurso adquirido, o null si no está disponible
+     * @param resourceId Identificador del recurso
+     * @return El recurso asociado al identificador, o null si no existe
      */
-    public Object acquireResource(String resourceId) {
-        return acquireResource(resourceId, 0, TimeUnit.MILLISECONDS);
-    }
-    
-    /**
-     * Adquiere un recurso con tiempo de espera máximo.
-     * 
-     * @param resourceId identificador del recurso a adquirir
-     * @param timeout tiempo máximo de espera
-     * @param unit unidad de tiempo
-     * @return el recurso adquirido, o null si no está disponible en el tiempo especificado
-     */
-    public Object acquireResource(String resourceId, long timeout, TimeUnit unit) {
-        if (resourceId == null) {
-            throw new IllegalArgumentException("Resource ID cannot be null");
-        }
-        
-        coordinationLock.lock();
+    public Object getResource(String resourceId) {
+        coordinationLock.readLock().lock();
         try {
-            long waitTime = unit.toNanos(timeout);
-            
-            while (isResourceLocked(resourceId) && isActive) {
-                if (timeout == 0) {
-                    return null; // No esperar si timeout es cero
-                }
-                
-                if (waitTime <= 0) {
-                    return null; // Timeout expirado
-                }
-                
-                try {
-                    waitTime = resourceAvailable.awaitNanos(waitTime);
-                } catch (InterruptedException e) {
-                    Thread.currentThread().interrupt();
-                    return null;
-                }
-            }
-            
-            if (!isActive || !resourceRegistry.containsKey(resourceId)) {
-                return null;
-            }
-            
-            lockedResources.add(resourceId);
             return resourceRegistry.get(resourceId);
         } finally {
-            coordinationLock.unlock();
+            coordinationLock.readLock().unlock();
         }
     }
     
     /**
-     * Libera un recurso previamente adquirido.
+     * Establece una dependencia entre dos recursos.
      * 
-     * @param resourceId identificador del recurso a liberar
-     * @return true si la liberación fue exitosa, false si el recurso no estaba bloqueado
+     * @param dependentId Identificador del recurso dependiente
+     * @param dependencyId Identificador del recurso del que depende
+     * @return true si la dependencia se estableció correctamente
      */
-    public boolean releaseResource(String resourceId) {
-        if (resourceId == null) {
-            throw new IllegalArgumentException("Resource ID cannot be null");
-        }
-        
-        coordinationLock.lock();
+    public boolean addDependency(String dependentId, String dependencyId) {
+        coordinationLock.writeLock().lock();
         try {
-            boolean wasLocked = lockedResources.remove(resourceId);
-            if (wasLocked) {
-                resourceAvailable.signalAll();
+            if (!resourceRegistry.containsKey(dependentId) || 
+                !resourceRegistry.containsKey(dependencyId)) {
+                return false;
             }
-            return wasLocked;
-        } finally {
-            coordinationLock.unlock();
-        }
-    }
-    
-    /**
-     * Elimina un recurso del coordinador.
-     * 
-     * @param resourceId identificador del recurso a eliminar
-     * @return el recurso eliminado, o null si no existía
-     */
-    public Object removeResource(String resourceId) {
-        if (resourceId == null) {
-            throw new IllegalArgumentException("Resource ID cannot be null");
-        }
-        
-        coordinationLock.lock();
-        try {
-            lockedResources.remove(resourceId);
-            Object removed = resourceRegistry.remove(resourceId);
-            if (removed != null) {
-                resourceAvailable.signalAll();
+            
+            Set<String> dependencies = dependencyGraph.get(dependentId);
+            if (dependencies == null) {
+                dependencies = new HashSet<>();
+                dependencyGraph.put(dependentId, dependencies);
             }
-            return removed;
+            return dependencies.add(dependencyId);
         } finally {
-            coordinationLock.unlock();
+            coordinationLock.writeLock().unlock();
         }
     }
     
     /**
-     * Verifica si un recurso está actualmente bloqueado.
+     * Obtiene las dependencias de un recurso específico.
      * 
-     * @param resourceId identificador del recurso
-     * @return true si el recurso está bloqueado, false en caso contrario
+     * @param resourceId Identificador del recurso
+     * @return Conjunto de identificadores de recursos de los que depende
      */
-    public boolean isResourceLocked(String resourceId) {
-        coordinationLock.lock();
+    public Set<String> getDependencies(String resourceId) {
+        coordinationLock.readLock().lock();
         try {
-            return lockedResources.contains(resourceId);
+            Set<String> dependencies = dependencyGraph.get(resourceId);
+            return dependencies != null ? new HashSet<>(dependencies) : Collections.emptySet();
         } finally {
-            coordinationLock.unlock();
+            coordinationLock.readLock().unlock();
         }
     }
     
     /**
-     * Obtiene el número total de recursos registrados.
-     * 
-     * @return cantidad de recursos registrados
-     */
-    public int getRegisteredResourceCount() {
-        return resourceRegistry.size();
-    }
-    
-    /**
-     * Obtiene el número de recursos actualmente bloqueados.
-     * 
-     * @return cantidad de recursos bloqueados
-     */
-    public int getLockedResourceCount() {
-        coordinationLock.lock();
-        try {
-            return lockedResources.size();
-        } finally {
-            coordinationLock.unlock();
-        }
-    }
-    
-    /**
-     * Apaga el coordinador y libera todos los recursos.
+     * Libera todos los recursos y cierra el coordinador.
+     * Una vez cerrado, no se pueden realizar más operaciones.
      */
     public void shutdown() {
-        coordinationLock.lock();
+        coordinationLock.writeLock().lock();
         try {
-            isActive = false;
-            maintenanceExecutor.shutdown();
-            lockedResources.clear();
+            if (isShutdown) {
+                return;
+            }
+            
+            isShutdown = true;
             resourceRegistry.clear();
-            resourceAvailable.signalAll();
+            dependencyGraph.clear();
+            resourceExecutor.shutdown();
         } finally {
-            coordinationLock.unlock();
+            coordinationLock.writeLock().unlock();
         }
     }
     
     /**
      * Verifica si el coordinador está activo.
      * 
-     * @return true si el coordinador está activo, false si está apagado
+     * @return true si el coordinador está activo, false si está cerrado
      */
     public boolean isActive() {
-        return isActive;
+        return !isShutdown;
     }
     
-    // Métodos privados de utilidad
-    
-    private boolean isResourceLocked(String resourceId) {
-        return lockedResources.contains(resourceId);
+    /**
+     * Ejecuta una tarea asíncrona relacionada con los recursos.
+     * 
+     * @param task Tarea a ejecutar
+     * @return Future que representa el resultado de la tarea
+     */
+    public Future<?> executeResourceTask(Runnable task) {
+        if (isShutdown) {
+            throw new IllegalStateException("ResourceCoordinator is shutdown");
+        }
+        return resourceExecutor.submit(task);
     }
     
-    private void initializeMaintenanceTask() {
-        maintenanceExecutor.scheduleAtFixedRate(() -> {
-            performMaintenance();
-        }, MAINTENANCE_INTERVAL_MS, MAINTENANCE_INTERVAL_MS, TimeUnit.MILLISECONDS);
-    }
-    
-    private void performMaintenance() {
-        coordinationLock.lock();
+    /**
+     * Obtiene la cantidad de recursos registrados actualmente.
+     * 
+     * @return Número de recursos registrados
+     */
+    public int getResourceCount() {
+        coordinationLock.readLock().lock();
         try {
-            // Limpieza de recursos huérfanos o timeout
-            Iterator<String> iterator = lockedResources.iterator();
-            while (iterator.hasNext()) {
-                String resourceId = iterator.next();
-                // En una implementación real, verificaría timeouts aquí
-            }
+            return resourceRegistry.size();
         } finally {
-            coordinationLock.unlock();
+            coordinationLock.readLock().unlock();
+        }
+    }
+    
+    /**
+     * Verifica si un recurso específico está registrado.
+     * 
+     * @param resourceId Identificador del recurso
+     * @return true si el recurso está registrado, false en caso contrario
+     */
+    public boolean containsResource(String resourceId) {
+        coordinationLock.readLock().lock();
+        try {
+            return resourceRegistry.containsKey(resourceId);
+        } finally {
+            coordinationLock.readLock().unlock();
+        }
+    }
+    
+    /**
+     * Elimina un recurso y todas sus dependencias asociadas.
+     * 
+     * @param resourceId Identificador del recurso a eliminar
+     * @return true si el recurso fue eliminado, false si no existía
+     */
+    public boolean removeResource(String resourceId) {
+        coordinationLock.writeLock().lock();
+        try {
+            // Remover el recurso del registro
+            Object removed = resourceRegistry.remove(resourceId);
+            if (removed == null) {
+                return false;
+            }
+            
+            // Remover de la gráfica de dependencias
+            dependencyGraph.remove(resourceId);
+            
+            // Remover dependencias de otros recursos hacia este
+            for (Set<String> dependencies : dependencyGraph.values()) {
+                dependencies.remove(resourceId);
+            }
+            
+            return true;
+        } finally {
+            coordinationLock.writeLock().unlock();
         }
     }
 }

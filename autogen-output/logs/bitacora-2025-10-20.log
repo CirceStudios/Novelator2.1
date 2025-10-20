@@ -1120,3 +1120,304 @@
 2025-10-20 14:11:22 ℹ️ [14:11:22] [🧩FUSOR] Analizando debate_autonomo_1760649255108.md
 2025-10-20 14:11:22 ℹ️ [14:11:22] [🧩FUSOR] Analizando debate_autonomo_1760731775529.md
 2025-10-20 14:11:22 ℹ️ [14:11:22] [Oráculo] Invocando con contexto: fusor_plan_autonomo, temp: 0.6
+2025-10-20 19:13:59 ℹ️ [19:13:59] ⚓ Bitácora del Navío Libertad inicializada
+2025-10-20 19:13:59 ℹ️ [19:13:59] 📁 Directorio de logs: /Users/jordisanfeliugarcia/eclipse-workspace/Novelator2.1/autogen-output/logs
+2025-10-20 19:13:59 ⚡ [19:13:59] ⚡ TURBO: Iniciando sistema turbo ultra fusión completo...
+2025-10-20 19:13:59 ℹ️ [19:13:59] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:13:59 ℹ️ [19:13:59] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:13:59 ℹ️ [19:13:59] ⚙️ Configuración Turbo Ultra inicializada con 11 parámetros
+2025-10-20 19:13:59 ℹ️ [19:13:59] 🚀 AnalisisManager inicializado con soporte para archivos grandes
+2025-10-20 19:13:59 ℹ️ [19:13:59] ⚙️ Configuración API inicializada con 8 parámetros
+2025-10-20 19:13:59 ✅ [19:13:59] ✅ ✅ HttpClient nativo inicializado para modo emergencia
+2025-10-20 19:13:59 ℹ️ [19:13:59] 🔧 Cliente de emergencia no disponible, se creará bajo demanda
+2025-10-20 19:13:59 ℹ️ [19:13:59] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:13:59 ℹ️ [19:13:59] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:13:59 ℹ️ [19:13:59] 🏴‍☠️ Tripulación inicializada con 9 piratas
+2025-10-20 19:13:59 ℹ️ [19:13:59] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:13:59 ℹ️ [19:13:59] 🏴‍☠️ Consejo de Guerra inicializado - Los piratas debatirán como un verdadero equipo
+2025-10-20 19:13:59 ✅ [19:13:59] ✅ Sistema turbo ultra fusión completamente inicializado
+2025-10-20 19:17:08 ℹ️ [19:17:08] 🔍 Pre-escaneando proyecto...
+2025-10-20 19:17:08 ℹ️ [19:17:08] 🏴‍☠️ ThreadPool recreado - Listo para nueva aventura pirata
+2025-10-20 19:17:08 ℹ️ [19:17:08] 🎯 INICIANDO ESCANEO TURBO: .
+2025-10-20 19:17:08 ℹ️ [19:17:08] 🎯 FASE 1: Escaneo paralelo turbo...
+2025-10-20 19:17:08 ℹ️ [19:17:08] 📁 Archivos Java encontrados: 72
+2025-10-20 19:17:08 ℹ️ [19:17:08] ⚡ PARALELISMO OPTIMIZADO - 72 archivos
+2025-10-20 19:17:08 ⚠️ [19:17:08] 🔄 Parse fallido, activando rescate: TaskManager.java
+2025-10-20 19:17:08 ⚠️ [19:17:08] 🔄 Parse fallido, activando rescate: PlanExecutor.java
+2025-10-20 19:17:08 ⚠️ [19:17:08] 🔄 Parse fallido, activando rescate: ResourceCoordinator.java
+2025-10-20 19:17:08 ⚠️ [19:17:08] 🔄 Parse fallido, activando rescate: DeepSeekClientEmergencia.java
+2025-10-20 19:17:12 ℹ️ [19:17:12] 🔍 DIAGNÓSTICO CLASSMAP:
+2025-10-20 19:17:12 ℹ️ [19:17:12]    • Tamaño classMap: 97
+2025-10-20 19:17:12 ℹ️ [19:17:12]    • Claves en classMap: [com.elreinodelolvido.ellibertad.util.FileUtils, com.elreinodelolvido.ellibertad.util.SystemAuditor, com.elreinodelolvido.ellibertad.util.DifferenceType, com.elreinodelolvido.ellibertad.manager.PlanificadorManager, com.elreinodelolvido.ellibertad.chunk.ChunkAnalysis, com.elreinodelolvido.ellibertad.util.GeneradorPDFTurbo, com.elreinodelolvido.ellibertad.tripulacion.VigiaDeLosCommits, com.elreinodelolvido.ellibertad.manager.PirataInfo, com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo, com.elreinodelolvido.ellibertad.util.ObjetivosActualizacionManager, com.elreinodelolvido.ellibertad.util.PlanItem, com.elreinodelolvido.ellibertad.model.ClassCode, com.elreinodelolvido.ellibertad.model.FieldCode, com.elreinodelolvido.ellibertad.model.MethodCode, com.elreinodelolvido.ellibertad.chunk.ChunkedFileProcessor, com.novelator.autogen.plan.TaskManager, com.elreinodelolvido.ellibertad.util.MetricasPlan, com.elreinodelolvido.ellibertad.util.GeneradorPlanDesdeObjetivos, com.elreinodelolvido.ellibertad.manager.SistemaManager, com.elreinodelolvido.ellibertad.util.DimensionalMetadata, com.elreinodelolvido.ellibertad.model.ParameterCode, com.elreinodelolvido.ellibertad.util.CapituloNarrativo, com.elreinodelolvido.ellibertad.api.OraculoConRelaciones, com.elreinodelolvido.ellibertad.engine.Maniobra, com.elreinodelolvido.ellibertad.api.PromptCache, com.elreinodelolvido.ellibertad.util.ExcepcionRegistro, com.elreinodelolvido.ellibertad.util.EventoExcepcion, com.elreinodelolvido.ellibertad.manager.IntegracionMemoriaTripulacion, com.elreinodelolvido.ellibertad.util.AnalisisFirmas, com.elreinodelolvido.ellibertad.tripulacion.KrakenException, com.elreinodelolvido.ellibertad.model.ClassInfo, com.elreinodelolvido.ellibertad.util.ResumenDryRun, com.elreinodelolvido.ellibertad.scanner.IntegradorForzado, com.elreinodelolvido.ellibertad.api.OraculoDeLaLibertad, com.elreinodelolvido.ellibertad.util.PrioridadRefactor, com.elreinodelolvido.ellibertad.util.ResultadoValidacion, com.elreinodelolvido.ellibertad.scanner.ResultadoValidacion, com.elreinodelolvido.ellibertad.util.PlanificadorRefactor, com.elreinodelolvido.ellibertad.util.KrakensAnalyzer, com.elreinodelolvido.ellibertad.manager.APIManager, com.elreinodelolvido.ellibertad.util.RevisorInteractivo, com.elreinodelolvido.ellibertad.api.DeepSeekClient, com.novelator.autogen.api.DeepSeekClientEmergencia, com.elreinodelolvido.ellibertad.util.JsonUtils, com.elreinodelolvido.ellibertad.engine.JavaCodeCollector, com.elreinodelolvido.ellibertad.util.BitacoraConsola, com.elreinodelolvido.ellibertad.memoria.RelacionPirata, com.elreinodelolvido.ellibertad.util.EspecificacionesPlan, com.elreinodelolvido.ellibertad.manager.MetricasPlanFusion, com.elreinodelolvido.ellibertad.chunk.ChunkAnalysisResult, com.elreinodelolvido.ellibertad.manager.ContadoresSnapshot, com.elreinodelolvido.ellibertad.util.EstadisticasGenerador, com.elreinodelolvido.ellibertad.util.OutputStreamTurbofulurado, com.elreinodelolvido.ellibertad.api.CacheEntry, com.elreinodelolvido.ellibertad.util.ValidadorFirmas, com.elreinodelolvido.ellibertad.scanner.ResultadoLote, com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo, com.elreinodelolvido.ellibertad.util.ConsolaDeTripulacion, com.elreinodelolvido.ellibertad.AutogenTurboFusion, com.elreinodelolvido.ellibertad.manager.IntervencionPirata, com.elreinodelolvido.ellibertad.manager.BannerManager, com.elreinodelolvido.ellibertad.model.FieldInfo, com.novelator.autogen.plan.PlanExecutor, com.elreinodelolvido.ellibertad.util.Difference, com.elreinodelolvido.ellibertad.util.ObservadorExcepcionesTurbo, com.elreinodelolvido.ellibertad.manager.ConsejoDeGuerraManager, com.elreinodelolvido.ellibertad.model.EventoExcepcion, com.elreinodelolvido.ellibertad.manager.ReporteManager, com.elreinodelolvido.ellibertad.util.DimensionalException, com.elreinodelolvido.ellibertad.manager.ContadoresManager, com.elreinodelolvido.ellibertad.model.ParameterInfo, com.elreinodelolvido.ellibertad.util.NarradorPirata, com.elreinodelolvido.ellibertad.manager.DebateActual, com.elreinodelolvido.ellibertad.api.OraculoTecnico, com.novelator.autogen.plan.ResourceCoordinator, com.elreinodelolvido.ellibertad.util.ResumenProyecto, com.elreinodelolvido.ellibertad.manager.DebugManager, com.elreinodelolvido.ellibertad.manager.TripulacionManager, com.elreinodelolvido.ellibertad.memoria.MemoriaPirata, com.elreinodelolvido.ellibertad.manager.VisualizadorCapitan, com.elreinodelolvido.ellibertad.model.MethodInfo, com.elreinodelolvido.ellibertad.memoria.SistemaMemoriaPirata, com.elreinodelolvido.ellibertad.util.GeneradorClasesNuevas, com.elreinodelolvido.ellibertad.util.RollbackManager, com.elreinodelolvido.ellibertad.manager.CacheEntry, com.elreinodelolvido.ellibertad.util.RequerimientoClase, com.elreinodelolvido.ellibertad.memoria.Recuerdo, com.elreinodelolvido.ellibertad.util.EstadisticasFileUtils, com.elreinodelolvido.ellibertad.chunk.FileChunk, com.elreinodelolvido.ellibertad.util.PlanMarkdownExporter, com.elreinodelolvido.ellibertad.util.DiccionarioDeTripulacion, com.elreinodelolvido.ellibertad.manager.AnalisisManager, com.elreinodelolvido.ellibertad.memoria.FragmentoCodigo, com.elreinodelolvido.ellibertad.util.DiffUtil, com.elreinodelolvido.ellibertad.scanner.ClassMetadata, com.elreinodelolvido.ellibertad.scanner.EstadisticasIntegracion, com.elreinodelolvido.ellibertad.scanner.ResultadoIntegracion]
+2025-10-20 19:17:12 ℹ️ [19:17:12]    • Primeras 5 clases:
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.util.FileUtils [CLASS]
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.util.SystemAuditor [CLASS]
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.util.DifferenceType [ENUM]
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.manager.PlanificadorManager [CLASS]
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.chunk.ChunkAnalysis [CLASS]
+2025-10-20 19:17:12 ℹ️ [19:17:12] 🎯 FASE 2: Análisis avanzado...
+2025-10-20 19:17:12 ℹ️ [19:17:12] 🏗️  Patrones arquitectónicos detectados: {OTHER=12}
+2025-10-20 19:17:12 ✅ [19:17:12] ✅ 🎉 ESCANEO TURBO COMPLETADO: 97 clases, 72 archivos procesados, 0 rescates | 100,0% éxito en 4645ms
+2025-10-20 19:17:12 ℹ️ [19:17:12] 🔍 DIAGNÓSTICO CLASSMAP:
+2025-10-20 19:17:12 ℹ️ [19:17:12]    • Tamaño classMap: 97
+2025-10-20 19:17:12 ℹ️ [19:17:12]    • Claves en classMap: [com.elreinodelolvido.ellibertad.util.FileUtils, com.elreinodelolvido.ellibertad.util.SystemAuditor, com.elreinodelolvido.ellibertad.util.DifferenceType, com.elreinodelolvido.ellibertad.manager.PlanificadorManager, com.elreinodelolvido.ellibertad.chunk.ChunkAnalysis, com.elreinodelolvido.ellibertad.util.GeneradorPDFTurbo, com.elreinodelolvido.ellibertad.tripulacion.VigiaDeLosCommits, com.elreinodelolvido.ellibertad.manager.PirataInfo, com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo, com.elreinodelolvido.ellibertad.util.ObjetivosActualizacionManager, com.elreinodelolvido.ellibertad.util.PlanItem, com.elreinodelolvido.ellibertad.model.ClassCode, com.elreinodelolvido.ellibertad.model.FieldCode, com.elreinodelolvido.ellibertad.model.MethodCode, com.elreinodelolvido.ellibertad.chunk.ChunkedFileProcessor, com.novelator.autogen.plan.TaskManager, com.elreinodelolvido.ellibertad.util.MetricasPlan, com.elreinodelolvido.ellibertad.util.GeneradorPlanDesdeObjetivos, com.elreinodelolvido.ellibertad.manager.SistemaManager, com.elreinodelolvido.ellibertad.util.DimensionalMetadata, com.elreinodelolvido.ellibertad.model.ParameterCode, com.elreinodelolvido.ellibertad.util.CapituloNarrativo, com.elreinodelolvido.ellibertad.api.OraculoConRelaciones, com.elreinodelolvido.ellibertad.engine.Maniobra, com.elreinodelolvido.ellibertad.api.PromptCache, com.elreinodelolvido.ellibertad.util.ExcepcionRegistro, com.elreinodelolvido.ellibertad.util.EventoExcepcion, com.elreinodelolvido.ellibertad.manager.IntegracionMemoriaTripulacion, com.elreinodelolvido.ellibertad.util.AnalisisFirmas, com.elreinodelolvido.ellibertad.tripulacion.KrakenException, com.elreinodelolvido.ellibertad.model.ClassInfo, com.elreinodelolvido.ellibertad.util.ResumenDryRun, com.elreinodelolvido.ellibertad.scanner.IntegradorForzado, com.elreinodelolvido.ellibertad.api.OraculoDeLaLibertad, com.elreinodelolvido.ellibertad.util.PrioridadRefactor, com.elreinodelolvido.ellibertad.util.ResultadoValidacion, com.elreinodelolvido.ellibertad.scanner.ResultadoValidacion, com.elreinodelolvido.ellibertad.util.PlanificadorRefactor, com.elreinodelolvido.ellibertad.util.KrakensAnalyzer, com.elreinodelolvido.ellibertad.manager.APIManager, com.elreinodelolvido.ellibertad.util.RevisorInteractivo, com.elreinodelolvido.ellibertad.api.DeepSeekClient, com.novelator.autogen.api.DeepSeekClientEmergencia, com.elreinodelolvido.ellibertad.util.JsonUtils, com.elreinodelolvido.ellibertad.engine.JavaCodeCollector, com.elreinodelolvido.ellibertad.util.BitacoraConsola, com.elreinodelolvido.ellibertad.memoria.RelacionPirata, com.elreinodelolvido.ellibertad.util.EspecificacionesPlan, com.elreinodelolvido.ellibertad.manager.MetricasPlanFusion, com.elreinodelolvido.ellibertad.chunk.ChunkAnalysisResult, com.elreinodelolvido.ellibertad.manager.ContadoresSnapshot, com.elreinodelolvido.ellibertad.util.EstadisticasGenerador, com.elreinodelolvido.ellibertad.util.OutputStreamTurbofulurado, com.elreinodelolvido.ellibertad.api.CacheEntry, com.elreinodelolvido.ellibertad.util.ValidadorFirmas, com.elreinodelolvido.ellibertad.scanner.ResultadoLote, com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo, com.elreinodelolvido.ellibertad.util.ConsolaDeTripulacion, com.elreinodelolvido.ellibertad.AutogenTurboFusion, com.elreinodelolvido.ellibertad.manager.IntervencionPirata, com.elreinodelolvido.ellibertad.manager.BannerManager, com.elreinodelolvido.ellibertad.model.FieldInfo, com.novelator.autogen.plan.PlanExecutor, com.elreinodelolvido.ellibertad.util.Difference, com.elreinodelolvido.ellibertad.util.ObservadorExcepcionesTurbo, com.elreinodelolvido.ellibertad.manager.ConsejoDeGuerraManager, com.elreinodelolvido.ellibertad.model.EventoExcepcion, com.elreinodelolvido.ellibertad.manager.ReporteManager, com.elreinodelolvido.ellibertad.util.DimensionalException, com.elreinodelolvido.ellibertad.manager.ContadoresManager, com.elreinodelolvido.ellibertad.model.ParameterInfo, com.elreinodelolvido.ellibertad.util.NarradorPirata, com.elreinodelolvido.ellibertad.manager.DebateActual, com.elreinodelolvido.ellibertad.api.OraculoTecnico, com.novelator.autogen.plan.ResourceCoordinator, com.elreinodelolvido.ellibertad.util.ResumenProyecto, com.elreinodelolvido.ellibertad.manager.DebugManager, com.elreinodelolvido.ellibertad.manager.TripulacionManager, com.elreinodelolvido.ellibertad.memoria.MemoriaPirata, com.elreinodelolvido.ellibertad.manager.VisualizadorCapitan, com.elreinodelolvido.ellibertad.model.MethodInfo, com.elreinodelolvido.ellibertad.memoria.SistemaMemoriaPirata, com.elreinodelolvido.ellibertad.util.GeneradorClasesNuevas, com.elreinodelolvido.ellibertad.util.RollbackManager, com.elreinodelolvido.ellibertad.manager.CacheEntry, com.elreinodelolvido.ellibertad.util.RequerimientoClase, com.elreinodelolvido.ellibertad.memoria.Recuerdo, com.elreinodelolvido.ellibertad.util.EstadisticasFileUtils, com.elreinodelolvido.ellibertad.chunk.FileChunk, com.elreinodelolvido.ellibertad.util.PlanMarkdownExporter, com.elreinodelolvido.ellibertad.util.DiccionarioDeTripulacion, com.elreinodelolvido.ellibertad.manager.AnalisisManager, com.elreinodelolvido.ellibertad.memoria.FragmentoCodigo, com.elreinodelolvido.ellibertad.util.DiffUtil, com.elreinodelolvido.ellibertad.scanner.ClassMetadata, com.elreinodelolvido.ellibertad.scanner.EstadisticasIntegracion, com.elreinodelolvido.ellibertad.scanner.ResultadoIntegracion]
+2025-10-20 19:17:12 ℹ️ [19:17:12]    • Primeras 5 clases:
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.util.FileUtils [CLASS]
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.util.SystemAuditor [CLASS]
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.util.DifferenceType [ENUM]
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.manager.PlanificadorManager [CLASS]
+2025-10-20 19:17:12 ℹ️ [19:17:12]      - com.elreinodelolvido.ellibertad.chunk.ChunkAnalysis [CLASS]
+2025-10-20 19:17:12 ℹ️ [19:17:12] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:17:12 ℹ️ [19:17:12] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:17:12 ℹ️ [19:17:12] 🔍 Búsqueda directa para: Mente Brillante (Estratega)
+2025-10-20 19:17:13 ⚠️ [19:17:13] ❌ No se encontró código fuente para: Mente Brillante (Estratega)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Pirata Mente Brillante (Estratega) existe (tiene código fuente)
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🏴‍☠️ Registrando nuevo pirata: Mente Brillante (Estratega) -> Mentebrillanteestratega
+2025-10-20 19:17:13 ✅ [19:17:13] ✅ ✅ Nuevo pirata registrado: Mente Brillante (Estratega) (Mentebrillanteestratega)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Búsqueda directa para: Barbanegra Turbo (Capitán)
+2025-10-20 19:17:13 ⚠️ [19:17:13] ❌ No se encontró código fuente para: Barbanegra Turbo (Capitán)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Pirata Barbanegra Turbo (Capitán) existe (tiene código fuente)
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🏴‍☠️ Registrando nuevo pirata: Barbanegra Turbo (Capitán) -> Barbanegraturbocapitn
+2025-10-20 19:17:13 ✅ [19:17:13] ✅ ✅ Nuevo pirata registrado: Barbanegra Turbo (Capitán) (Barbanegraturbocapitn)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Búsqueda directa para: Viejo Trueno (Contramaestre)
+2025-10-20 19:17:13 ⚠️ [19:17:13] ❌ No se encontró código fuente para: Viejo Trueno (Contramaestre)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Pirata Viejo Trueno (Contramaestre) existe (tiene código fuente)
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🏴‍☠️ Registrando nuevo pirata: Viejo Trueno (Contramaestre) -> Viejotruenocontramaestre
+2025-10-20 19:17:13 ✅ [19:17:13] ✅ ✅ Nuevo pirata registrado: Viejo Trueno (Contramaestre) (Viejotruenocontramaestre)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Búsqueda directa para: Rumbo Certero (Timonel)
+2025-10-20 19:17:13 ⚠️ [19:17:13] ❌ No se encontró código fuente para: Rumbo Certero (Timonel)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Pirata Rumbo Certero (Timonel) existe (tiene código fuente)
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🏴‍☠️ Registrando nuevo pirata: Rumbo Certero (Timonel) -> Rumbocerterotimonel
+2025-10-20 19:17:13 ✅ [19:17:13] ✅ ✅ Nuevo pirata registrado: Rumbo Certero (Timonel) (Rumbocerterotimonel)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🎯 Buscando clase con JavaCodeCollector: Mentebrillanteestratega
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Buscando código completo para: Mentebrillanteestratega
+2025-10-20 19:17:13 ⚠️ [19:17:13] ❌ Clase no encontrada: Mentebrillanteestratega
+2025-10-20 19:17:13 ⚠️ [19:17:13] ⚠️ No se pudo obtener código con JavaCodeCollector para: Mentebrillanteestratega
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Búsqueda directa para: Mente Brillante (Estratega)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Encontrado en ruta: 
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🎯 Buscando clase con JavaCodeCollector: Barbanegraturbocapitn
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Buscando código completo para: Barbanegraturbocapitn
+2025-10-20 19:17:13 ⚠️ [19:17:13] ❌ Clase no encontrada: Barbanegraturbocapitn
+2025-10-20 19:17:13 ⚠️ [19:17:13] ⚠️ No se pudo obtener código con JavaCodeCollector para: Barbanegraturbocapitn
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Búsqueda directa para: Barbanegra Turbo (Capitán)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Encontrado en ruta: 
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🎯 Buscando clase con JavaCodeCollector: Viejotruenocontramaestre
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Buscando código completo para: Viejotruenocontramaestre
+2025-10-20 19:17:13 ⚠️ [19:17:13] ❌ Clase no encontrada: Viejotruenocontramaestre
+2025-10-20 19:17:13 ⚠️ [19:17:13] ⚠️ No se pudo obtener código con JavaCodeCollector para: Viejotruenocontramaestre
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Búsqueda directa para: Viejo Trueno (Contramaestre)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Encontrado en ruta: 
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🎯 Buscando clase con JavaCodeCollector: Rumbocerterotimonel
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Buscando código completo para: Rumbocerterotimonel
+2025-10-20 19:17:13 ⚠️ [19:17:13] ❌ Clase no encontrada: Rumbocerterotimonel
+2025-10-20 19:17:13 ⚠️ [19:17:13] ⚠️ No se pudo obtener código con JavaCodeCollector para: Rumbocerterotimonel
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:17:13 ℹ️ [19:17:13] 🔍 Búsqueda directa para: Rumbo Certero (Timonel)
+2025-10-20 19:17:13 ℹ️ [19:17:13] ✅ Encontrado en ruta: 
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Iniciando fusión mejorada...
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760940172681.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760956256117.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760942184844.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760776009910.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760686942232.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760646616130.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760687334893.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760980727814.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760649794069.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760688162609.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760942471210.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760715077378.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760681977148.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760917436341.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760957127410.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760687827350.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760676867276.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760704392057.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760648677089.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760694374500.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760645768529.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760647940036.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760705478305.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760686046897.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760962282677.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760685519713.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760649255108.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [🧩FUSOR] Analizando debate_autonomo_1760731775529.md
+2025-10-20 19:18:47 ℹ️ [19:18:47] [Oráculo] Invocando con contexto: fusor_plan_autonomo, temp: 0.6
+2025-10-20 19:20:21 ⚠️ [19:20:21] [Oráculo] ⚠️ Respuesta con problemas: ❌ Todos los intentos fallaron
+2025-10-20 19:20:21 ℹ️ [19:20:21] [🧩FUSOR] Plan de texto simple guardado: autogen-output/planes/plan_texto_1760980821741.txt
+2025-10-20 19:20:21 ℹ️ [19:20:21] [🧩FUSOR] Plan generado exitosamente: autogen-output/planes/plan_texto_1760980821741.txt
+2025-10-20 19:20:21 ℹ️ [19:20:21] [🧩FUSOR] Ejecutando integración de plan textual...
+2025-10-20 19:20:21 ℹ️ [19:20:21] 🧠 Iniciando generación desde plan: autogen-output/planes/plan_texto_1760980821741.txt
+2025-10-20 19:20:21 ℹ️ [19:20:21] 🔍 No se detectaron clases específicas en el plan, generando clases base...
+2025-10-20 19:20:21 ℹ️ [19:20:21] 🎯 Plan parseado: 3 clases requeridas
+2025-10-20 19:20:21 ℹ️ [19:20:21] 🔨 Generando clase: PlanExecutor
+2025-10-20 19:20:21 ℹ️ [19:20:21] [Oráculo] Invocando con contexto: generacion_clase, temp: 0.3
+2025-10-20 19:20:51 ℹ️ [19:20:51] [Oráculo] ✅ Respuesta exitosa: 3832 caracteres
+2025-10-20 19:20:51 ℹ️ [19:20:51] ✅ Clase generada: PlanExecutor
+2025-10-20 19:20:51 ℹ️ [19:20:51] 🔨 Generando clase: TaskManager
+2025-10-20 19:20:51 ℹ️ [19:20:51] [Oráculo] Invocando con contexto: generacion_clase, temp: 0.3
+2025-10-20 19:22:02 ℹ️ [19:22:02] [Oráculo] ✅ Respuesta exitosa: 10061 caracteres
+2025-10-20 19:22:02 ℹ️ [19:22:02] ✅ Clase generada: TaskManager
+2025-10-20 19:22:02 ℹ️ [19:22:02] 🔨 Generando clase: ResourceCoordinator
+2025-10-20 19:22:02 ℹ️ [19:22:02] [Oráculo] Invocando con contexto: generacion_clase, temp: 0.3
+2025-10-20 19:22:58 ℹ️ [19:22:58] [Oráculo] ✅ Respuesta exitosa: 8498 caracteres
+2025-10-20 19:22:58 ℹ️ [19:22:58] ✅ Clase generada: ResourceCoordinator
+2025-10-20 19:22:58 ℹ️ [19:22:58] 📄 Reporte de generación guardado: autogen-output/generacion/reporte_plan_2025-10-20_19-22-58.md
+2025-10-20 19:22:58 ℹ️ [19:22:58] 🎉 GENERACIÓN DESDE PLAN COMPLETADA: 3/3 clases generadas
+2025-10-20 19:22:58 ℹ️ [19:22:58] 🚀 Iniciando integración completa turbo...
+2025-10-20 19:22:58 💥 [19:22:58] 💥 Error catastrófico en integración completa - NoSuchFileException: autogen-output/refactor
+2025-10-20 19:22:58 ℹ️ [19:22:58] 🔍 Iniciando validación global de firmas...
+2025-10-20 19:22:58 💥 [19:22:58] 💥 Error catastrófico en validación global - NoSuchFileException: autogen-output/refactor
+2025-10-20 19:22:58 ℹ️ [19:22:58] [🧩FUSOR] ✅ Integración de texto completada.
+2025-10-20 19:22:58 💥 [19:22:58] [🧩FUSOR] Error escribiendo crónica - NullPointerException: Cannot invoke "java.nio.file.Path.getFileSystem()" because "path" is null
+2025-10-20 19:45:34 ℹ️ [19:45:34] ⚓ Bitácora del Navío Libertad inicializada
+2025-10-20 19:45:34 ℹ️ [19:45:34] 📁 Directorio de logs: /Users/jordisanfeliugarcia/eclipse-workspace/Novelator2.1/autogen-output/logs
+2025-10-20 19:45:34 ⚡ [19:45:34] ⚡ TURBO: Iniciando sistema turbo ultra fusión completo...
+2025-10-20 19:45:34 ℹ️ [19:45:34] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:45:34 ℹ️ [19:45:34] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:45:34 ℹ️ [19:45:34] ⚙️ Configuración Turbo Ultra inicializada con 11 parámetros
+2025-10-20 19:45:34 ℹ️ [19:45:34] 🚀 AnalisisManager inicializado con soporte para archivos grandes
+2025-10-20 19:45:34 ℹ️ [19:45:34] ⚙️ Configuración API inicializada con 8 parámetros
+2025-10-20 19:45:34 ✅ [19:45:34] ✅ ✅ HttpClient nativo inicializado para modo emergencia
+2025-10-20 19:45:34 ℹ️ [19:45:34] 🔧 Cliente de emergencia no disponible, se creará bajo demanda
+2025-10-20 19:45:34 ℹ️ [19:45:34] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:45:34 ℹ️ [19:45:34] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:45:34 ℹ️ [19:45:34] 🏴‍☠️ Tripulación inicializada con 9 piratas
+2025-10-20 19:45:34 ℹ️ [19:45:34] ⚡ TURBO SCANNER INICIALIZADO - 16 hilos disponibles
+2025-10-20 19:45:34 ℹ️ [19:45:34] 🏴‍☠️ Consejo de Guerra inicializado - Los piratas debatirán como un verdadero equipo
+2025-10-20 19:45:34 ✅ [19:45:34] ✅ Sistema turbo ultra fusión completamente inicializado
+2025-10-20 19:46:16 ℹ️ [19:46:16] 🔍 Pre-escaneando proyecto...
+2025-10-20 19:46:16 ℹ️ [19:46:16] 🏴‍☠️ ThreadPool recreado - Listo para nueva aventura pirata
+2025-10-20 19:46:16 ℹ️ [19:46:16] 🎯 INICIANDO ESCANEO TURBO: .
+2025-10-20 19:46:16 ℹ️ [19:46:16] 🎯 FASE 1: Escaneo paralelo turbo...
+2025-10-20 19:46:16 ℹ️ [19:46:16] 📁 Archivos Java encontrados: 72
+2025-10-20 19:46:16 ℹ️ [19:46:16] ⚡ PARALELISMO OPTIMIZADO - 72 archivos
+2025-10-20 19:46:16 ⚠️ [19:46:16] 🔄 Parse fallido, activando rescate: PlanExecutor.java
+2025-10-20 19:46:16 ⚠️ [19:46:16] 🔄 Parse fallido, activando rescate: TaskManager.java
+2025-10-20 19:46:16 ⚠️ [19:46:16] 🔄 Parse fallido, activando rescate: ResourceCoordinator.java
+2025-10-20 19:46:17 ⚠️ [19:46:17] 🔄 Parse fallido, activando rescate: DeepSeekClientEmergencia.java
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 DIAGNÓSTICO CLASSMAP:
+2025-10-20 19:46:20 ℹ️ [19:46:20]    • Tamaño classMap: 97
+2025-10-20 19:46:20 ℹ️ [19:46:20]    • Claves en classMap: [com.elreinodelolvido.ellibertad.util.SystemAuditor, com.elreinodelolvido.ellibertad.util.DifferenceType, com.elreinodelolvido.ellibertad.chunk.ChunkAnalysis, com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo, com.elreinodelolvido.ellibertad.util.PlanItem, com.elreinodelolvido.ellibertad.model.FieldCode, com.novelator.autogen.plan.TaskManager, com.elreinodelolvido.ellibertad.util.MetricasPlan, com.elreinodelolvido.ellibertad.manager.SistemaManager, com.elreinodelolvido.ellibertad.util.CapituloNarrativo, com.elreinodelolvido.ellibertad.util.ExcepcionRegistro, com.elreinodelolvido.ellibertad.manager.IntegracionMemoriaTripulacion, com.elreinodelolvido.ellibertad.util.AnalisisFirmas, com.elreinodelolvido.ellibertad.tripulacion.KrakenException, com.elreinodelolvido.ellibertad.model.ClassInfo, com.elreinodelolvido.ellibertad.api.OraculoDeLaLibertad, com.elreinodelolvido.ellibertad.scanner.ResultadoValidacion, com.elreinodelolvido.ellibertad.util.PlanificadorRefactor, com.elreinodelolvido.ellibertad.util.KrakensAnalyzer, com.elreinodelolvido.ellibertad.manager.APIManager, com.elreinodelolvido.ellibertad.util.RevisorInteractivo, com.elreinodelolvido.ellibertad.api.DeepSeekClient, com.elreinodelolvido.ellibertad.memoria.RelacionPirata, com.elreinodelolvido.ellibertad.util.EspecificacionesPlan, com.elreinodelolvido.ellibertad.util.OutputStreamTurbofulurado, com.elreinodelolvido.ellibertad.util.ValidadorFirmas, com.elreinodelolvido.ellibertad.scanner.ResultadoLote, com.elreinodelolvido.ellibertad.AutogenTurboFusion, com.elreinodelolvido.ellibertad.manager.BannerManager, com.elreinodelolvido.ellibertad.model.FieldInfo, com.elreinodelolvido.ellibertad.util.Difference, com.elreinodelolvido.ellibertad.util.ObservadorExcepcionesTurbo, com.elreinodelolvido.ellibertad.manager.ReporteManager, com.elreinodelolvido.ellibertad.model.ParameterInfo, com.elreinodelolvido.ellibertad.api.OraculoTecnico, com.elreinodelolvido.ellibertad.manager.DebugManager, com.elreinodelolvido.ellibertad.manager.TripulacionManager, com.elreinodelolvido.ellibertad.manager.VisualizadorCapitan, com.elreinodelolvido.ellibertad.model.MethodInfo, com.elreinodelolvido.ellibertad.util.RequerimientoClase, com.elreinodelolvido.ellibertad.memoria.Recuerdo, com.elreinodelolvido.ellibertad.util.EstadisticasFileUtils, com.elreinodelolvido.ellibertad.chunk.FileChunk, com.elreinodelolvido.ellibertad.util.DiccionarioDeTripulacion, com.elreinodelolvido.ellibertad.memoria.FragmentoCodigo, com.elreinodelolvido.ellibertad.scanner.ClassMetadata, com.elreinodelolvido.ellibertad.scanner.ResultadoIntegracion, com.elreinodelolvido.ellibertad.util.FileUtils, com.elreinodelolvido.ellibertad.manager.PlanificadorManager, com.elreinodelolvido.ellibertad.util.GeneradorPDFTurbo, com.elreinodelolvido.ellibertad.tripulacion.VigiaDeLosCommits, com.elreinodelolvido.ellibertad.manager.PirataInfo, com.elreinodelolvido.ellibertad.util.ObjetivosActualizacionManager, com.elreinodelolvido.ellibertad.model.ClassCode, com.elreinodelolvido.ellibertad.model.MethodCode, com.elreinodelolvido.ellibertad.chunk.ChunkedFileProcessor, com.elreinodelolvido.ellibertad.util.GeneradorPlanDesdeObjetivos, com.elreinodelolvido.ellibertad.util.DimensionalMetadata, com.elreinodelolvido.ellibertad.model.ParameterCode, com.elreinodelolvido.ellibertad.api.OraculoConRelaciones, com.elreinodelolvido.ellibertad.engine.Maniobra, com.elreinodelolvido.ellibertad.api.PromptCache, com.elreinodelolvido.ellibertad.util.EventoExcepcion, com.elreinodelolvido.ellibertad.util.ResumenDryRun, com.elreinodelolvido.ellibertad.scanner.IntegradorForzado, com.elreinodelolvido.ellibertad.util.PrioridadRefactor, com.elreinodelolvido.ellibertad.util.ResultadoValidacion, com.novelator.autogen.api.DeepSeekClientEmergencia, com.elreinodelolvido.ellibertad.util.JsonUtils, com.elreinodelolvido.ellibertad.engine.JavaCodeCollector, com.elreinodelolvido.ellibertad.util.BitacoraConsola, com.elreinodelolvido.ellibertad.manager.MetricasPlanFusion, com.elreinodelolvido.ellibertad.chunk.ChunkAnalysisResult, com.elreinodelolvido.ellibertad.manager.ContadoresSnapshot, com.elreinodelolvido.ellibertad.util.EstadisticasGenerador, com.elreinodelolvido.ellibertad.api.CacheEntry, com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo, com.elreinodelolvido.ellibertad.util.ConsolaDeTripulacion, com.elreinodelolvido.ellibertad.manager.IntervencionPirata, com.novelator.autogen.plan.PlanExecutor, com.elreinodelolvido.ellibertad.manager.ConsejoDeGuerraManager, com.elreinodelolvido.ellibertad.model.EventoExcepcion, com.elreinodelolvido.ellibertad.util.DimensionalException, com.elreinodelolvido.ellibertad.manager.ContadoresManager, com.elreinodelolvido.ellibertad.util.NarradorPirata, com.elreinodelolvido.ellibertad.manager.DebateActual, com.elreinodelolvido.ellibertad.util.ResumenProyecto, com.novelator.autogen.plan.ResourceCoordinator, com.elreinodelolvido.ellibertad.memoria.MemoriaPirata, com.elreinodelolvido.ellibertad.memoria.SistemaMemoriaPirata, com.elreinodelolvido.ellibertad.util.GeneradorClasesNuevas, com.elreinodelolvido.ellibertad.util.RollbackManager, com.elreinodelolvido.ellibertad.manager.CacheEntry, com.elreinodelolvido.ellibertad.util.PlanMarkdownExporter, com.elreinodelolvido.ellibertad.manager.AnalisisManager, com.elreinodelolvido.ellibertad.util.DiffUtil, com.elreinodelolvido.ellibertad.scanner.EstadisticasIntegracion]
+2025-10-20 19:46:20 ℹ️ [19:46:20]    • Primeras 5 clases:
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.util.SystemAuditor [CLASS]
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.util.DifferenceType [ENUM]
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.chunk.ChunkAnalysis [CLASS]
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo [CLASS]
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.util.PlanItem [CLASS]
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🎯 FASE 2: Análisis avanzado...
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🏗️  Patrones arquitectónicos detectados: {OTHER=12}
+2025-10-20 19:46:20 ✅ [19:46:20] ✅ 🎉 ESCANEO TURBO COMPLETADO: 97 clases, 72 archivos procesados, 0 rescates | 100,0% éxito en 3729ms
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 DIAGNÓSTICO CLASSMAP:
+2025-10-20 19:46:20 ℹ️ [19:46:20]    • Tamaño classMap: 97
+2025-10-20 19:46:20 ℹ️ [19:46:20]    • Claves en classMap: [com.elreinodelolvido.ellibertad.util.SystemAuditor, com.elreinodelolvido.ellibertad.util.DifferenceType, com.elreinodelolvido.ellibertad.chunk.ChunkAnalysis, com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo, com.elreinodelolvido.ellibertad.util.PlanItem, com.elreinodelolvido.ellibertad.model.FieldCode, com.novelator.autogen.plan.TaskManager, com.elreinodelolvido.ellibertad.util.MetricasPlan, com.elreinodelolvido.ellibertad.manager.SistemaManager, com.elreinodelolvido.ellibertad.util.CapituloNarrativo, com.elreinodelolvido.ellibertad.util.ExcepcionRegistro, com.elreinodelolvido.ellibertad.manager.IntegracionMemoriaTripulacion, com.elreinodelolvido.ellibertad.util.AnalisisFirmas, com.elreinodelolvido.ellibertad.tripulacion.KrakenException, com.elreinodelolvido.ellibertad.model.ClassInfo, com.elreinodelolvido.ellibertad.api.OraculoDeLaLibertad, com.elreinodelolvido.ellibertad.scanner.ResultadoValidacion, com.elreinodelolvido.ellibertad.util.PlanificadorRefactor, com.elreinodelolvido.ellibertad.util.KrakensAnalyzer, com.elreinodelolvido.ellibertad.manager.APIManager, com.elreinodelolvido.ellibertad.util.RevisorInteractivo, com.elreinodelolvido.ellibertad.api.DeepSeekClient, com.elreinodelolvido.ellibertad.memoria.RelacionPirata, com.elreinodelolvido.ellibertad.util.EspecificacionesPlan, com.elreinodelolvido.ellibertad.util.OutputStreamTurbofulurado, com.elreinodelolvido.ellibertad.util.ValidadorFirmas, com.elreinodelolvido.ellibertad.scanner.ResultadoLote, com.elreinodelolvido.ellibertad.AutogenTurboFusion, com.elreinodelolvido.ellibertad.manager.BannerManager, com.elreinodelolvido.ellibertad.model.FieldInfo, com.elreinodelolvido.ellibertad.util.Difference, com.elreinodelolvido.ellibertad.util.ObservadorExcepcionesTurbo, com.elreinodelolvido.ellibertad.manager.ReporteManager, com.elreinodelolvido.ellibertad.model.ParameterInfo, com.elreinodelolvido.ellibertad.api.OraculoTecnico, com.elreinodelolvido.ellibertad.manager.DebugManager, com.elreinodelolvido.ellibertad.manager.TripulacionManager, com.elreinodelolvido.ellibertad.manager.VisualizadorCapitan, com.elreinodelolvido.ellibertad.model.MethodInfo, com.elreinodelolvido.ellibertad.util.RequerimientoClase, com.elreinodelolvido.ellibertad.memoria.Recuerdo, com.elreinodelolvido.ellibertad.util.EstadisticasFileUtils, com.elreinodelolvido.ellibertad.chunk.FileChunk, com.elreinodelolvido.ellibertad.util.DiccionarioDeTripulacion, com.elreinodelolvido.ellibertad.memoria.FragmentoCodigo, com.elreinodelolvido.ellibertad.scanner.ClassMetadata, com.elreinodelolvido.ellibertad.scanner.ResultadoIntegracion, com.elreinodelolvido.ellibertad.util.FileUtils, com.elreinodelolvido.ellibertad.manager.PlanificadorManager, com.elreinodelolvido.ellibertad.util.GeneradorPDFTurbo, com.elreinodelolvido.ellibertad.tripulacion.VigiaDeLosCommits, com.elreinodelolvido.ellibertad.manager.PirataInfo, com.elreinodelolvido.ellibertad.util.ObjetivosActualizacionManager, com.elreinodelolvido.ellibertad.model.ClassCode, com.elreinodelolvido.ellibertad.model.MethodCode, com.elreinodelolvido.ellibertad.chunk.ChunkedFileProcessor, com.elreinodelolvido.ellibertad.util.GeneradorPlanDesdeObjetivos, com.elreinodelolvido.ellibertad.util.DimensionalMetadata, com.elreinodelolvido.ellibertad.model.ParameterCode, com.elreinodelolvido.ellibertad.api.OraculoConRelaciones, com.elreinodelolvido.ellibertad.engine.Maniobra, com.elreinodelolvido.ellibertad.api.PromptCache, com.elreinodelolvido.ellibertad.util.EventoExcepcion, com.elreinodelolvido.ellibertad.util.ResumenDryRun, com.elreinodelolvido.ellibertad.scanner.IntegradorForzado, com.elreinodelolvido.ellibertad.util.PrioridadRefactor, com.elreinodelolvido.ellibertad.util.ResultadoValidacion, com.novelator.autogen.api.DeepSeekClientEmergencia, com.elreinodelolvido.ellibertad.util.JsonUtils, com.elreinodelolvido.ellibertad.engine.JavaCodeCollector, com.elreinodelolvido.ellibertad.util.BitacoraConsola, com.elreinodelolvido.ellibertad.manager.MetricasPlanFusion, com.elreinodelolvido.ellibertad.chunk.ChunkAnalysisResult, com.elreinodelolvido.ellibertad.manager.ContadoresSnapshot, com.elreinodelolvido.ellibertad.util.EstadisticasGenerador, com.elreinodelolvido.ellibertad.api.CacheEntry, com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo, com.elreinodelolvido.ellibertad.util.ConsolaDeTripulacion, com.elreinodelolvido.ellibertad.manager.IntervencionPirata, com.novelator.autogen.plan.PlanExecutor, com.elreinodelolvido.ellibertad.manager.ConsejoDeGuerraManager, com.elreinodelolvido.ellibertad.model.EventoExcepcion, com.elreinodelolvido.ellibertad.util.DimensionalException, com.elreinodelolvido.ellibertad.manager.ContadoresManager, com.elreinodelolvido.ellibertad.util.NarradorPirata, com.elreinodelolvido.ellibertad.manager.DebateActual, com.elreinodelolvido.ellibertad.util.ResumenProyecto, com.novelator.autogen.plan.ResourceCoordinator, com.elreinodelolvido.ellibertad.memoria.MemoriaPirata, com.elreinodelolvido.ellibertad.memoria.SistemaMemoriaPirata, com.elreinodelolvido.ellibertad.util.GeneradorClasesNuevas, com.elreinodelolvido.ellibertad.util.RollbackManager, com.elreinodelolvido.ellibertad.manager.CacheEntry, com.elreinodelolvido.ellibertad.util.PlanMarkdownExporter, com.elreinodelolvido.ellibertad.manager.AnalisisManager, com.elreinodelolvido.ellibertad.util.DiffUtil, com.elreinodelolvido.ellibertad.scanner.EstadisticasIntegracion]
+2025-10-20 19:46:20 ℹ️ [19:46:20]    • Primeras 5 clases:
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.util.SystemAuditor [CLASS]
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.util.DifferenceType [ENUM]
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.chunk.ChunkAnalysis [CLASS]
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo [CLASS]
+2025-10-20 19:46:20 ℹ️ [19:46:20]      - com.elreinodelolvido.ellibertad.util.PlanItem [CLASS]
+2025-10-20 19:46:20 ℹ️ [19:46:20] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🎯 Buscando clase con JavaCodeCollector: AutogenTurboFusion
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 Buscando código completo para: AutogenTurboFusion
+2025-10-20 19:46:20 ⚠️ [19:46:20] ❌ Clase no encontrada: AutogenTurboFusion
+2025-10-20 19:46:20 ⚠️ [19:46:20] ⚠️ No se pudo obtener código con JavaCodeCollector para: AutogenTurboFusion
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 Búsqueda directa para: Barbanegra Turbo
+2025-10-20 19:46:20 ℹ️ [19:46:20] ✅ Encontrado en ruta: /Users/jordisanfeliugarcia/eclipse-workspace/Novelator2.1/src/main/java/com/elreinodelolvido/ellibertad/AutogenTurboFusion.java
+2025-10-20 19:46:20 ℹ️ [19:46:20] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🎯 Buscando clase con JavaCodeCollector: AnalisisManager
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 Buscando código completo para: AnalisisManager
+2025-10-20 19:46:20 ⚠️ [19:46:20] ❌ Clase no encontrada: AnalisisManager
+2025-10-20 19:46:20 ⚠️ [19:46:20] ⚠️ No se pudo obtener código con JavaCodeCollector para: AnalisisManager
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 Búsqueda directa para: Mente Brillante
+2025-10-20 19:46:20 ℹ️ [19:46:20] ✅ Encontrado en ruta: /Users/jordisanfeliugarcia/eclipse-workspace/Novelator2.1/src/main/java/com/elreinodelolvido/ellibertad/manager/AnalisisManager.java
+2025-10-20 19:46:20 ℹ️ [19:46:20] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🎯 Buscando clase con JavaCodeCollector: ProjectScanner
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 Buscando código completo para: ProjectScanner
+2025-10-20 19:46:20 ⚠️ [19:46:20] ❌ Clase no encontrada: ProjectScanner
+2025-10-20 19:46:20 ⚠️ [19:46:20] ⚠️ No se pudo obtener código con JavaCodeCollector para: ProjectScanner
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 Búsqueda directa para: Ojo de Halcón
+2025-10-20 19:46:20 ℹ️ [19:46:20] ✅ Encontrado en ruta: /Users/jordisanfeliugarcia/eclipse-workspace/Novelator2.1/src/main/java/com/elreinodelolvido/ellibertad/scanner/ProjectScanner.java
+2025-10-20 19:46:20 ℹ️ [19:46:20] ✅ Usando escaneo existente: 97 clases
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🎯 Buscando clase con JavaCodeCollector: OraculoDeLaLibertad
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 Buscando código completo para: OraculoDeLaLibertad
+2025-10-20 19:46:20 ⚠️ [19:46:20] ❌ Clase no encontrada: OraculoDeLaLibertad
+2025-10-20 19:46:20 ⚠️ [19:46:20] ⚠️ No se pudo obtener código con JavaCodeCollector para: OraculoDeLaLibertad
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔄 Intentando búsqueda directa como fallback...
+2025-10-20 19:46:20 ℹ️ [19:46:20] 🔍 Búsqueda directa para: El Oráculo
+2025-10-20 19:46:20 ℹ️ [19:46:20] ✅ Encontrado en ruta: /Users/jordisanfeliugarcia/eclipse-workspace/Novelator2.1/src/main/java/com/elreinodelolvido/ellibertad/api/OraculoDeLaLibertad.java
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Iniciando fusión mejorada...
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760940172681.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760956256117.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760942184844.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760776009910.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760686942232.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760646616130.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760687334893.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760982533609.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760980727814.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760649794069.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760688162609.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760942471210.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760715077378.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760681977148.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760917436341.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760957127410.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760687827350.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760676867276.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760704392057.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760648677089.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760694374500.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760645768529.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760647940036.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760705478305.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760686046897.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760962282677.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760685519713.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760649255108.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [🧩FUSOR] Analizando debate_autonomo_1760731775529.md
+2025-10-20 19:48:53 ℹ️ [19:48:53] [Oráculo] Invocando con contexto: fusor_plan_autonomo, temp: 0.6
+2025-10-20 19:50:26 ⚠️ [19:50:26] [Oráculo] ⚠️ Respuesta con problemas: ❌ Todos los intentos fallaron
+2025-10-20 19:50:26 ℹ️ [19:50:26] [🧩FUSOR] Plan de texto simple guardado: autogen-output/planes/plan_texto_1760982626023.txt
+2025-10-20 19:50:26 ℹ️ [19:50:26] [🧩FUSOR] Plan generado exitosamente: autogen-output/planes/plan_texto_1760982626023.txt
+2025-10-20 19:50:26 ℹ️ [19:50:26] [🧩FUSOR] Ejecutando integración de plan textual...
+2025-10-20 19:50:26 ℹ️ [19:50:26] 🧠 Iniciando generación desde plan: autogen-output/planes/plan_texto_1760982626023.txt
+2025-10-20 19:50:26 ℹ️ [19:50:26] 🔍 No se detectaron clases específicas en el plan, generando clases base...
+2025-10-20 19:50:26 ℹ️ [19:50:26] 🎯 Plan parseado: 3 clases requeridas
+2025-10-20 19:50:26 ℹ️ [19:50:26] 🔨 Generando clase: PlanExecutor
+2025-10-20 19:50:26 ℹ️ [19:50:26] [Oráculo] Invocando con contexto: generacion_clase, temp: 0.3
+2025-10-20 19:50:54 ℹ️ [19:50:54] [Oráculo] ✅ Respuesta exitosa: 3646 caracteres
+2025-10-20 19:50:54 ℹ️ [19:50:54] ✅ Clase generada: PlanExecutor
+2025-10-20 19:50:54 ℹ️ [19:50:54] 🔨 Generando clase: TaskManager
+2025-10-20 19:50:54 ℹ️ [19:50:54] [Oráculo] Invocando con contexto: generacion_clase, temp: 0.3
+2025-10-20 19:51:35 ℹ️ [19:51:35] [Oráculo] ✅ Respuesta exitosa: 5549 caracteres
+2025-10-20 19:51:35 ℹ️ [19:51:35] ✅ Clase generada: TaskManager
+2025-10-20 19:51:35 ℹ️ [19:51:35] 🔨 Generando clase: ResourceCoordinator
+2025-10-20 19:51:35 ℹ️ [19:51:35] [Oráculo] Invocando con contexto: generacion_clase, temp: 0.3
+2025-10-20 19:52:25 ℹ️ [19:52:25] [Oráculo] ✅ Respuesta exitosa: 7564 caracteres
+2025-10-20 19:52:25 ℹ️ [19:52:25] ✅ Clase generada: ResourceCoordinator
+2025-10-20 19:52:25 ℹ️ [19:52:25] 📄 Reporte de generación guardado: autogen-output/generacion/reporte_plan_2025-10-20_19-52-25.md
+2025-10-20 19:52:25 ℹ️ [19:52:25] 🎉 GENERACIÓN DESDE PLAN COMPLETADA: 3/3 clases generadas
+2025-10-20 19:52:25 ℹ️ [19:52:25] 🚀 Iniciando integración completa turbo...
+2025-10-20 19:52:25 💥 [19:52:25] 💥 Error catastrófico en integración completa - NoSuchFileException: autogen-output/refactor
+2025-10-20 19:52:25 ℹ️ [19:52:25] 🔍 Iniciando validación global de firmas...
+2025-10-20 19:52:25 💥 [19:52:25] 💥 Error catastrófico en validación global - NoSuchFileException: autogen-output/refactor
+2025-10-20 19:52:25 ℹ️ [19:52:25] [🧩FUSOR] ✅ Integración de texto completada.
+2025-10-20 19:52:25 💥 [19:52:25] [🧩FUSOR] Error escribiendo crónica - NullPointerException: Cannot invoke "java.nio.file.Path.getFileSystem()" because "path" is null
