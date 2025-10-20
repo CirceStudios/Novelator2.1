@@ -1,0 +1,112 @@
+package com.novelator.autogen.util;
+
+import com.novelator.autogen.api.ChatGPTClient;
+import com.novelator.autogen.scanner.ProjectScanner;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+/**
+ * GeneradorPlanDesdeObjetivos — genera los archivos plan.md, plan.json y classes.plan.json
+ * a partir de los objetivos del usuario y el resumen global del sistema.
+ */
+public class GeneradorPlanDesdeObjetivos {
+
+    public static void generar(String resumenGlobal, String objetivosTexto) {
+        System.out.println("\n🧭 Generando plan funcional desde objetivos...");
+
+        String prompt = construirPrompt(resumenGlobal, objetivosTexto);
+        String respuesta = new ChatGPTClient().enviarPromptTecnico(prompt);
+
+        if (respuesta == null || respuesta.isBlank()) {
+            System.err.println("❌ No se pudo generar el plan desde los objetivos.");
+            return;
+        }
+
+        // Separar secciones: plan.md, plan.json, classes.plan.json
+        String planMd = extraerBloque(respuesta, "PLAN_MD");
+        String planJson = extraerBloque(respuesta, "PLAN_JSON");
+        String classesPlan = extraerBloque(respuesta, "CLASSES_PLAN");
+
+        Path planDir = Paths.get("software/");
+        try {
+            Files.createDirectories(planDir);
+
+            if (planMd != null) {
+                FileUtils.writeToFile(planDir.resolve("plan.md").toString(), planMd);
+                System.out.println("📝 plan.md generado.");
+            }
+
+            if (planJson != null) {
+                FileUtils.writeToFile(planDir.resolve("plan.json").toString(), planJson);
+                System.out.println("📄 plan.json generado.");
+            }
+
+            if (classesPlan != null) {
+                FileUtils.writeToFile(planDir.resolve("classes.plan.json").toString(), classesPlan);
+                System.out.println("📄 classes.plan.json generado.");
+            }
+
+        } catch (Exception e) {
+            System.err.println("💥 Error guardando los archivos de plan.");
+            e.printStackTrace();
+        }
+    }
+
+    private static String construirPrompt(String resumen, String objetivos) {
+        String resumenTrunc = trunc(resumen, 4000);
+        String objetivosTrunc = trunc(objetivos, 2000);
+        String listadoClases = trunc(ProjectScanner.resumenDeClases(), 4000);
+        String planMd = trunc(FileUtils.readFileIfExists("software/plan.md"), 3000);
+        String planJson = trunc(FileUtils.readFileIfExists("software/plan.json"), 3000);
+
+        return
+            "Eres un generador experto de estructuras de software modular en Java.\n" +
+            "Tu misión es analizar el estado actual del sistema, los objetivos de evolución y el plan funcional propuesto,\n" +
+            "y generar el código completo de las nuevas clases necesarias para cumplir la actualización.\n\n" +
+
+            "=== RESUMEN TÉCNICO Y NARRATIVO DEL SISTEMA ===\n" +
+            resumenTrunc + "\n\n" +
+
+            "=== OBJETIVOS DEFINIDOS POR EL USUARIO ===\n" +
+            objetivosTrunc + "\n\n" +
+
+            "=== CLASES EXISTENTES EN EL PROYECTO ===\n" +
+            listadoClases + "\n\n" +
+
+            "=== PLAN FUNCIONAL (plan.md) ===\n" +
+            (planMd.isEmpty() ? "(sin plan.md)" : planMd) + "\n\n" +
+
+            "=== PLAN DETALLADO (plan.json) ===\n" +
+            (planJson.isEmpty() ? "(sin plan.json)" : planJson) + "\n\n" +
+
+            "=== INSTRUCCIONES ===\n" +
+            "- Crea únicamente clases nuevas (no repitas las existentes).\n" +
+            "- Usa `package com.novelator.[dominio]` en cada clase.\n" +
+            "- Cada clase debe ser autocontenida y funcional.\n" +
+            "- Separa cada clase con triple backtick: ```\n" +
+            "- No expliques nada: solo devuelve el código Java.\n\n" +
+
+            "=== EJEMPLO DE FORMATO DE RESPUESTA ===\n" +
+            "```\npackage com.novelator.util;\n\npublic class NuevaClase { ... }\n```\n" +
+            "```\npackage com.novelator.service;\n\npublic class OtraClase { ... }\n```\n";
+    }
+
+    private static String extraerBloque(String texto, String etiqueta) {
+        String ini = "[" + etiqueta + "]";
+        String fin = "[/" + etiqueta + "]";
+
+        int start = texto.indexOf(ini);
+        int end = texto.indexOf(fin);
+
+        if (start == -1 || end == -1 || start >= end) return null;
+        return texto.substring(start + ini.length(), end).trim();
+    }
+
+    private static String trunc(String input, int max) {
+        if (input == null) return "";
+        return input.length() > max ? input.substring(0, max - 20) + "\n[...TRUNCADO...]" : input;
+    }
+    
+}

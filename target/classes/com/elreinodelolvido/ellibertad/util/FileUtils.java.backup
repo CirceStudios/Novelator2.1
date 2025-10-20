@@ -1,0 +1,525 @@
+package com.novelator.autogen.util;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.*;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+
+/**
+ * 🏴‍☠️ FILEUTILS_TURBO — Utilidades épicas para manipulación de archivos.
+ * ⚡ Ahora con cache infernal, estadísticas épicas y +500% de velocidad pirata.
+ */
+public class FileUtils {
+
+    // 🎯 CACHE TURBO - Porque leer dos veces es de cobardes
+    private static final Map<String, String> CACHE_LECTURAS = new ConcurrentHashMap<>();
+    private static final Map<String, Long> CACHE_TIMESTAMPS = new ConcurrentHashMap<>();
+    private static final Set<String> ARCHIVOS_EN_ESCRITURA = ConcurrentHashMap.newKeySet();
+    
+    // 📊 ESTADÍSTICAS ÉPICAS
+    private static final AtomicInteger CONTADOR_LECTURAS = new AtomicInteger(0);
+    private static final AtomicInteger CONTADOR_ESCRITURAS = new AtomicInteger(0);
+    private static final AtomicInteger CONTADOR_KRAKENS = new AtomicInteger(0);
+    private static final AtomicInteger CONTADOR_CACHE_HITS = new AtomicInteger(0);
+    
+    // ⚡ PATRONES TURBO
+    private static final Pattern PATRON_CODIGO_JAVA = Pattern.compile("```(?:java)?\\s*(.*?)```", Pattern.DOTALL);
+    private static final Pattern PATRON_IMPORTS = Pattern.compile("^import\\s+.*?;", Pattern.MULTILINE);
+    
+    // 🎯 CONFIGURACIÓN TURBO
+    private static final int MAX_CACHE_SIZE = 1000;
+    private static final long CACHE_TIMEOUT_MS = 300000; // 5 minutos
+
+    /**
+     * 🚀 ESCRITURA TURBO - Escribe contenido con cache y verificación
+     */
+    public static void writeToFile(String path, String content) {
+        long startTime = System.currentTimeMillis();
+        CONTADOR_ESCRITURAS.incrementAndGet();
+        
+        try {
+            Objects.requireNonNull(path, "❌ Ruta no puede ser null");
+            String contenido = Objects.requireNonNullElse(content, "");
+            
+            // 🎯 BLOQUEO TURBO para evitar escrituras simultáneas
+            if (!ARCHIVOS_EN_ESCRITURA.add(path)) {
+                System.out.println("⚠️  Archivo en escritura, reintentando: " + path);
+                Thread.sleep(100);
+                if (!ARCHIVOS_EN_ESCRITURA.add(path)) {
+                    throw new IOException("💥 Archivo bloqueado: " + path);
+                }
+            }
+
+            ensureParentDirectoryExists(path);
+            
+            // ⚡ ESCRITURA ATÓMICA
+            Path tempPath = Paths.get(path + ".tmp");
+            Files.write(tempPath, contenido.getBytes(StandardCharsets.UTF_8),
+                      StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
+            Files.move(tempPath, Paths.get(path), StandardCopyOption.REPLACE_EXISTING);
+            
+            // 💾 ACTUALIZAR CACHE TURBO
+            CACHE_LECTURAS.put(path, contenido);
+            CACHE_TIMESTAMPS.put(path, System.currentTimeMillis());
+            
+            long tiempo = System.currentTimeMillis() - startTime;
+            System.out.println("⚡ ESCRITURA TURBO: " + path + " (" + contenido.length() + " chars en " + tiempo + "ms)");
+            
+        } catch (Exception e) {
+            CONTADOR_KRAKENS.incrementAndGet();
+            throw new RuntimeException("💥 Error turbo-escribiendo: " + path, e);
+        } finally {
+            ARCHIVOS_EN_ESCRITURA.remove(path);
+        }
+    }
+
+    /**
+     * 📎 APPEND TURBO - Agrega contenido de forma óptima
+     */
+    public static void appendToFile(String path, String content) {
+        try {
+            if (content == null || content.trim().isEmpty()) {
+                System.out.println("⚠️  Contenido vacío, omitiendo append: " + path);
+                return;
+            }
+
+            ensureParentDirectoryExists(path);
+            
+            // ⚡ APPEND OPTIMIZADO
+            Files.write(Path.of(path), content.getBytes(StandardCharsets.UTF_8),
+                      StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            
+            // 🔄 INVALIDAR CACHE (porque el contenido cambió)
+            CACHE_LECTURAS.remove(path);
+            
+            System.out.println("📎 APPEND TURBO: +" + content.length() + " chars a " + path);
+            
+        } catch (Exception e) {
+            CONTADOR_KRAKENS.incrementAndGet();
+            throw new RuntimeException("💥 Error turbo-appendeando: " + path, e);
+        }
+    }
+
+    /**
+     * 📖 LECTURA TURBO - Con cache infernal y validación
+     */
+    public static String readFile(String path) {
+        long startTime = System.currentTimeMillis();
+        CONTADOR_LECTURAS.incrementAndGet();
+        
+        try {
+            Objects.requireNonNull(path, "❌ Ruta no puede ser null");
+            
+            // ⚡ CACHE TURBO CHECK
+            if (CACHE_LECTURAS.containsKey(path)) {
+                Long timestamp = CACHE_TIMESTAMPS.get(path);
+                if (timestamp != null && (System.currentTimeMillis() - timestamp) < CACHE_TIMEOUT_MS) {
+                    CONTADOR_CACHE_HITS.incrementAndGet();
+                    String cached = CACHE_LECTURAS.get(path);
+                    System.out.println("🎯 LECTURA CACHE: " + path + " (" + cached.length() + " chars)");
+                    return cached;
+                } else {
+                    // 🗑️ CACHE EXPIRADO
+                    CACHE_LECTURAS.remove(path);
+                    CACHE_TIMESTAMPS.remove(path);
+                }
+            }
+
+            Path filePath = Path.of(path);
+            if (!Files.exists(filePath)) {
+                throw new FileNotFoundException("🫥 Archivo no encontrado: " + path);
+            }
+
+            // 📖 LECTURA TURBO
+            String content = Files.readString(filePath, StandardCharsets.UTF_8);
+            
+            if (content.trim().isEmpty()) {
+                System.out.println("⚠️  Archivo vacío: " + path);
+            } else {
+                // 💾 GUARDAR EN CACHE TURBO (solo si no es enorme)
+                if (content.length() < 100000) { // 100KB máximo en cache
+                    CACHE_LECTURAS.put(path, content);
+                    CACHE_TIMESTAMPS.put(path, System.currentTimeMillis());
+                }
+            }
+
+            long tiempo = System.currentTimeMillis() - startTime;
+            System.out.println("📖 LECTURA TURBO: " + path + " (" + content.length() + " chars en " + tiempo + "ms)");
+            
+            return content;
+
+        } catch (Exception e) {
+            CONTADOR_KRAKENS.incrementAndGet();
+            throw new RuntimeException("💥 Error turbo-leyendo: " + path, e);
+        }
+    }
+
+    /**
+     * 🗂️ LISTADO TURBO - Con filtros inteligentes
+     */
+    public static List<String> listFiles(String directory, String extension) {
+        try {
+            return Files.walk(Paths.get(directory))
+                    .filter(p -> Files.isRegularFile(p) && p.toString().endsWith(extension))
+                    .map(Path::toString)
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            throw new RuntimeException("💥 Error turbo-listando archivos en: " + directory, e);
+        }
+    }
+
+    /**
+     * 🆕 LISTADO TURBO MEJORADO - Con más opciones
+     */
+    public static List<String> listFilesTurbo(String directory, String extension, boolean recursive) {
+        try {
+            var stream = recursive ? 
+                Files.walk(Paths.get(directory)) : 
+                Files.list(Paths.get(directory));
+            
+            return stream
+                    .filter(p -> Files.isRegularFile(p) && p.toString().endsWith(extension))
+                    .map(Path::toString)
+                    .collect(Collectors.toList());
+        } catch (IOException e) {
+            throw new RuntimeException("💥 Error turbo-listando: " + directory, e);
+        }
+    }
+
+    /**
+     * 📁 CREACIÓN DE DIRECTORIOS TURBO
+     */
+    public static void ensureParentDirectoryExists(String outputPath) {
+        try {
+            Path parent = Path.of(outputPath).getParent();
+            if (parent != null && !Files.exists(parent)) {
+                Files.createDirectories(parent);
+                System.out.println("📂 DIRECTORIO TURBO CREADO: " + parent);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("💥 Error turbo-creando directorio: " + outputPath, e);
+        }
+    }
+
+    /**
+     * 📄 CREACIÓN TURBO DE ARCHIVOS
+     */
+    public static void crearArchivoSiNoExiste(String ruta, String contenidoInicial) {
+        try {
+            Path path = Path.of(ruta);
+            if (!Files.exists(path)) {
+                ensureParentDirectoryExists(ruta);
+                String contenido = contenidoInicial != null ? contenidoInicial : "";
+                Files.writeString(path, contenido, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+                System.out.println("📄 ARCHIVO TURBO CREADO: " + ruta);
+                
+                // 💾 CACHE INMEDIATO
+                CACHE_LECTURAS.put(ruta, contenido);
+                CACHE_TIMESTAMPS.put(ruta, System.currentTimeMillis());
+            }
+        } catch (IOException e) {
+            System.err.println("⚠️  No se pudo crear archivo: " + ruta);
+        }
+    }
+
+    /**
+     * 🐙 REGISTRO TURBO DE KRAKENS (versión corregida)
+     */
+    public static void registrarKraken(String clase, Exception e) {
+        CONTADOR_KRAKENS.incrementAndGet();
+        StringWriter sw = new StringWriter();
+        e.printStackTrace(new PrintWriter(sw));
+        String stackTrace = sw.toString();
+        
+        String tipo = clasificarKraken(stackTrace);
+        String timestamp = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        
+        String entrada = "\n## " + tipo + "\n" +
+                        "**Clase**: " + clase + "  \n" +
+                        "**Fecha**: " + timestamp + "  \n" +
+                        "**Detalles**:\n```log\n" + stackTrace.strip() + "\n```\n" +
+                        "---\n";
+        
+        appendToFile("autogen-output/krakens/log-krakens.md", entrada);
+        System.out.println("🐙 KRAKEN REGISTRADO: " + tipo + " en " + clase);
+    }
+
+    /**
+     * 🐙 Versión sobrecargada para mensajes de error simples
+     */
+    public static void registrarKraken(String clase, String mensajeError) {
+        CONTADOR_KRAKENS.incrementAndGet();
+        String tipo = clasificarKraken(mensajeError);
+        String timestamp = java.time.LocalDateTime.now().format(java.time.format.DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        
+        String entrada = "\n## " + tipo + "\n" +
+                        "**Clase**: " + clase + "  \n" +
+                        "**Fecha**: " + timestamp + "  \n" +
+                        "**Detalles**:\n```log\n" + mensajeError.strip() + "\n```\n" +
+                        "---\n";
+        
+        appendToFile("autogen-output/krakens/log-krakens.md", entrada);
+        System.out.println("🐙 KRAKEN REGISTRADO: " + tipo + " en " + clase);
+    }
+
+    /**
+     * 🎯 CLASIFICACIÓN TURBO DE KRAKENS
+     */
+    private static String clasificarKraken(String error) {
+        String lower = error.toLowerCase();
+
+        if (lower.contains("filenotfound") || lower.contains("no such file") || lower.contains("cannot find")) {
+            return "💀 FANTASMA DEL CÓDIGO - Archivo perdido en la niebla";
+        }
+
+        if (lower.contains("nullpointer") || lower.contains("illegalstate") || lower.contains("indexoutofbounds")) {
+            return "🌪️ TORMENTA LÓGICA - Variables rebeldes";
+        }
+
+        if (lower.contains("outofmemory") || lower.contains("stackoverflow") || lower.contains("memory")) {
+            return "🐉 LEVIATÁN DEL ABISMO - Memoria insuficiente";
+        }
+
+        if (lower.contains("timeout") || lower.contains("connection") || lower.contains("network")) {
+            return "⏰ KRAKEN DEL TIEMPO - Llamadas eternas";
+        }
+
+        if (lower.contains("permission") || lower.contains("access denied") || lower.contains("security")) {
+            return "🔒 GUARDIÁN PROHIBIDO - Permisos denegados";
+        }
+
+        return "🐙 KRAKEN DESCONOCIDO - Misterio por resolver";
+    }
+
+    /**
+     * 🎪 CAPTURA TURBO DE EXCEPCIONES
+     */
+    public static void atraparKraken(String clase, Exception e) {
+        StringWriter sw = new StringWriter();
+        e.printStackTrace(new PrintWriter(sw));
+        registrarKraken(clase, sw.toString());
+    }
+
+    /**
+     * 📖 LECTURA TURBO CONDICIONAL
+     */
+    public static String readFileIfExists(String path) {
+        try {
+            if (!Files.exists(Paths.get(path))) {
+                System.out.println("⚠️  Archivo opcional no encontrado: " + path);
+                return "";
+            }
+            return readFile(path);
+        } catch (Exception e) {
+            System.err.println("⚠️  Error leyendo archivo opcional: " + path);
+            return "";
+        }
+    }
+
+    /**
+     * 🆕 EXTRACCIÓN TURBO DE MÚLTIPLES CLASES
+     */
+    public static List<String> extraerMultiplesClases(String respuestaLLM) {
+        List<String> clases = new ArrayList<>();
+        if (respuestaLLM == null || respuestaLLM.isBlank()) return clases;
+
+        try {
+            var matcher = PATRON_CODIGO_JAVA.matcher(respuestaLLM);
+            while (matcher.find()) {
+                String codigo = matcher.group(1).trim();
+                if (!codigo.isEmpty()) {
+                    clases.add(codigo);
+                }
+            }
+            
+            System.out.println("⚡ " + clases.size() + " CLASES EXTRAÍDAS");
+            return clases;
+            
+        } catch (Exception e) {
+            System.err.println("💥 Error extrayendo múltiples clases: " + e.getMessage());
+            return Collections.singletonList(respuestaLLM.trim());
+        }
+    }
+
+    /**
+     * 📊 ESTADÍSTICAS TURBO FILEUTILS
+     */
+    public static void mostrarEstadisticasEpicas() {
+        System.out.println("\n📊 ESTADÍSTICAS TURBO FILEUTILS:");
+        System.out.println("📖 Lecturas: " + CONTADOR_LECTURAS.get());
+        System.out.println("📝 Escrituras: " + CONTADOR_ESCRITURAS.get());
+        System.out.println("🐙 Krakens: " + CONTADOR_KRAKENS.get());
+        System.out.println("🎯 Cache hits: " + CONTADOR_CACHE_HITS.get());
+        System.out.println("💾 Cache size: " + CACHE_LECTURAS.size());
+        System.out.println("🎯 Tasa de cache: " + 
+            String.format("%.1f%%", (double)CONTADOR_CACHE_HITS.get() / CONTADOR_LECTURAS.get() * 100));
+        System.out.println("⚡ Eficiencia: " + 
+            String.format("%.1f%%", (1 - (double)CONTADOR_KRAKENS.get() / (CONTADOR_LECTURAS.get() + CONTADOR_ESCRITURAS.get())) * 100));
+    }
+
+    /**
+     * 🧹 LIMPIAR CACHE TURBO
+     */
+    public static void limpiarCache() {
+        int tamaño = CACHE_LECTURAS.size();
+        CACHE_LECTURAS.clear();
+        CACHE_TIMESTAMPS.clear();
+        System.out.println("🗑️  CACHE TURBO LIMPIADO: " + tamaño + " entradas");
+    }
+
+    /**
+     * 🆕 BACKUP TURBO DE ARCHIVO
+     */
+    public static void crearBackupTurbo(String archivoOriginal) {
+        try {
+            if (!Files.exists(Paths.get(archivoOriginal))) {
+                System.out.println("⚠️  Archivo no existe para backup: " + archivoOriginal);
+                return;
+            }
+            
+            String backupPath = archivoOriginal + ".bak";
+            Files.copy(Paths.get(archivoOriginal), Paths.get(backupPath), StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("💾 BACKUP TURBO CREADO: " + backupPath);
+            
+        } catch (Exception e) {
+            System.err.println("💥 Error creando backup: " + archivoOriginal);
+        }
+    }
+
+    /**
+     * 🆕 VERIFICACIÓN TURBO DE ARCHIVO
+     */
+    public static boolean verificarArchivo(String path) {
+        try {
+            Path filePath = Paths.get(path);
+            return Files.exists(filePath) && 
+                   Files.isReadable(filePath) && 
+                   Files.isWritable(filePath) &&
+                   Files.size(filePath) > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+	public static void limpiarArchivosTemporales() {
+		// TODO Auto-generated method stub
+		
+	}
+	public static String extraerBloqueDeCodigo(String respuesta) {
+	    if (respuesta == null || respuesta.trim().isEmpty()) {
+	        return "// ❌ Respuesta vacía del servidor";
+	    }
+	    
+	    System.out.println("🔍 Analizando respuesta: " + respuesta.length() + " chars");
+	    
+	    // 🎯 PATRÓN 1: Bloques ```java ``` (PREFERIDO)
+	    Pattern bloquePattern = Pattern.compile("```(?:java)?\\s*(.*?)\\s*```", Pattern.DOTALL);
+	    Matcher bloqueMatcher = bloquePattern.matcher(respuesta);
+	    
+	    if (bloqueMatcher.find()) {
+	        String codigo = bloqueMatcher.group(1).trim();
+	        System.out.println("🎯 BLOQUE JAVA EXTRAÍDO: " + codigo.length() + " chars");
+	        
+	        if (esCodigoJavaValido(codigo)) {
+	            return codigo;
+	        } else {
+	            System.out.println("⚠️ Bloque extraído pero no es válido, buscando alternativas...");
+	        }
+	    }
+	    
+	    // 🎯 PATRÓN 2: Buscar código Java completo manualmente
+	    String codigoCandidato = buscarCodigoJavaCompleto(respuesta);
+	    if (esCodigoJavaValido(codigoCandidato)) {
+	        System.out.println("🎯 CÓDIGO JAVA ENCONTRADO: " + codigoCandidato.length() + " chars");
+	        return codigoCandidato;
+	    }
+	    
+	    // 🎯 ÚLTIMO RECURSO: Si parece código, intentar repararlo
+	    if (respuesta.contains("class ") && respuesta.contains("{")) {
+	        String codigoReparado = intentarRepararCodigo(respuesta);
+	        if (esCodigoJavaValido(codigoReparado)) {
+	            System.out.println("🎯 CÓDIGO REPARADO: " + codigoReparado.length() + " chars");
+	            return codigoReparado;
+	        }
+	    }
+	    
+	    System.out.println("❌ No se pudo extraer código Java válido");
+	    return "// ❌ ERROR: No se generó código Java válido\n// La respuesta fue: " + 
+	           (respuesta.length() > 300 ? respuesta.substring(0, 300) + "..." : respuesta);
+	}
+
+	private static String buscarCodigoJavaCompleto(String texto) {
+	    // Buscar desde package/import hasta el final
+	    int start = 0;
+	    if (texto.contains("package ")) start = texto.indexOf("package ");
+	    else if (texto.contains("import ")) start = texto.indexOf("import ");
+	    else if (texto.contains("public class")) start = texto.indexOf("public class");
+	    else if (texto.contains("class ")) start = texto.indexOf("class ");
+	    else return texto; // Devolver todo como último recurso
+	    
+	    return texto.substring(start).trim();
+	}
+
+	private static String intentarRepararCodigo(String codigoRoto) {
+	    // 🎯 Intentar reparar código incompleto
+	    String reparado = codigoRoto.trim();
+	    
+	    // Asegurar que termina con }
+	    if (!reparado.endsWith("}")) {
+	        reparado += "\n}";
+	    }
+	    
+	    // Asegurar que tiene package si parece una clase completa
+	    if (reparado.contains("public class") && !reparado.contains("package ")) {
+	        // Buscar el nombre de la clase para crear un package dummy
+	        Pattern classPattern = Pattern.compile("public class (\\w+)");
+	        Matcher matcher = classPattern.matcher(reparado);
+	        if (matcher.find()) {
+	            String className = matcher.group(1);
+	            reparado = "package com.novelator.autogen.util;\n\n" + reparado;
+	        }
+	    }
+	    
+	    return reparado;
+	}
+	
+	public static boolean esCodigoJavaValido(String codigo) {
+	    if (codigo == null || codigo.trim().isEmpty()) return false;
+	    
+	    // 🎯 Validaciones básicas de código Java
+	    boolean tienePackage = codigo.contains("package ");
+	    boolean tieneClass = codigo.contains(" class ") || codigo.contains("public class");
+	    boolean tieneLlaveApertura = codigo.contains("{");
+	    boolean tieneLlaveCierre = codigo.contains("}");
+	    boolean longitudMinima = codigo.length() > 100;
+	    
+	    // Debe tener al menos class y llaves
+	    boolean esValido = tieneClass && tieneLlaveApertura && tieneLlaveCierre && longitudMinima;
+	    
+	    if (!esValido) {
+	        System.out.println("❌ Código inválido - Faltan: " +
+	                         (tieneClass ? "" : "class ") +
+	                         (tieneLlaveApertura ? "" : "{ ") +
+	                         (tieneLlaveCierre ? "" : "} "));
+	    }
+	    
+	    return esValido;
+	}
+	
+	public static void buscarFormatosInvalidos(String codigo) {
+	    // Buscar patrones %V en el código
+	    if (codigo.contains("%V") || codigo.contains("%v")) {
+	        System.err.println("❌ FORMATO INVÁLIDO ENCONTRADO: %V");
+	        System.err.println("🔍 Contexto: " + 
+	            codigo.substring(Math.max(0, codigo.indexOf("%V") - 50), 
+	                           Math.min(codigo.length(), codigo.indexOf("%V") + 50)));
+	    }
+	}
+	
+	
+}

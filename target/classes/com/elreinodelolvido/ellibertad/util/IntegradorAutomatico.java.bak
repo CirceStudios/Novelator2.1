@@ -1,0 +1,41 @@
+package com.novelator.autogen.util;
+
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+
+public class IntegradorAutomatico {
+
+    public static void integrar(String className, String packagePath, String sourcePath) {
+        String refactorPath = "autogen-output/refactor/" + packagePath + "/" + className + ".refactor.java";
+        File originalFile = new File(sourcePath);
+        File backupFile = new File(sourcePath + ".bak");
+        File refactorFile = new File(refactorPath);
+
+        try {
+            if (!originalFile.exists()) {
+                System.err.println("❌ Archivo original no encontrado: " + sourcePath);
+                return;
+            }
+
+            if (!refactorFile.exists()) {
+                System.err.println("❌ Archivo refactor no encontrado: " + refactorPath);
+                return;
+            }
+
+            // Hacer backup del original
+            Files.copy(originalFile.toPath(), backupFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+            // Reemplazar original con refactor
+            Files.copy(refactorFile.toPath(), originalFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+
+            System.out.println("✅ Integrado: " + sourcePath);
+            FileUtils.writeToFile("autogen-output/integracion.log",
+                    "✅ " + className + " integrado en " + sourcePath + "\n");
+
+        } catch (Exception e) {
+            System.err.println("💥 Error integrando clase: " + className);
+            e.printStackTrace();
+        }
+    }
+}

@@ -1,0 +1,239 @@
+=== ERROR [2025-10-16 22:14:42] ===
+Mensaje: 💥 Error en obtenerCodigoFuentePirata para El Oráculo
+Excepción: java.util.concurrent.RejectedExecutionException
+Stack Trace:
+java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$AsyncRun@7f5093ca rejected from java.util.concurrent.ThreadPoolExecutor@1c0b88a5[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 62]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2081)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:841)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1376)
+	at java.base/java.util.concurrent.CompletableFuture.asyncRunStage(CompletableFuture.java:1818)
+	at java.base/java.util.concurrent.CompletableFuture.runAsync(CompletableFuture.java:2033)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParaleloOptimizado(ProjectScanner.java:666)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParalelo(ProjectScanner.java:742)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProjectTurbo(ProjectScanner.java:122)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProject(ProjectScanner.java:96)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.obtenerCodigoFuentePirata(SistemaDebateAutonomo.java:699)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.iniciarDebateAutonomo(SistemaDebateAutonomo.java:95)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:958)
+	at com.novelator.autogen.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-16 22:14:42] ===
+Mensaje: 💥 Error en obtenerCodigoFuentePirata para Ojo de Halcón
+Excepción: java.util.concurrent.RejectedExecutionException
+Stack Trace:
+java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$AsyncRun@4fb3c99a rejected from java.util.concurrent.ThreadPoolExecutor@1c0b88a5[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 62]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2081)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:841)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1376)
+	at java.base/java.util.concurrent.CompletableFuture.asyncRunStage(CompletableFuture.java:1818)
+	at java.base/java.util.concurrent.CompletableFuture.runAsync(CompletableFuture.java:2033)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParaleloOptimizado(ProjectScanner.java:666)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParalelo(ProjectScanner.java:742)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProjectTurbo(ProjectScanner.java:122)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProject(ProjectScanner.java:96)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.obtenerCodigoFuentePirata(SistemaDebateAutonomo.java:699)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.iniciarDebateAutonomo(SistemaDebateAutonomo.java:95)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:958)
+	at com.novelator.autogen.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-16 22:14:42] ===
+Mensaje: 💥 Error en obtenerCodigoFuentePirata para Mano de Papel
+Excepción: java.util.concurrent.RejectedExecutionException
+Stack Trace:
+java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$AsyncRun@2cbae29b rejected from java.util.concurrent.ThreadPoolExecutor@1c0b88a5[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 62]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2081)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:841)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1376)
+	at java.base/java.util.concurrent.CompletableFuture.asyncRunStage(CompletableFuture.java:1818)
+	at java.base/java.util.concurrent.CompletableFuture.runAsync(CompletableFuture.java:2033)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParaleloOptimizado(ProjectScanner.java:666)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParalelo(ProjectScanner.java:742)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProjectTurbo(ProjectScanner.java:122)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProject(ProjectScanner.java:96)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.obtenerCodigoFuentePirata(SistemaDebateAutonomo.java:699)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.iniciarDebateAutonomo(SistemaDebateAutonomo.java:95)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:958)
+	at com.novelator.autogen.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-16 22:14:42] ===
+Mensaje: 💥 Error en obtenerCodigoFuentePirata para Mente Brillante
+Excepción: java.util.concurrent.RejectedExecutionException
+Stack Trace:
+java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$AsyncRun@32e7a357 rejected from java.util.concurrent.ThreadPoolExecutor@1c0b88a5[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 62]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2081)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:841)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1376)
+	at java.base/java.util.concurrent.CompletableFuture.asyncRunStage(CompletableFuture.java:1818)
+	at java.base/java.util.concurrent.CompletableFuture.runAsync(CompletableFuture.java:2033)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParaleloOptimizado(ProjectScanner.java:666)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParalelo(ProjectScanner.java:742)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProjectTurbo(ProjectScanner.java:122)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProject(ProjectScanner.java:96)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.obtenerCodigoFuentePirata(SistemaDebateAutonomo.java:699)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.iniciarDebateAutonomo(SistemaDebateAutonomo.java:95)
+	at com.novelator.autogen.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:958)
+	at com.novelator.autogen.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-16 22:47:14] ===
+Mensaje: ❌ Componente no operativo: ProjectScanner
+Excepción: java.util.concurrent.RejectedExecutionException
+Stack Trace:
+java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.CompletableFuture$AsyncRun@1a626e32 rejected from java.util.concurrent.ThreadPoolExecutor@2e6bcbc0[Terminated, pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 62]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2081)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:841)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1376)
+	at java.base/java.util.concurrent.CompletableFuture.asyncRunStage(CompletableFuture.java:1818)
+	at java.base/java.util.concurrent.CompletableFuture.runAsync(CompletableFuture.java:2033)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParaleloOptimizado(ProjectScanner.java:666)
+	at com.novelator.autogen.scanner.ProjectScanner.procesarArchivosParalelo(ProjectScanner.java:742)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProjectTurbo(ProjectScanner.java:122)
+	at com.novelator.autogen.scanner.ProjectScanner.scanProject(ProjectScanner.java:96)
+	at com.novelator.autogen.manager.DebugManager.verificarComponenteOperativoAvanzado(DebugManager.java:965)
+	at com.novelator.autogen.manager.DebugManager.realizarVerificacionFinalCompleta(DebugManager.java:934)
+	at com.novelator.autogen.manager.DebugManager.ejecutarDiagnosticoCompletoUltra(DebugManager.java:892)
+	at com.novelator.autogen.AutogenTurboFusion.lambda$9(AutogenTurboFusion.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-20 08:47:34] ===
+Mensaje: 💥 Error catastrófico en integración completa
+Excepción: java.nio.file.NoSuchFileException
+Stack Trace:
+java.nio.file.NoSuchFileException: autogen-output/refactor
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileAttributeViews$Basic.readAttributes(UnixFileAttributeViews.java:55)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.readAttributes(UnixFileSystemProvider.java:171)
+	at java.base/java.nio.file.Files.readAttributes(Files.java:1854)
+	at java.base/java.nio.file.FileTreeWalker.getAttributes(FileTreeWalker.java:220)
+	at java.base/java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:277)
+	at java.base/java.nio.file.FileTreeWalker.walk(FileTreeWalker.java:323)
+	at java.base/java.nio.file.FileTreeIterator.<init>(FileTreeIterator.java:71)
+	at java.base/java.nio.file.Files.walk(Files.java:3911)
+	at java.base/java.nio.file.Files.walk(Files.java:3966)
+	at com.elreinodelolvido.ellibertad.scanner.IntegradorForzado.integrarTodo(IntegradorForzado.java:349)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.ejecutarIntegracion(FusorDeDebatesAutonomo.java:500)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.fusionarSabiduriaColectiva(FusorDeDebatesAutonomo.java:77)
+	at com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:1141)
+	at com.elreinodelolvido.ellibertad.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-20 08:47:34] ===
+Mensaje: 💥 Error catastrófico en validación global
+Excepción: java.nio.file.NoSuchFileException
+Stack Trace:
+java.nio.file.NoSuchFileException: autogen-output/refactor
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileAttributeViews$Basic.readAttributes(UnixFileAttributeViews.java:55)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.readAttributes(UnixFileSystemProvider.java:171)
+	at java.base/java.nio.file.Files.readAttributes(Files.java:1854)
+	at java.base/java.nio.file.FileTreeWalker.getAttributes(FileTreeWalker.java:220)
+	at java.base/java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:277)
+	at java.base/java.nio.file.FileTreeWalker.walk(FileTreeWalker.java:323)
+	at java.base/java.nio.file.FileTreeIterator.<init>(FileTreeIterator.java:71)
+	at java.base/java.nio.file.Files.walk(Files.java:3911)
+	at java.base/java.nio.file.Files.walk(Files.java:3966)
+	at com.elreinodelolvido.ellibertad.util.ValidadorFirmas.validarFirmas(ValidadorFirmas.java:393)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.ejecutarIntegracion(FusorDeDebatesAutonomo.java:501)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.fusionarSabiduriaColectiva(FusorDeDebatesAutonomo.java:77)
+	at com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:1141)
+	at com.elreinodelolvido.ellibertad.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-20 08:47:34] ===
+Mensaje: [🧩FUSOR] Error escribiendo crónica
+Excepción: java.lang.NullPointerException
+Stack Trace:
+java.lang.NullPointerException: Cannot invoke "java.nio.file.Path.getFileSystem()" because "path" is null
+	at java.base/java.nio.file.Files.provider(Files.java:105)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:808)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:753)
+	at com.elreinodelolvido.ellibertad.util.FileUtils.appendToFile(FileUtils.java:471)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.registrarCronicaFusion(FusorDeDebatesAutonomo.java:519)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.fusionarSabiduriaColectiva(FusorDeDebatesAutonomo.java:82)
+	at com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:1141)
+	at com.elreinodelolvido.ellibertad.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-20 12:35:13] ===
+Mensaje: 💥 Error catastrófico en integración completa
+Excepción: java.nio.file.NoSuchFileException
+Stack Trace:
+java.nio.file.NoSuchFileException: autogen-output/refactor
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileAttributeViews$Basic.readAttributes(UnixFileAttributeViews.java:55)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.readAttributes(UnixFileSystemProvider.java:171)
+	at java.base/java.nio.file.Files.readAttributes(Files.java:1854)
+	at java.base/java.nio.file.FileTreeWalker.getAttributes(FileTreeWalker.java:220)
+	at java.base/java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:277)
+	at java.base/java.nio.file.FileTreeWalker.walk(FileTreeWalker.java:323)
+	at java.base/java.nio.file.FileTreeIterator.<init>(FileTreeIterator.java:71)
+	at java.base/java.nio.file.Files.walk(Files.java:3911)
+	at java.base/java.nio.file.Files.walk(Files.java:3966)
+	at com.elreinodelolvido.ellibertad.scanner.IntegradorForzado.integrarTodo(IntegradorForzado.java:349)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.ejecutarIntegracion(FusorDeDebatesAutonomo.java:569)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.fusionarSabiduriaColectiva(FusorDeDebatesAutonomo.java:116)
+	at com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:1141)
+	at com.elreinodelolvido.ellibertad.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-20 12:35:13] ===
+Mensaje: 💥 Error catastrófico en validación global
+Excepción: java.nio.file.NoSuchFileException
+Stack Trace:
+java.nio.file.NoSuchFileException: autogen-output/refactor
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:92)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileAttributeViews$Basic.readAttributes(UnixFileAttributeViews.java:55)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.readAttributes(UnixFileSystemProvider.java:171)
+	at java.base/java.nio.file.Files.readAttributes(Files.java:1854)
+	at java.base/java.nio.file.FileTreeWalker.getAttributes(FileTreeWalker.java:220)
+	at java.base/java.nio.file.FileTreeWalker.visit(FileTreeWalker.java:277)
+	at java.base/java.nio.file.FileTreeWalker.walk(FileTreeWalker.java:323)
+	at java.base/java.nio.file.FileTreeIterator.<init>(FileTreeIterator.java:71)
+	at java.base/java.nio.file.Files.walk(Files.java:3911)
+	at java.base/java.nio.file.Files.walk(Files.java:3966)
+	at com.elreinodelolvido.ellibertad.util.ValidadorFirmas.validarFirmas(ValidadorFirmas.java:393)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.ejecutarIntegracion(FusorDeDebatesAutonomo.java:572)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.fusionarSabiduriaColectiva(FusorDeDebatesAutonomo.java:116)
+	at com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:1141)
+	at com.elreinodelolvido.ellibertad.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+
+=== ERROR [2025-10-20 12:35:13] ===
+Mensaje: [🧩FUSOR] Error escribiendo crónica
+Excepción: java.lang.NullPointerException
+Stack Trace:
+java.lang.NullPointerException: Cannot invoke "java.nio.file.Path.getFileSystem()" because "path" is null
+	at java.base/java.nio.file.Files.provider(Files.java:105)
+	at java.base/java.nio.file.Files.createDirectory(Files.java:700)
+	at java.base/java.nio.file.Files.createAndCheckIsDirectory(Files.java:808)
+	at java.base/java.nio.file.Files.createDirectories(Files.java:753)
+	at com.elreinodelolvido.ellibertad.util.FileUtils.appendToFile(FileUtils.java:471)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.registrarCronicaFusion(FusorDeDebatesAutonomo.java:595)
+	at com.elreinodelolvido.ellibertad.debates.FusorDeDebatesAutonomo.fusionarSabiduriaColectiva(FusorDeDebatesAutonomo.java:122)
+	at com.elreinodelolvido.ellibertad.debates.SistemaDebateAutonomo.iniciarDebateAutonomoConSugerencias(SistemaDebateAutonomo.java:1141)
+	at com.elreinodelolvido.ellibertad.AutogenTurboFusion.lambda$4(AutogenTurboFusion.java:379)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+
+

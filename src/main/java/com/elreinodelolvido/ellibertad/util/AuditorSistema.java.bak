@@ -1,0 +1,66 @@
+package com.novelator.autogen.util;
+
+import java.io.IOException;
+import java.util.List;
+
+public class AuditorSistema {
+
+    public static void ejecutarAuditoriaFinal() {
+        System.out.println("\n🧪 Comprobando integridad del sistema tras la actualización...");
+
+        boolean compilacionExitosa = testCompilacion();
+        boolean clasesCargadas = testClasesCargadas();
+
+        if (compilacionExitosa && clasesCargadas) {
+            System.out.println("✅ Sistema verificado. Todo parece en orden, capitán.");
+        } else {
+            System.out.println("⚠️ Problemas detectados durante la auditoría final.");
+        }
+    }
+
+    private static boolean testCompilacion() {
+        System.out.println("🔧 Ejecutando compilación con 'javac'...");
+        try {
+            Process proceso = Runtime.getRuntime().exec("javac -d ./bin $(find ./src -name '*.java')");
+            int exitCode = proceso.waitFor();
+            return exitCode == 0;
+        } catch (IOException | InterruptedException e) {
+            System.err.println("❌ Error durante compilación: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private static boolean testClasesCargadas() {
+        System.out.println("📦 Validando carga de clases generadas...");
+        try {
+            List<String> nuevas = FileUtils.listarArchivos("autogen-output/nuevas/", ".java");
+            if (nuevas.isEmpty()) {
+                System.out.println("ℹ️ No hay nuevas clases para validar carga.");
+                return true;
+            }
+
+            for (String path : nuevas) {
+                String className = extraerNombreClase(path);
+                try {
+                    Class.forName(className);
+                    System.out.println("✅ Clase cargada: " + className);
+                } catch (ClassNotFoundException e) {
+                    System.out.println("❌ No se pudo cargar: " + className);
+                    return false;
+                }
+            }
+            return true;
+        } catch (Exception e) {
+            System.out.println("❌ Error al validar clases nuevas: " + e.getMessage());
+            return false;
+        }
+    }
+
+    private static String extraerNombreClase(String filePath) {
+        String nombre = filePath.replace("autogen-output/nuevas/", "")
+                                .replace(".java", "")
+                                .replace("/", ".");
+        return "com.novelator." + nombre;
+    }
+
+}
