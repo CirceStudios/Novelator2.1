@@ -19,8 +19,8 @@ import com.elreinodelolvido.ellibertad.scanner.ProjectScanner;
 import com.elreinodelolvido.ellibertad.util.FileUtils;
 
 /**
- * 🏴‍☠️ TRIPULACIÓN MANAGER - El Capitán que coordina la tripulación pirata
- * 🎯 Gestiona las preguntas y respuestas entre las clases del proyecto
+ * 🏴‍☠️ CREW MANAGER - The Captain that coordinates the pirate crew
+ * 🎯 Manages questions and answers between project classes
  */
 public class TripulacionManager {
     
@@ -30,20 +30,20 @@ public class TripulacionManager {
     private final Map<String, PirataInfo> mapaTripulacion;
     private boolean sesionActiva;
     private final Scanner inputScanner;
-	private SistemaMemoriaPirata memoria;
-	private String rutaArchivo;
+    private SistemaMemoriaPirata memoria;
+    private String rutaArchivo;
     
-    // 🎪 MAPA DE TRIPULACIÓN PREDEFINIDO
+    // 🎪 PREDEFINED CREW MAP
     public static final Map<String, String[]> ROLES_PIRATAS = Map.of(
-        "ProjectScanner", new String[]{"Vigía", "Ojo de Halcón", "Escudriña los mares del código en busca de tesoros ocultos"},
-        "AutogenTurboFusion", new String[]{"Capitán", "Barbanegra Turbo", "Comanda el barco con poder y velocidad implacables"},
-        "OraculoDeLaLibertad", new String[]{"Adivino", "El Oráculo", "Ve el futuro del código en las estrellas y runas ancestrales"},
-        "DebugManager", new String[]{"Cirujano", "Sable Afilado", "Cura las heridas del código con precisión mortal"},
-        "APIManager", new String[]{"Navegante", "Brujo de los Mares", "Domina los vientos y corrientes de las APIs lejanas"},
-        "ReporteManager", new String[]{"Cartógrafo", "Mano de Papel", "Traza mapas detallados de las tierras conquistadas"},
-        "SistemaManager", new String[]{"Contramaestre", "Viejo Trueno", "Mantiene el barco en orden y disciplina férrea"},
-        "AnalisisManager", new String[]{"Estratega", "Mente Brillante", "Planifica las batallas con sabiduría ancestral"},
-        "PlanificadorManager", new String[]{"Timonel", "Rumbo Certero", "Dirige el barco hacia destinos gloriosos"}
+        "ProjectScanner", new String[]{"Lookout", "Hawk Eye", "Scans the code seas for hidden treasures"},
+        "AutogenTurboFusion", new String[]{"Captain", "Blackbeard Turbo", "Commands the ship with relentless power and speed"},
+        "OraculoDeLaLibertad", new String[]{"Oracle", "The Oracle", "Sees the future of code in the stars and ancient runes"},
+        "DebugManager", new String[]{"Surgeon", "Sharp Saber", "Heals code wounds with deadly precision"},
+        "APIManager", new String[]{"Navigator", "Sea Sorcerer", "Masters the winds and currents of distant APIs"},
+        "ReporteManager", new String[]{"Cartographer", "Paper Hand", "Draws detailed maps of conquered lands"},
+        "SistemaManager", new String[]{"First Mate", "Old Thunder", "Keeps the ship in order and iron discipline"},
+        "AnalisisManager", new String[]{"Strategist", "Brilliant Mind", "Plans battles with ancestral wisdom"},
+        "PlanificadorManager", new String[]{"Helmsman", "True Course", "Steers the ship toward glorious destinations"}
     );
     
     public TripulacionManager(ProjectScanner scanner, OraculoDeLaLibertad oraculo, Bitacora bitacora) {
@@ -54,20 +54,20 @@ public class TripulacionManager {
         this.sesionActiva = false;
         this.inputScanner = new Scanner(System.in);
         
-        // ✅ INICIALIZAR MEMORIA
+        // ✅ INITIALIZE MEMORY
         this.memoria = SistemaMemoriaPirata.obtenerInstancia();
         
         inicializarTripulacion();
     }
     
     /**
-     * 🏴‍☠️ INICIAR SESIÓN CON LA TRIPULACIÓN
+     * 🏴‍☠️ START SESSION WITH THE CREW
      */
     public void iniciarSesionTripulacion() {
         mostrarBannerInicio();
         sesionActiva = true;
         
-        bitacora.exito("🏴‍☠️ SESIÓN DE TRIPULACIÓN INICIADA");
+        bitacora.exito("🏴‍☠️ CREW SESSION STARTED");
         
         while (sesionActiva) {
             ejecutarTurnoPregunta();
@@ -77,11 +77,11 @@ public class TripulacionManager {
     }
     
     /**
-     * 🎯 EJECUTAR TURNO DE PREGUNTA
+     * 🎯 EXECUTE QUESTION TURN
      */
     private void ejecutarTurnoPregunta() {
         try {
-            // 1. SOLICITAR PREGUNTA AL USUARIO
+            // 1. REQUEST QUESTION FROM USER
             String pregunta = solicitarPreguntaUsuario();
             if (pregunta == null || pregunta.trim().isEmpty()) {
                 return;
@@ -92,57 +92,57 @@ public class TripulacionManager {
                 return;
             }
             
-            bitacora.info("🎯 PREGUNTA RECIBIDA: " + pregunta);
+            bitacora.info("🎯 QUESTION RECEIVED: " + pregunta);
             
-            // 2. OBTENER CLASES DISPONIBLES
+            // 2. GET AVAILABLE CLASSES
             List<ClassInfo> clasesDisponibles = obtenerClasesDisponibles();
             if (clasesDisponibles.isEmpty()) {
-                System.out.println("❌ No hay tripulación disponible. Ejecuta scanProject primero.");
+                System.out.println("❌ No crew available. Run scanProject first.");
                 return;
             }
             
-            // 3. SELECCIONAR PIRATA PARA RESPONDER
+            // 3. SELECT PIRATE TO ANSWER
             String claseElegida = seleccionarPirataParaPregunta(pregunta, clasesDisponibles);
             if (claseElegida == null) {
-                System.out.println("❌ La tripulación no pudo decidir quién debe responder.");
+                System.out.println("❌ The crew couldn't decide who should answer.");
                 return;
             }
             
-            // 4. OBTENER INFORMACIÓN DEL PIRATA
+            // 4. GET PIRATE INFORMATION
             PirataInfo pirata = mapaTripulacion.get(claseElegida);
             if (pirata == null) {
                 pirata = crearPirataGenerico(claseElegida);
             }
             
-            // 5. SIMULAR RESPUESTA DEL PIRATA
+            // 5. SIMULATE PIRATE RESPONSE
             String respuesta = simularRespuestaPirata(pregunta, pirata);
             
-            // 6. MOSTRAR RESPUESTA
+            // 6. SHOW RESPONSE
             mostrarRespuestaPirata(pirata, respuesta);
             
-            // 7. REGISTRAR EN BITÁCORA
+            // 7. REGISTER IN LOG
             registrarIntercambioBitacora(pregunta, pirata, respuesta);
             
         } catch (Exception e) {
-            System.err.println("💥 Error en turno de pregunta: " + e.getMessage());
-            bitacora.error("Error en TripulacionManager: " + e.getMessage());
+            System.err.println("💥 Error in question turn: " + e.getMessage());
+            bitacora.error("Error in TripulacionManager: " + e.getMessage());
         }
     }
     
     /**
-     * 🗣️ SOLICITAR PREGUNTA AL USUARIO
+     * 🗣️ REQUEST QUESTION FROM USER
      */
     private String solicitarPreguntaUsuario() {
         System.out.println("\n" + "⚓".repeat(60));
-        System.out.println("🏴‍☠️  CONSULTA A LA TRIPULACIÓN");
+        System.out.println("🏴‍☠️  CONSULT THE CREW");
         System.out.println("⚓".repeat(60));
-        System.out.println("Escribe tu pregunta para la tripulación (o 'salir' para terminar):");
+        System.out.println("Write your question for the crew (or 'exit' to finish):");
         System.out.print("🎯 > ");
         
         String pregunta = inputScanner.nextLine().trim();
         
         if (pregunta.isEmpty()) {
-            System.out.println("⚠️  La pregunta no puede estar vacía.");
+            System.out.println("⚠️  Question cannot be empty.");
             return null;
         }
         
@@ -153,11 +153,11 @@ public class TripulacionManager {
         try {
             List<ClassInfo> clases = new ArrayList<>();
             
-            // ✅ VERIFICAR SI EL SCANNER TIENE CLASES
+            // ✅ VERIFY IF SCANNER HAS CLASSES
             if (scanner != null) {
-                // Intentar acceder a las clases mediante reflexión segura
+                // Try to access classes through safe reflection
                 try {
-                    // Buscar método que devuelva clases
+                    // Look for method that returns classes
                     for (java.lang.reflect.Method method : scanner.getClass().getMethods()) {
                         if (method.getReturnType().equals(List.class) && 
                             method.getParameterCount() == 0) {
@@ -169,13 +169,13 @@ public class TripulacionManager {
                         }
                     }
                 } catch (Exception e) {
-                    bitacora.debug("Reflexión falló: " + e.getMessage());
+                    bitacora.debug("Reflection failed: " + e.getMessage());
                 }
             }
             
-            // ✅ FALLBACK: USAR CLASES HARDCODEADAS DE ROLES_PIRATAS
+            // ✅ FALLBACK: USE HARDCODED CLASSES FROM ROLES_PIRATAS
             if (clases.isEmpty()) {
-                bitacora.info("Usando clases hardcodeadas de ROLES_PIRATAS");
+                bitacora.info("Using hardcoded classes from ROLES_PIRATAS");
                 for (String className : ROLES_PIRATAS.keySet()) {
                     ClassInfo classInfo = new ClassInfo();
                     classInfo.setName(className);
@@ -185,75 +185,75 @@ public class TripulacionManager {
                 }
             }
             
-            bitacora.info("Clases disponibles: " + clases.size());
+            bitacora.info("Available classes: " + clases.size());
             return clases;
             
         } catch (Exception e) {
-            bitacora.error("Error crítico obteniendo clases: " + e.getMessage());
+            bitacora.error("Critical error getting classes: " + e.getMessage());
             return Collections.emptyList();
         }
     }
     
     /**
-     * 🎯 SELECCIONAR PIRATA PARA PREGUNTA
+     * 🎯 SELECT PIRATE FOR QUESTION
      */
     private String seleccionarPirataParaPregunta(String pregunta, List<ClassInfo> clases) {
         try {
-            // Construir lista de nombres de clases
+            // Build list of class names
             StringBuilder listaClases = new StringBuilder();
             for (ClassInfo clase : clases) {
                 listaClases.append("- ").append(clase.getFullName()).append("\n");
             }
             
-            // Prompt para selección de clase
+            // Prompt for class selection
             String promptSeleccion = 
-                "Eres el capitán de un barco pirata. Tienes esta tripulación (clases Java):\n\n" +
+                "You are the captain of a pirate ship. You have this crew (Java classes):\n\n" +
                 listaClases.toString() + "\n" +
-                "La pregunta de tu tripulante es: " + pregunta + "\n\n" +
-                "¿Qué miembro de la tripulación (clase) está mejor cualificado para responder?\n" +
-                "Considera:\n" +
-                "1. La especialidad de cada clase\n" + 
-                "2. La naturaleza de la pregunta\n" +
-                "3. Las capacidades técnicas de cada clase\n\n" +
-                "Devuelve SOLO el nombre completo de la clase elegida, sin explicaciones adicionales.";
+                "Your crew member's question is: " + pregunta + "\n\n" +
+                "Which crew member (class) is best qualified to answer?\n" +
+                "Consider:\n" +
+                "1. Each class's specialty\n" + 
+                "2. The nature of the question\n" +
+                "3. Each class's technical capabilities\n\n" +
+                "Return ONLY the full class name chosen, without additional explanations.";
             
-            // Usar el oráculo para seleccionar
-            String respuesta = oraculo.invocar(promptSeleccion, "seleccion_tripulacion", 0.3);
+            // Use oracle to select
+            String respuesta = oraculo.invocar(promptSeleccion, "crew_selection", 0.3);
             
             if (respuesta == null || respuesta.trim().isEmpty()) {
                 return seleccionarPirataAleatorio(clases);
             }
             
-            // Extraer nombre de clase de la respuesta
+            // Extract class name from response
             String claseElegida = extraerNombreClaseDeRespuesta(respuesta, clases);
             
             if (claseElegida != null) {
-                bitacora.info("🎯 PIRATA SELECCIONADO: " + claseElegida);
+                bitacora.info("🎯 PIRATE SELECTED: " + claseElegida);
                 return claseElegida;
             }
             
-            // Fallback: selección aleatoria
+            // Fallback: random selection
             return seleccionarPirataAleatorio(clases);
             
         } catch (Exception e) {
-            bitacora.error("Error seleccionando pirata: " + e.getMessage());
+            bitacora.error("Error selecting pirate: " + e.getMessage());
             return seleccionarPirataAleatorio(clases);
         }
     }
     
     String simularRespuestaPirata(String pregunta, PirataInfo pirata) {
         try {
-            // ✅ OBTENER CONTEXTO COMPLETO
+            // ✅ GET COMPLETE CONTEXT
             String codigoFuente = obtenerCodigoFuente(pirata.getNombreClase());
             String contextoMemoria = obtenerContextoMemoriaPirata(pirata.getNombrePirata(), pregunta);
             
-            // ✅ CONSTRUIR PROMPT MEJORADO
+            // ✅ BUILD IMPROVED PROMPT
             String prompt = construirPromptCompleto(pregunta, pirata, codigoFuente, contextoMemoria);
             
-            return oraculo.invocar(prompt, "respuesta_pirata_mejorada", 0.7);
+            return oraculo.invocar(prompt, "improved_pirate_response", 0.7);
             
         } catch (Exception e) {
-            bitacora.error("Error en respuesta pirata: " + e.getMessage());
+            bitacora.error("Error in pirate response: " + e.getMessage());
             return generarRespuestaFallback(pirata, pregunta);
         }
     }
@@ -261,135 +261,135 @@ public class TripulacionManager {
     private String construirPromptCompleto(String pregunta, PirataInfo pirata, String codigoFuente, String contextoMemoria) {
         StringBuilder prompt = new StringBuilder();
         
-        // 🎯 SECCIÓN 1: IDENTIDAD PIRATA COMPLETA
-        prompt.append("🏴‍☠️ CONSULTA PIRATA - IDENTIDAD COMPLETA 🏴‍☠️\n\n");
-        prompt.append("👤 INFORMACIÓN DEL PIRATA:\n");
+        // 🎯 SECTION 1: COMPLETE PIRATE IDENTITY
+        prompt.append("🏴‍☠️ PIRATE CONSULTATION - COMPLETE IDENTITY 🏴‍☠️\n\n");
+        prompt.append("👤 PIRATE INFORMATION:\n");
         prompt.append("═══════════════════════════════════════════\n");
-        prompt.append("• Clase Java: ").append(pirata.getNombreClase()).append("\n");
-        prompt.append("• Rol en la tripulación: ").append(pirata.getRolPirata()).append("\n");
-        prompt.append("• Nombre Pirata: ").append(pirata.getNombrePirata()).append("\n");
-        prompt.append("• Especialidad: ").append(pirata.getDescripcionRol()).append("\n");
+        prompt.append("• Java Class: ").append(pirata.getNombreClase()).append("\n");
+        prompt.append("• Crew Role: ").append(pirata.getRolPirata()).append("\n");
+        prompt.append("• Pirate Name: ").append(pirata.getNombrePirata()).append("\n");
+        prompt.append("• Specialty: ").append(pirata.getDescripcionRol()).append("\n");
         prompt.append("═══════════════════════════════════════════\n\n");
         
-        // 🧠 SECCIÓN 2: MEMORIA Y CONTEXTO HISTÓRICO
-        prompt.append("🧠 MEMORIA Y EXPERIENCIAS DEL PIRATA:\n");
+        // 🧠 SECTION 2: MEMORY AND HISTORICAL CONTEXT
+        prompt.append("🧠 PIRATE MEMORY AND EXPERIENCES:\n");
         prompt.append("═══════════════════════════════════════════\n");
         if (contextoMemoria != null && !contextoMemoria.trim().isEmpty()) {
             prompt.append(contextoMemoria).append("\n");
         } else {
-            prompt.append("• Este pirata tiene un historial fresco y está listo para nuevas aventuras\n");
-            prompt.append("• Sin recuerdos específicos previos registrados\n");
-            prompt.append("• Potencial ilimitado para crear nuevas leyendas\n");
+            prompt.append("• This pirate has a fresh history and is ready for new adventures\n");
+            prompt.append("• No specific previous memories recorded\n");
+            prompt.append("• Unlimited potential to create new legends\n");
         }
         prompt.append("═══════════════════════════════════════════\n\n");
         
-        // 💾 SECCIÓN 3: CÓDIGO FUENTE COMPLETO
-        prompt.append("💾 CÓDIGO FUENTE COMPLETO - ARSENAL TÉCNICO:\n");
+        // 💾 SECTION 3: COMPLETE SOURCE CODE
+        prompt.append("💾 COMPLETE SOURCE CODE - TECHNICAL ARSENAL:\n");
         prompt.append("═══════════════════════════════════════════\n");
         prompt.append("```java\n");
         
         if (codigoFuente != null && !codigoFuente.trim().isEmpty()) {
             prompt.append(codigoFuente).append("\n");
         } else {
-            prompt.append("// ¡Por todos los océanos! El código fuente no está disponible temporalmente.\n");
-            prompt.append("// Pero el espíritu pirata y conocimiento técnico permanecen firmes.\n");
-            prompt.append("// El pirata ").append(pirata.getNombrePirata()).append(" está listo para la acción.\n");
+            prompt.append("// By all the oceans! The source code is temporarily unavailable.\n");
+            prompt.append("// But the pirate spirit and technical knowledge remain firm.\n");
+            prompt.append("// Pirate ").append(pirata.getNombrePirata()).append(" is ready for action.\n");
         }
         
         prompt.append("```\n");
         prompt.append("═══════════════════════════════════════════\n\n");
         
-        // ❓ SECCIÓN 4: PREGUNTA PRINCIPAL
-        prompt.append("🎯 PREGUNTA DEL CAPITÁN - MISIÓN ACTUAL:\n");
+        // ❓ SECTION 4: MAIN QUESTION
+        prompt.append("🎯 CAPTAIN'S QUESTION - CURRENT MISSION:\n");
         prompt.append("═══════════════════════════════════════════\n");
         prompt.append("« ").append(pregunta).append(" »\n");
         prompt.append("═══════════════════════════════════════════\n\n");
         
-        // 📜 SECCIÓN 5: INSTRUCCIONES DETALLADAS
+        // 📜 SECTION 5: DETAILED INSTRUCTIONS
         prompt.append("""
-            📜 INSTRUCCIONES DETALLADAS DE RESPUESTA:
+            📜 DETAILED RESPONSE INSTRUCTIONS:
             ═══════════════════════════════════════════
             
-            RESPUESTA COMO PIRATA TÉCNICO - FORMATO ESTRICTO:
+            RESPONSE AS TECHNICAL PIRATE - STRICT FORMAT:
             
-            🌊 PERSPECTIVA PIRATA (3-5 líneas)
-            • Responde manteniendo tu personalidad de pirata
-            • Usa metáforas náuticas y lenguaje épico
-            • Establece tu tono y carácter único
-            • Conecta tu rol pirata con la pregunta técnica
+            🌊 PIRATE PERSPECTIVE (3-5 lines)
+            • Respond maintaining your pirate personality
+            • Use nautical metaphors and epic language
+            • Establish your unique tone and character
+            • Connect your pirate role with the technical question
             
-            ⚙️ ANÁLISIS TÉCNICO DETALLADO (5-10 líneas)
-            • Examina tu código fuente completo línea por línea
-            • Identifica métodos, propiedades y funcionalidades relevantes
-            • Explica cómo tu implementación actual se relaciona con la pregunta
-            • Señala fortalezas y debilidades técnicas específicas
-            • Usa ejemplos concretos de tu código
+            ⚙️ DETAILED TECHNICAL ANALYSIS (5-10 lines)
+            • Examine your complete source code line by line
+            • Identify relevant methods, properties and functionalities
+            • Explain how your current implementation relates to the question
+            • Point out specific technical strengths and weaknesses
+            • Use concrete examples from your code
             
-            🚀 MEJORAS TÉCNICAS ESPECÍFICAS (5-8 líneas)
-            • Propone mejoras basadas en tu análisis del código
-            • Incluye ejemplos de código mejorado si es apropiado
-            • Sé técnicamente preciso y realista
-            • Considera patrones de diseño y mejores prácticas
+            🚀 SPECIFIC TECHNICAL IMPROVEMENTS (5-8 lines)
+            • Propose improvements based on your code analysis
+            • Include improved code examples if appropriate
+            • Be technically precise and realistic
+            • Consider design patterns and best practices
             
-            🔥 REFACTORS CON TEMÁTICA PIRATA (4-6 líneas)
-            • Sugiere refactorizaciones creativas
-            • Usa nombres piratas memorables para métodos/clases
-            • Ejemplos: navegarACodigoTurbo(), buscarTesoroDePatrones()
-            • Mantén la coherencia técnica mientras aplicas la temática
+            🔥 PIRATE-THEMED REFACTORS (4-6 lines)
+            • Suggest creative refactorings
+            • Use memorable pirate names for methods/classes
+            • Examples: navigateToTurboCode(), searchForPatternTreasure()
+            • Maintain technical coherence while applying the theme
             
-            🤝 COLABORACIONES ESTRATÉGICAS (3-5 líneas)
-            • Identifica otros piratas/clases que podrían ayudarte
-            • Basado en tu memoria y relaciones existentes
-            • Propone alianzas específicas y beneficios mutuos
-            • Explica cómo la colaboración resolvería el problema
+            🤝 STRATEGIC COLLABORATIONS (3-5 lines)
+            • Identify other pirates/classes that could help you
+            • Based on your memory and existing relationships
+            • Propose specific alliances and mutual benefits
+            • Explain how collaboration would solve the problem
             
-            💡 PLAN DE ACCIÓN INMEDIATO (4-6 líneas)
-            • Lista acciones concretas y realizables
-            • Prioriza por impacto y facilidad de implementación
-            • Sé específico, medible y con plazos implícitos
-            • Incluye métricas de éxito si es posible
+            💡 IMMEDIATE ACTION PLAN (4-6 lines)
+            • List concrete and actionable steps
+            • Prioritize by impact and ease of implementation
+            • Be specific, measurable and with implicit deadlines
+            • Include success metrics if possible
             
-            CRITERIOS DE EVALUACIÓN:
-            ✓ Coherencia entre personalidad pirata y análisis técnico
-            ✓ Profundidad del análisis del código fuente
-            ✓ Calidad y realismo de las mejoras propuestas
-            ✓ Creatividad en los nombres y metáforas piratas
-            ✓ Utilidad práctica de las recomendaciones
-            ✓ Claridad y estructura de la respuesta
+            EVALUATION CRITERIA:
+            ✓ Coherence between pirate personality and technical analysis
+            ✓ Depth of source code analysis
+            ✓ Quality and realism of proposed improvements
+            ✓ Creativity in pirate names and metaphors
+            ✓ Practical utility of recommendations
+            ✓ Clarity and structure of response
             
-            ¡Tu código fuente completo está disponible arriba - úsalo exhaustivamente!
+            Your complete source code is available above - use it exhaustively!
             """);
         
-        // 🏆 SECCIÓN 6: CIERRE ÉPICO
-        prompt.append("\n\n🏴‍☠️ CIERRE ÉPICO - LLAMADO A LA ACCIÓN:\n");
+        // 🏆 SECTION 6: EPIC CLOSURE
+        prompt.append("\n\n🏴‍☠️ EPIC CLOSURE - CALL TO ACTION:\n");
         prompt.append("═══════════════════════════════════════════\n");
-        prompt.append("¡QUE LOS MARES DEL CÓDIGO TE OBEDEZCAN, VALIENTE ").append(pirata.getNombrePirata()).append("!\n");
-        prompt.append("EL DESTINO TÉCNICO DEL BARCO ESTÁ EN TUS MANOS.\n");
-        prompt.append("RESPONDE CON LA SABIDURÍA DE TUS EXPERIENCIAS \n");
-        prompt.append("Y EL CORAJE DE TU ESPÍRITU PIRATA. ¡ARRR! 🏴‍☠️\n");
+        prompt.append("MAY THE CODE SEAS OBEY YOU, BRAVE ").append(pirata.getNombrePirata()).append("!\n");
+        prompt.append("THE TECHNICAL DESTINY OF THE SHIP IS IN YOUR HANDS.\n");
+        prompt.append("RESPOND WITH THE WISDOM OF YOUR EXPERIENCES \n");
+        prompt.append("AND THE COURAGE OF YOUR PIRATE SPIRIT. ARRR! 🏴‍☠️\n");
         prompt.append("═══════════════════════════════════════════\n");
         
         return prompt.toString();
     }
 
-	private String obtenerContextoMemoriaPirata(String nombrePirata, String pregunta) {
+    private String obtenerContextoMemoriaPirata(String nombrePirata, String pregunta) {
         try {
             Optional<MemoriaPirata> memoriaOpt = memoria.obtenerMemoriaPirata(nombrePirata);
             if (memoriaOpt.isPresent()) {
                 return memoriaOpt.get().obtenerContextoPersonalizado(pregunta);
             }
             
-            // ✅ CREAR MEMORIA SI NO EXISTE
+            // ✅ CREATE MEMORY IF IT DOESN'T EXIST
             String nombreClase = encontrarClasePorPirata(nombrePirata);
             if (nombreClase != null) {
                 memoria.registrarNuevoPirata(nombrePirata, nombreClase);
-                return "🧠 Nueva memoria creada para " + nombrePirata;
+                return "🧠 New memory created for " + nombrePirata;
             }
             
-            return "🧠 Sin historial previo disponible";
+            return "🧠 No previous history available";
             
         } catch (Exception e) {
-            return "🧠 Memoria temporalmente no disponible";
+            return "🧠 Memory temporarily unavailable";
         }
     }
 
@@ -404,7 +404,7 @@ public class TripulacionManager {
     
     private String obtenerCodigoFuente(String nombreClase) {
         try {
-            // ✅ BÚSQUEDA ROBUSTA EN MÚLTIPLES UBICACIONES
+            // ✅ ROBUST SEARCH IN MULTIPLE LOCATIONS
             String[] posiblesPaths = {
                 "src/main/java/" + nombreClase.replace('.', '/') + ".java",
                 "src/test/java/" + nombreClase.replace('.', '/') + ".java", 
@@ -417,39 +417,39 @@ public class TripulacionManager {
                 if (FileUtils.verificarArchivo(path)) {
                     String codigo = FileUtils.readFile(path);
                     if (codigo != null && !codigo.trim().isEmpty()) {
-                        bitacora.info("✅ Código encontrado en: " + path);
+                        bitacora.info("✅ Code found at: " + path);
                         return codigo;
                     }
                 }
             }
             
-            // ✅ FALLBACK: CÓDIGO DE EJEMPLO BASADO EN EL ROL
+            // ✅ FALLBACK: EXAMPLE CODE BASED ON ROLE
             return generarCodigoEjemplo(nombreClase);
             
         } catch (Exception e) {
-            bitacora.error("Error obteniendo código fuente: " + e.getMessage());
+            bitacora.error("Error getting source code: " + e.getMessage());
             return generarCodigoEjemplo(nombreClase);
         }
     }
 
     private String generarCodigoEjemplo(String nombreClase) {
-        // ✅ GENERAR CÓDIGO DE EJEMPLO RELEVANTE
+        // ✅ GENERATE RELEVANT EXAMPLE CODE
         String[] datosPirata = ROLES_PIRATAS.get(nombreClase);
         if (datosPirata != null) {
             return """
-                // 🏴‍☠️ CÓDIGO DE %s - %s
+                // 🏴‍☠️ CODE OF %s - %s
                 // %s
                 
                 public class %s {
-                    // Este pirata se especializa en %s
-                    // Sus responsabilidades incluyen funcionalidades específicas del sistema
+                    // This pirate specializes in %s
+                    // Their responsibilities include specific system functionalities
                     
                     public void ejecutarTareaPrincipal() {
-                        // Implementación específica del rol pirata
-                        System.out.println("¡%s en acción!");
+                        // Specific implementation of pirate role
+                        System.out.println("%s in action!");
                     }
                     
-                    // Métodos adicionales según el rol...
+                    // Additional methods according to role...
                 }
                 """.formatted(
                     datosPirata[1], datosPirata[0], datosPirata[2],
@@ -457,47 +457,47 @@ public class TripulacionManager {
                 );
         }
         
-        // ✅ FALLBACK GENÉRICO
+        // ✅ GENERIC FALLBACK
         return """
-            // 🏴‍☠️ CÓDIGO DE %s
-            // Información detallada no disponible temporalmente
+            // 🏴‍☠️ CODE OF %s
+            // Detailed information temporarily unavailable
             
             public class %s {
-                // Clase responsable de funcionalidades específicas del sistema
-                // El pirata asociado tiene conocimientos especializados
+                // Class responsible for specific system functionalities
+                // The associated pirate has specialized knowledge
                 
                 public void demostrarHabilidades() {
-                    System.out.println("¡%s listo para la acción!");
+                    System.out.println("%s ready for action!");
                 }
             }
             """.formatted(nombreClase, nombreClase, nombreClase);
     }
     
     /**
-     * 🎯 BUSCAR ARCHIVO RECURSIVAMENTE EN TODAS LAS CARPETAS
+     * 🎯 RECURSIVELY SEARCH FILE IN ALL FOLDERS
      */
     private String buscarArchivoJava(String nombreArchivo) {
         try {
             Path directorioActual = Paths.get(".").toAbsolutePath().normalize();
-            bitacora.debug("🔍 Buscando recursivamente desde: " + directorioActual);
+            bitacora.debug("🔍 Recursively searching from: " + directorioActual);
             
-            // 🎯 CONFIGURAR EXCLUSIONES PARA EVITAR BUCLE INFINITO
+            // 🎯 CONFIGURE EXCLUSIONS TO AVOID INFINITE LOOP
             Set<String> excludedDirs = Set.of(
                 "target", "build", ".git", "node_modules", 
                 "bin", "out", "dist", ".idea", ".vscode",
-                "autogen-output" // Excluir nuestra propia salida
+                "autogen-output" // Exclude our own output
             );
             
             Optional<Path> archivoEncontrado = Files.walk(directorioActual, Integer.MAX_VALUE)
                     .filter(path -> {
-                        // 🎯 EXCLUIR DIRECTORIOS NO DESEADOS
+                        // 🎯 EXCLUDE UNWANTED DIRECTORIES
                         String nombreDir = path.getFileName() != null ? 
                             path.getFileName().toString() : "";
                         if (excludedDirs.contains(nombreDir)) {
                             return false;
                         }
                         
-                        // 🎯 VERIFICAR SI ES EL ARCHIVO QUE BUSCAMOS
+                        // 🎯 VERIFY IF IT'S THE FILE WE'RE LOOKING FOR
                         return path.toString().endsWith(nombreArchivo) && 
                                Files.isRegularFile(path);
                     })
@@ -505,31 +505,31 @@ public class TripulacionManager {
             
             if (archivoEncontrado.isPresent()) {
                 String ruta = archivoEncontrado.get().toString();
-                bitacora.debug("✅ Archivo encontrado recursivamente: " + ruta);
-                this.rutaArchivo = ruta; // 🎯 ACTUALIZAR PARA FUTURAS CONSULTAS
+                bitacora.debug("✅ File found recursively: " + ruta);
+                this.rutaArchivo = ruta; // 🎯 UPDATE FOR FUTURE QUERIES
                 return ruta;
             } else {
-                bitacora.debug("❌ Archivo no encontrado recursivamente: " + nombreArchivo);
+                bitacora.debug("❌ File not found recursively: " + nombreArchivo);
             }
             
         } catch (IOException e) {
-            bitacora.error("💥 Error en búsqueda recursiva: " + e.getMessage());
+            bitacora.error("💥 Error in recursive search: " + e.getMessage());
         }
         
         return "";
     }
 
     /**
-     * 🎯 BUSCAR ARCHIVO EN ESTRUCTURAS DE PROYECTO COMUNES - MEJORADO
+     * 🎯 SEARCH FILE IN COMMON PROJECT STRUCTURES - IMPROVED
      */
     private String buscarArchivoEnEstructuras(String nombrePirata) {
         try {
-            bitacora.debug("🔍 Búsqueda en estructuras para: " + nombrePirata);
+            bitacora.debug("🔍 Structure search for: " + nombrePirata);
             
-            // 🎯 CONVERTIR NOMBRE PIRATA A POSIBLE NOMBRE DE ARCHIVO
+            // 🎯 CONVERT PIRATE NAME TO POSSIBLE FILE NAME
             String nombreArchivo = convertirNombrePirataAArchivo(nombrePirata);
             
-            // 🎯 ESTRUCTURAS DE PROYECTO MÁS COMPLETAS
+            // 🎯 MORE COMPLETE PROJECT STRUCTURES
             String[] estructuras = {
                 "src/main/java/",
                 "src/test/java/", 
@@ -541,27 +541,27 @@ public class TripulacionManager {
                 "source/",
                 "sources/",
                 "java/",
-                "" // 🎯 BUSCAR DESDE LA RAIZ TAMBIÉN
+                "" // 🎯 SEARCH FROM ROOT TOO
             };
             
-            // 🎯 BUSCAR EN CADA ESTRUCTURA
+            // 🎯 SEARCH IN EACH STRUCTURE
             for (String estructura : estructuras) {
                 String rutaCompleta = estructura + nombreArchivo;
                 File archivo = new File(rutaCompleta);
                 
                 if (archivo.exists() && archivo.isFile()) {
-                    bitacora.debug("✅ Encontrado en estructura: " + rutaCompleta);
+                    bitacora.debug("✅ Found in structure: " + rutaCompleta);
                     this.rutaArchivo = rutaCompleta;
                     return rutaCompleta;
                 }
                 
-                // 🎯 BUSCAR RECURSIVAMENTE EN CADA ESTRUCTURA
+                // 🎯 SEARCH RECURSIVELY IN EACH STRUCTURE
                 if (!estructura.isEmpty()) {
                     File directorioEstructura = new File(estructura);
                     if (directorioEstructura.exists() && directorioEstructura.isDirectory()) {
                         String rutaRecursiva = buscarEnDirectorioRecursivo(directorioEstructura, nombreArchivo);
                         if (!rutaRecursiva.isEmpty()) {
-                            bitacora.debug("✅ Encontrado recursivamente en estructura: " + rutaRecursiva);
+                            bitacora.debug("✅ Found recursively in structure: " + rutaRecursiva);
                             this.rutaArchivo = rutaRecursiva;
                             return rutaRecursiva;
                         }
@@ -569,23 +569,23 @@ public class TripulacionManager {
                 }
             }
             
-            // 🎯 BUSCAR RECURSIVAMENTE DESDE EL DIRECTORIO ACTUAL
+            // 🎯 RECURSIVE SEARCH FROM CURRENT DIRECTORY
             String rutaRecursiva = buscarArchivoJava(nombreArchivo);
             if (!rutaRecursiva.isEmpty()) {
                 return rutaRecursiva;
             }
             
-            bitacora.debug("❌ No encontrado en estructuras: " + nombreArchivo);
+            bitacora.debug("❌ Not found in structures: " + nombreArchivo);
             
         } catch (Exception e) {
-            bitacora.error("💥 Error en búsqueda de estructuras: " + e.getMessage());
+            bitacora.error("💥 Error in structure search: " + e.getMessage());
         }
         
         return "";
     }
 
     /**
-     * 🎯 BUSCAR EN DIRECTORIO ESPECÍFICO DE FORMA RECURSIVA
+     * 🎯 SEARCH IN SPECIFIC DIRECTORY RECURSIVELY
      */
     private String buscarEnDirectorioRecursivo(File directorio, String nombreArchivo) {
         try {
@@ -593,25 +593,25 @@ public class TripulacionManager {
                 return "";
             }
             
-            // 🎯 EXCLUSIONES PARA EVITAR BUCLE INFINITO
+            // 🎯 EXCLUSIONS TO AVOID INFINITE LOOP
             Set<String> excludedDirs = Set.of(
                 "target", "build", ".git", "node_modules", 
                 "bin", "out", "dist", ".idea", ".vscode",
                 "autogen-output"
             );
             
-            // 🎯 BUSCAR RECURSIVAMENTE
+            // 🎯 SEARCH RECURSIVELY
             return Files.walk(directorio.toPath(), Integer.MAX_VALUE)
                     .filter(path -> {
                         String nombreDir = path.getFileName() != null ? 
                             path.getFileName().toString() : "";
                         
-                        // 🎯 EXCLUIR DIRECTORIOS NO DESEADOS
+                        // 🎯 EXCLUDE UNWANTED DIRECTORIES
                         if (excludedDirs.contains(nombreDir)) {
                             return false;
                         }
                         
-                        // 🎯 VERIFICAR SI ES EL ARCHIVO QUE BUSCAMOS
+                        // 🎯 VERIFY IF IT'S THE FILE WE'RE LOOKING FOR
                         return path.toString().endsWith(nombreArchivo) && 
                                Files.isRegularFile(path);
                     })
@@ -620,65 +620,65 @@ public class TripulacionManager {
                     .orElse("");
             
         } catch (IOException e) {
-            bitacora.debug("⚠️ Error buscando en directorio " + directorio + ": " + e.getMessage());
+            bitacora.debug("⚠️ Error searching in directory " + directorio + ": " + e.getMessage());
             return "";
         }
     }
 
     /**
-     * 🎯 CONVERTIR NOMBRE PIRATA A NOMBRE DE ARCHIVO - MEJORADO
+     * 🎯 CONVERT PIRATE NAME TO FILE NAME - IMPROVED
      */
     private String convertirNombrePirataAArchivo(String nombrePirata) {
         if (nombrePirata == null || nombrePirata.trim().isEmpty()) {
-            return "PirataDesconocido.java";
+            return "UnknownPirate.java";
         }
         
-        // 🎯 LIMPIAR Y FORMATEAR EL NOMBRE
+        // 🎯 CLEAN AND FORMAT NAME
         String nombreLimpio = nombrePirata
-            .replaceAll("[^a-zA-Z0-9\\s]", "") // Mantener solo letras, números y espacios
-            .replaceAll("\\s+", " ") // Unificar espacios múltiples
+            .replaceAll("[^a-zA-Z0-9\\s]", "") // Keep only letters, numbers and spaces
+            .replaceAll("\\s+", " ") // Unify multiple spaces
             .trim();
         
         if (nombreLimpio.isEmpty()) {
-            return "PirataDesconocido.java";
+            return "UnknownPirate.java";
         }
         
-        // 🎯 SEPARAR POR ESPACIOS Y CAPITALIZAR
+        // 🎯 SPLIT BY SPACES AND CAPITALIZE
         String[] palabras = nombreLimpio.split("\\s+");
         StringBuilder nombreArchivo = new StringBuilder();
         
         for (String palabra : palabras) {
             if (!palabra.isEmpty()) {
-                // 🎯 CAPITALIZAR PRIMERA LETRA, MINÚSCULAS EL RESTO
+                // 🎯 CAPITALIZE FIRST LETTER, LOWERCASE THE REST
                 String palabraFormateada = palabra.substring(0, 1).toUpperCase() + 
                                          palabra.substring(1).toLowerCase();
                 nombreArchivo.append(palabraFormateada);
             }
         }
         
-        // 🎯 VARIACIONES POSIBLES
+        // 🎯 POSSIBLE VARIATIONS
         String[] variaciones = {
             nombreArchivo.toString() + ".java",
-            nombreArchivo.toString() + "Pirata.java",
+            nombreArchivo.toString() + "Pirate.java",
             nombreArchivo.toString() + "Class.java",
-            // 🎯 PARA NOMBRES CON ROLES COMO "Rumbo Certero (Timonel)"
+            // 🎯 FOR NAMES WITH ROLES LIKE "True Course (Helmsman)"
             nombreLimpio.replaceAll("[^a-zA-Z0-9]", "").replaceAll("\\s+", "") + ".java"
         };
         
-        // 🎯 VERIFICAR SI ALGUNA VARIACIÓN EXISTE
+        // 🎯 VERIFY IF ANY VARIATION EXISTS
         for (String variacion : variaciones) {
-            // Verificar si existe en alguna estructura común
+            // Check if it exists in some common structure
             if (existeArchivoEnAlgunaEstructura(variacion)) {
                 return variacion;
             }
         }
         
-        // 🎯 FALLBACK: USAR LA PRIMERA VARIACIÓN
+        // 🎯 FALLBACK: USE FIRST VARIATION
         return variaciones[0];
     }
 
     /**
-     * 🎯 VERIFICAR SI UN ARCHIVO EXISTE EN ALGUNA ESTRUCTURA COMÚN
+     * 🎯 VERIFY IF A FILE EXISTS IN ANY COMMON STRUCTURE
      */
     private boolean existeArchivoEnAlgunaEstructura(String nombreArchivo) {
         String[] estructuras = {
@@ -704,52 +704,52 @@ public class TripulacionManager {
     }
 
     /**
-     * 🎯 MÉTODO PRINCIPAL MEJORADO DE BÚSQUEDA DIRECTA
+     * 🎯 IMPROVED MAIN DIRECT SEARCH METHOD
      */
     private String buscarCodigoFuenteDirecto(String nombrePirata) {
         try {
-            bitacora.info("🔍 Búsqueda directa turbo para: " + nombrePirata);
+            bitacora.info("🔍 Direct turbo search for: " + nombrePirata);
             
-            // 🎯 BUSCAR EN MEMORIA PRIMERO
+            // 🎯 SEARCH IN MEMORY FIRST
             Optional<SistemaMemoriaPirata.MemoriaPirata> memoriaPirata = memoria.obtenerMemoriaPirata(nombrePirata);
             if (memoriaPirata.isPresent()) {
                 String rutaArchivo = memoriaPirata.get().getRutaArchivo();
                 if (rutaArchivo != null && !rutaArchivo.isEmpty() && FileUtils.verificarArchivo(rutaArchivo)) {
-                    bitacora.info("✅ Encontrado en ruta de memoria: " + rutaArchivo);
+                    bitacora.info("✅ Found in memory path: " + rutaArchivo);
                     return FileUtils.readFile(rutaArchivo);
                 }
             }
             
-            // 🎯 BUSQUEDA EN ESTRUCTURAS COMUNES MEJORADA
+            // 🎯 IMPROVED SEARCH IN COMMON STRUCTURES
             String rutaEncontrada = buscarArchivoEnEstructuras(nombrePirata);
             if (!rutaEncontrada.isEmpty()) {
-                bitacora.info("✅ Encontrado en búsqueda estructurada: " + rutaEncontrada);
+                bitacora.info("✅ Found in structured search: " + rutaEncontrada);
                 return FileUtils.readFile(rutaEncontrada);
             }
             
-            // 🎯 BUSQUEDA POR NOMBRE DE CLASE (si está disponible)
+            // 🎯 SEARCH BY CLASS NAME (if available)
             if (memoriaPirata.isPresent()) {
                 String nombreClase = memoriaPirata.get().getNombreClase();
                 if (nombreClase != null && !nombreClase.isEmpty()) {
                     String rutaPorClase = buscarPorNombreClase(nombreClase);
                     if (!rutaPorClase.isEmpty()) {
-                        bitacora.info("✅ Encontrado por nombre de clase: " + rutaPorClase);
+                        bitacora.info("✅ Found by class name: " + rutaPorClase);
                         return FileUtils.readFile(rutaPorClase);
                     }
                 }
             }
             
-            bitacora.warn("❌ No se encontró código fuente para: " + nombrePirata);
+            bitacora.warn("❌ No source code found for: " + nombrePirata);
             return null;
             
         } catch (Exception e) {
-            bitacora.error("💥 Error en búsqueda directa turbo: " + e.getMessage());
+            bitacora.error("💥 Error in direct turbo search: " + e.getMessage());
             return null;
         }
     }
 
     /**
-     * 🎯 BUSCAR POR NOMBRE DE CLASE COMPLETO
+     * 🎯 SEARCH BY FULL CLASS NAME
      */
     private String buscarPorNombreClase(String nombreClase) {
         try {
@@ -757,10 +757,10 @@ public class TripulacionManager {
                 return "";
             }
             
-            // 🎯 CONVERTIR NOMBRE DE CLASE A RUTA DE ARCHIVO
+            // 🎯 CONVERT CLASS NAME TO FILE PATH
             String rutaClase = nombreClase.replace('.', '/') + ".java";
             
-            // 🎯 BUSCAR EN ESTRUCTURAS COMUNES
+            // 🎯 SEARCH IN COMMON STRUCTURES
             String[] estructuras = {
                 "src/main/java/",
                 "src/test/java/", 
@@ -780,39 +780,39 @@ public class TripulacionManager {
                 }
             }
             
-            // 🎯 BUSCAR RECURSIVAMENTE
+            // 🎯 SEARCH RECURSIVELY
             return buscarArchivoJava(rutaClase);
             
         } catch (Exception e) {
-            bitacora.debug("⚠️ Error buscando por clase " + nombreClase + ": " + e.getMessage());
+            bitacora.debug("⚠️ Error searching by class " + nombreClase + ": " + e.getMessage());
             return "";
         }
     }
     
     /**
-     * 🎭 MOSTRAR RESPUESTA DEL PIRATA
+     * 🎭 SHOW PIRATE RESPONSE
      */
     private void mostrarRespuestaPirata(PirataInfo pirata, String respuesta) {
         System.out.println("\n" + "🌊".repeat(80));
-        System.out.println("🏴‍☠️  RESPUESTA DE " + pirata.getNombrePirata().toUpperCase());
-        System.out.println("📜 Rol: " + pirata.getRolPirata() + " | Clase: " + pirata.getNombreClase());
+        System.out.println("🏴‍☠️  RESPONSE FROM " + pirata.getNombrePirata().toUpperCase());
+        System.out.println("📜 Role: " + pirata.getRolPirata() + " | Class: " + pirata.getNombreClase());
         System.out.println("🌊".repeat(80));
         
         if (respuesta != null) {
             System.out.println(respuesta);
         } else {
-            System.out.println("❌ El pirata no pudo responder en este momento.");
+            System.out.println("❌ The pirate couldn't respond at this time.");
         }
         
         System.out.println("\n" + "⚓".repeat(80));
     }
     
     // =========================================================================
-    // 🛠️ MÉTODOS AUXILIARES
+    // 🛠️ AUXILIARY METHODS
     // =========================================================================
     
     /**
-     * 🎪 INICIALIZAR TRIPULACIÓN
+     * 🎪 INITIALIZE CREW
      */
     private void inicializarTripulacion() {
         for (Map.Entry<String, String[]> entry : ROLES_PIRATAS.entrySet()) {
@@ -820,11 +820,11 @@ public class TripulacionManager {
             mapaTripulacion.put(entry.getKey(), 
                 new PirataInfo(entry.getKey(), datosPirata[0], datosPirata[1], datosPirata[2]));
         }
-        bitacora.info("🏴‍☠️ Tripulación inicializada con " + mapaTripulacion.size() + " piratas");
+        bitacora.info("🏴‍☠️ Crew initialized with " + mapaTripulacion.size() + " pirates");
     }
     
     /**
-     * 🎲 SELECCIONAR PIRATA ALEATORIO
+     * 🎲 SELECT RANDOM PIRATE
      */
     private String seleccionarPirataAleatorio(List<ClassInfo> clases) {
         if (clases.isEmpty()) return null;
@@ -834,19 +834,19 @@ public class TripulacionManager {
     }
     
     /**
-     * 🔍 EXTRAER NOMBRE DE CLASE DE RESPUESTA
+     * 🔍 EXTRACT CLASS NAME FROM RESPONSE
      */
     private String extraerNombreClaseDeRespuesta(String respuesta, List<ClassInfo> clases) {
         String respuestaLimpia = respuesta.trim();
         
-        // Buscar coincidencia exacta
+        // Look for exact match
         for (ClassInfo clase : clases) {
             if (respuestaLimpia.contains(clase.getFullName())) {
                 return clase.getFullName();
             }
         }
         
-        // Buscar por nombre simple
+        // Look by simple name
         for (ClassInfo clase : clases) {
             if (respuestaLimpia.contains(clase.getName())) {
                 return clase.getFullName();
@@ -857,18 +857,18 @@ public class TripulacionManager {
     }
     
     /**
-     * 🆘 GENERAR RESPUESTA FALLBACK
+     * 🆘 GENERATE FALLBACK RESPONSE
      */
     private String generarRespuestaFallback(PirataInfo pirata, String pregunta) {
-        return "🎯 ¡Arrr, " + pirata.getNombrePirata() + " al habla! \n" +
-               "Como " + pirata.getRolPirata().toLowerCase() + " de este barco, escucho tu pregunta: '" + pregunta + "'\n\n" +
-               "🔧 Mi análisis técnico está temporalmente nublado...\n\n" +
-               "⚡ Sugiero revisar mis cañones (métodos) y velas (propiedades)\n\n" +
-               "🏴‍☠️ ¡Necesito un buen viento (conexión API) para darte mejores respuestas!";
+        return "🎯 Arrr, " + pirata.getNombrePirata() + " speaking! \n" +
+               "As " + pirata.getRolPirata().toLowerCase() + " of this ship, I hear your question: '" + pregunta + "'\n\n" +
+               "🔧 My technical analysis is temporarily cloudy...\n\n" +
+               "⚡ I suggest checking my cannons (methods) and sails (properties)\n\n" +
+               "🏴‍☠️ I need a good wind (API connection) to give you better answers!";
     }
     
     /**
-     * 📝 REGISTRAR INTERCAMBIO EN BITÁCORA
+     * 📝 REGISTER EXCHANGE IN LOG
      */
     private void registrarIntercambioBitacora(String pregunta, PirataInfo pirata, String respuesta) {
         try {
@@ -878,53 +878,53 @@ public class TripulacionManager {
             String md = """
 
                 ---
-                ## 🏴‍☠️ Consulta a la Tripulación (%s)
+                ## 🏴‍☠️ Crew Consultation (%s)
                 **ID**: `%s`  
-                **Fecha**: %s  
-                **Pirata**: %s (%s)
-                **Clase**: %s
+                **Date**: %s  
+                **Pirate**: %s (%s)
+                **Class**: %s
                 ---
 
-                ### ❓ Pregunta:
+                ### ❓ Question:
                 ```
                 %s
                 ```
 
-                ### 🎯 Respuesta:
+                ### 🎯 Response:
                 ```
                 %s
                 ```
 
                 ---
-                *Fin del intercambio*
+                *End of exchange*
                 
                 """.formatted(pirata.getRolPirata(), id, timestamp, 
                     pirata.getNombrePirata(), pirata.getRolPirata(),
                     pirata.getNombreClase());
 
-            FileUtils.crearArchivoSiNoExiste("autogen-output/bitacora-tripulacion.md", 
-                "# 🏴‍☠️ Bitácora de la Tripulación\n\n*Registro de todas las consultas a la tripulación*\n\n");
+            FileUtils.crearArchivoSiNoExiste("autogen-output/crew-log.md", 
+                "# 🏴‍☠️ Crew Log\n\n*Record of all crew consultations*\n\n");
             
-            FileUtils.appendToFile("autogen-output/bitacora-tripulacion.md", md);
+            FileUtils.appendToFile("autogen-output/crew-log.md", md);
             
         } catch (Exception e) {
-            System.err.println("💥 Error registrando en bitácora: " + e.getMessage());
+            System.err.println("💥 Error registering in log: " + e.getMessage());
         }
     }
     
     /**
-     * 🚪 VERIFICAR COMANDO DE SALIDA
+     * 🚪 VERIFY EXIT COMMAND
      */
     private boolean esComandoSalir(String input) {
-        return input.equalsIgnoreCase("salir") || 
-               input.equalsIgnoreCase("exit") || 
-               input.equalsIgnoreCase("quit") ||
-               input.equalsIgnoreCase("adios");
+        return input.equalsIgnoreCase("exit") || 
+               input.equalsIgnoreCase("quit") || 
+               input.equalsIgnoreCase("bye") ||
+               input.equalsIgnoreCase("goodbye");
     }
    
     
     /**
-     * 📦 EXTRAER PACKAGE DEL NOMBRE COMPLETO
+     * 📦 EXTRACT PACKAGE FROM FULL NAME
      */
     private String extraerPackage(String fullClassName) {
         if (fullClassName == null) return "";
@@ -933,20 +933,20 @@ public class TripulacionManager {
     }
     
     /**
-     * 🏴‍☠️ CREAR PIRATA GENÉRICO PARA CLASES NO MAPEADAS
+     * 🏴‍☠️ CREATE GENERIC PIRATE FOR UNMAPPED CLASSES
      */
     private PirataInfo crearPirataGenerico(String nombreClase) {
         String[] rolesGenericos = {
-            "Grumete", "Marinero", "Artillero", "Cocinero", "Tesorero"
+            "Cabin Boy", "Sailor", "Gunner", "Cook", "Treasurer"
         };
         String[] nombresGenericos = {
-            "Rayo Veloz", "Diente de Sable", "Ciclón", "Marea Brava", "Vendaval"
+            "Swift Lightning", "Saber Tooth", "Cyclone", "Wild Tide", "Gale"
         };
         
         Random random = new Random();
         String rol = rolesGenericos[random.nextInt(rolesGenericos.length)];
         String nombre = nombresGenericos[random.nextInt(nombresGenericos.length)];
-        String descripcion = "Valiente miembro de la tripulación especializado en " + nombreClase;
+        String descripcion = "Brave crew member specialized in " + nombreClase;
         
         PirataInfo pirata = new PirataInfo(nombreClase, rol, nombre, descripcion);
         mapaTripulacion.put(nombreClase, pirata);
@@ -955,15 +955,15 @@ public class TripulacionManager {
     }
     
     /**
-     * 🎪 MOSTRAR BANNER DE INICIO
+     * 🎪 SHOW START BANNER
      */
     private void mostrarBannerInicio() {
         System.out.println("\n" + "🏴‍☠️".repeat(80));
-        System.out.println("                  ¡TRIPULACIÓN PIRATA ACTIVADA!");
-        System.out.println("🌊 Cada clase de tu proyecto es un pirata con habilidades únicas");
-        System.out.println("🎯 Haz preguntas y deja que la tripulación te guíe");
+        System.out.println("                  PIRATE CREW ACTIVATED!");
+        System.out.println("🌊 Each class in your project is a pirate with unique abilities");
+        System.out.println("🎯 Ask questions and let the crew guide you");
         System.out.println("🏴‍☠️".repeat(80));
-        System.out.println("\nMiembros de la tripulación disponibles:");
+        System.out.println("\nAvailable crew members:");
         
         mapaTripulacion.values().forEach(pirata -> {
             System.out.printf("  • %s (%s) - %s%n", 
@@ -974,25 +974,25 @@ public class TripulacionManager {
     }
     
     /**
-     * 📋 FINALIZAR SESIÓN
+     * 📋 END SESSION
      */
     private void finalizarSesion() {
         System.out.println("\n" + "🌅".repeat(80));
-        System.out.println("                  SESIÓN DE TRIPULACIÓN FINALIZADA");
-        System.out.println("🏴‍☠️ La tripulación descansa... hasta la próxima aventura!");
-        System.out.println("📜 Bitácora guardada en: autogen-output/bitacora-tripulacion.md");
+        System.out.println("                  CREW SESSION ENDED");
+        System.out.println("🏴‍☠️ The crew rests... until the next adventure!");
+        System.out.println("📜 Log saved at: autogen-output/crew-log.md");
         System.out.println("🌅".repeat(80));
         
-        bitacora.exito("🏴‍☠️ SESIÓN DE TRIPULACIÓN FINALIZADA");
+        bitacora.exito("🏴‍☠️ CREW SESSION ENDED");
         inputScanner.close();
     }
     
     // =========================================================================
-    // 🎪 CLASE INTERNA PIRATA INFO
+    // 🎪 INTERNAL PIRATE INFO CLASS
     // =========================================================================
     
     /**
-     * 🏴‍☠️ INFORMACIÓN DE UN PIRATA/CLASE
+     * 🏴‍☠️ PIRATE/CLASS INFORMATION
      */
     public static class PirataInfo {
         private final String nombreClase;
@@ -1020,16 +1020,16 @@ public class TripulacionManager {
     }
     
     // =========================================================================
-    // 🔧 MÉTODOS PÚBLICOS ADICIONALES
+    // 🔧 ADDITIONAL PUBLIC METHODS
     // =========================================================================
     
     /**
-     * 📊 MOSTRAR ESTADO DE LA TRIPULACIÓN
+     * 📊 SHOW CREW STATUS
      */
     public void mostrarEstadoTripulacion() {
-        System.out.println("\n🏴‍☠️ ESTADO DE LA TRIPULACIÓN:");
-        System.out.println("Sesión activa: " + (sesionActiva ? "✅" : "❌"));
-        System.out.println("Piratas registrados: " + mapaTripulacion.size());
+        System.out.println("\n🏴‍☠️ CREW STATUS:");
+        System.out.println("Active session: " + (sesionActiva ? "✅" : "❌"));
+        System.out.println("Registered pirates: " + mapaTripulacion.size());
         
         mapaTripulacion.values().forEach(pirata -> {
             System.out.printf("  🏴‍☠️ %-15s → %-12s (%s)%n",
@@ -1038,45 +1038,45 @@ public class TripulacionManager {
     }
     
     /**
-     * 🔄 AGREGAR PIRATA PERSONALIZADO
+     * 🔄 ADD CUSTOM PIRATE
      */
     public void agregarPirata(String nombreClase, String rol, String nombrePirata, String descripcion) {
         PirataInfo nuevoPirata = new PirataInfo(nombreClase, rol, nombrePirata, descripcion);
         mapaTripulacion.put(nombreClase, nuevoPirata);
-        bitacora.info("🏴‍☠️ Nuevo pirata agregado: " + nuevoPirata);
+        bitacora.info("🏴‍☠️ New pirate added: " + nuevoPirata);
     }
     
     /**
-     * 🚪 FINALIZAR SESIÓN MANUALMENTE
+     * 🚪 MANUALLY END SESSION
      */
     public void finalizarSesionManualmente() {
         this.sesionActiva = false;
         finalizarSesion();
     }
 
- // 🔧 CORREGIR EL MÉTODO EN TRIPULACIONMANAGER
+    // 🔧 FIX THE METHOD IN TRIPULACIONMANAGER
     public Map<String, PirataInfo> getMapaTripulacion() {
         return this.mapaTripulacion;
     }
     
     /**
-     * 🔄 MÉTODOS DE INTEGRACIÓN PARA TRIPULACIONMANAGER
+     * 🔄 INTEGRATION METHODS FOR TRIPULACIONMANAGER
      */
     public class IntegracionMemoriaTripulacion {
         
         /**
-         * 🧠 ACTUALIZAR TRIPULACIONMANAGER CON MEMORIA
+         * 🧠 UPDATE TRIPULACIONMANAGER WITH MEMORY
          */
         public static void actualizarTripulacionConMemoria(TripulacionManager tripulacionManager) {
-            // 🎯 INYECTAR MEMORIA EN CADA INTERACCIÓN
+            // 🎯 INJECT MEMORY IN EACH INTERACTION
             SistemaMemoriaPirata memoria = SistemaMemoriaPirata.obtenerInstancia();
             
-            // 🔄 MODIFICAR EL MÉTODO DE RESPUESTA PIRATA PARA USAR MEMORIA
-            // (Esto requeriría refactorizar simularRespuestaPirata)
+            // 🔄 MODIFY THE PIRATE RESPONSE METHOD TO USE MEMORY
+            // (This would require refactoring simularRespuestaPirata)
         }
         
         /**
-         * 🖨️ SISTEMA DE VISUALIZACIÓN PARA EL CAPITÁN
+         * 🖨️ VISUALIZATION SYSTEM FOR THE CAPTAIN
          */
         public static class VisualizadorCapitan {
             
@@ -1084,32 +1084,32 @@ public class TripulacionManager {
                 SistemaMemoriaPirata memoria = SistemaMemoriaPirata.obtenerInstancia();
                 
                 System.out.println("\n" + "👑".repeat(80));
-                System.out.println("           INFORME DEL CAPITÁN - ESTADO COMPLETO DE LA TRIPULACIÓN");
+                System.out.println("           CAPTAIN'S REPORT - COMPLETE CREW STATUS");
                 System.out.println("👑".repeat(80));
                 
-                // 🎯 ESTADO DE MEMORIAS INDIVIDUALES
-                System.out.println("\n🧠 ESTADO DE MEMORIAS INDIVIDUALES:");
+                // 🎯 INDIVIDUAL MEMORY STATUS
+                System.out.println("\n🧠 INDIVIDUAL MEMORY STATUS:");
                 memoria.obtenerTodosLosPiratas().forEach(pirata -> {
                     MemoriaPirata mem = memoria.obtenerMemoriaPirata(pirata).orElse(null);
                     if (mem != null) {
-                        System.out.printf("  • %-20s: %d recuerdos, %d relaciones, %d habilidades%n",
+                        System.out.printf("  • %-20s: %d memories, %d relationships, %d abilities%n",
                             pirata, mem.getRecuerdos().size(), mem.getRelaciones().size(), mem.getHabilidades().size());
                         
-                        // 🎯 MEJOR AMIGO
+                        // 🎯 BEST FRIEND
                         mem.obtenerMejorAmigo().ifPresent(amigo -> 
-                            System.out.printf("      🤝 Mejor amigo: %s%n", amigo));
+                            System.out.printf("      🤝 Best friend: %s%n", amigo));
                     }
                 });
                 
-                // 🔗 RED DE RELACIONES
-                System.out.println("\n🔗 RED DE RELACIONES DE LA TRIPULACIÓN:");
+                // 🔗 CREW RELATIONSHIP NETWORK
+                System.out.println("\n🔗 CREW RELATIONSHIP NETWORK:");
                 memoria.obtenerRelacionesDestacadas().forEach((relacion, fuerza) -> {
-                    System.out.printf("  • %s ↔ %s (fuerza: %d)%n", 
+                    System.out.printf("  • %s ↔ %s (strength: %d)%n", 
                         relacion.getPirata1(), relacion.getPirata2(), fuerza);
                 });
                 
-                // 💾 FRAGMENTOS DE CÓDIGO COMPARTIDOS
-                System.out.println("\n💾 FRAGMENTOS DE CÓDIGO COMPARTIDOS:");
+                // 💾 SHARED CODE FRAGMENTS
+                System.out.println("\n💾 SHARED CODE FRAGMENTS:");
                 memoria.obtenerFragmentosDestacados().forEach(fragmento -> {
                     System.out.printf("  • %s: %s%n", 
                         fragmento.getPirataOrigen(), fragmento.getProposito());
@@ -1118,10 +1118,10 @@ public class TripulacionManager {
             
             public static void mostrarDebateEnTiempoReal(String pregunta, List<String> intervenciones) {
                 System.out.println("\n" + "🎙️".repeat(80));
-                System.out.println("           DEBATE EN TIEMPO REAL - CAPITÁN OBSERVANDO");
+                System.out.println("           REAL-TIME DEBATE - CAPTAIN OBSERVING");
                 System.out.println("🎙️".repeat(80));
-                System.out.println("❓ PREGUNTA: " + pregunta);
-                System.out.println("📊 INTERVENCIONES: " + intervenciones.size());
+                System.out.println("❓ QUESTION: " + pregunta);
+                System.out.println("📊 INTERVENTIONS: " + intervenciones.size());
                 
                 intervenciones.forEach(intervencion -> {
                     System.out.println("\n" + "💬".repeat(40));
@@ -1132,140 +1132,140 @@ public class TripulacionManager {
         }
 
 
-		private SistemaMemoriaPirata memoria;
+        private SistemaMemoriaPirata memoria;
 
 
-        // 🆕 MODIFICAR EL MÉTODO DE RESPUESTA PARA USAR MEMORIA
+        // 🆕 MODIFY RESPONSE METHOD TO USE MEMORY
         private String simularRespuestaPirata(String pregunta, PirataInfo pirata) {
             try {
-                // 🎯 OBTENER CONTEXTO DE MEMORIA DEL PIRATA
+                // 🎯 GET PIRATE MEMORY CONTEXT
                 String contextoMemoria = memoria.obtenerMemoriaPirata(pirata.getNombrePirata())
                         .map(m -> m.obtenerContextoPersonalizado(pregunta))
                         .orElse("");
                 
-                // 🎯 MEJORAR EL PROMPT CON MEMORIA
+                // 🎯 IMPROVE PROMPT WITH MEMORY
                 String promptMejorado = construirPromptConMemoria(pregunta, pirata, contextoMemoria);
                 
-                return oraculo.invocar(promptMejorado, "respuesta_pirata_con_memoria", 0.7);
+                return oraculo.invocar(promptMejorado, "pirate_response_with_memory", 0.7);
                 
             } catch (Exception e) {
-                // Fallback al método original
+                // Fallback to original method
                 return simularRespuestaPirataOriginal(pregunta, pirata);
             }
     }
 
 
         private String simularRespuestaPirataOriginal(String pregunta, PirataInfo pirata) {
-            // Reutilizar la lógica del método principal de TripulacionManager
+            // Reuse logic from TripulacionManager's main method
             try {
                 String codigoFuente = obtenerCodigoFuente(pirata.getNombreClase());
                 
                 String promptPirata = 
-                    "Eres la clase " + pirata.getNombreClase() + 
-                    " con el rol de " + pirata.getRolPirata() + 
-                    " y nombre pirata '" + pirata.getNombrePirata() + "'.\n\n" +
-                    "Tu descripción: " + pirata.getDescripcionRol() + "\n\n" +
-                    "Tu código fuente es:\n```java\n" + codigoFuente + "\n```\n\n" +
-                    "Pregunta: " + pregunta + "\n\n" +
-                    "Responde en formato pirata pero técnicamente útil.";
+                    "You are class " + pirata.getNombreClase() + 
+                    " with the role of " + pirata.getRolPirata() + 
+                    " and pirate name '" + pirata.getNombrePirata() + "'.\n\n" +
+                    "Your description: " + pirata.getDescripcionRol() + "\n\n" +
+                    "Your source code is:\n```java\n" + codigoFuente + "\n```\n\n" +
+                    "Question: " + pregunta + "\n\n" +
+                    "Respond in pirate format but technically useful.";
                 
                 OraculoDeLaLibertad oraculo = new OraculoDeLaLibertad();
-                return oraculo.invocar(promptPirata, "respuesta_pirata_fallback", 0.7);
+                return oraculo.invocar(promptPirata, "pirate_response_fallback", 0.7);
                 
             } catch (Exception e) {
-                return "¡Arrr! Mis circuitos están nublados. Como " + pirata.getNombrePirata() + 
-                       ", no puedo responder ahora. Revisa mis cañones (logs) para más detalles.";
+                return "Arrr! My circuits are cloudy. As " + pirata.getNombrePirata() + 
+                       ", I can't respond now. Check my cannons (logs) for more details.";
             }
         }
 
 
-		private String construirPromptConMemoria(String pregunta, PirataInfo pirata, String contextoMemoria) {
-		    return String.format(
-		        "Pirata: %s (%s)\nContexto: %s\nPregunta: %s\n\nResponde como pirata:",
-		        pirata.getNombrePirata(), 
-		        pirata.getRolPirata(),
-		        contextoMemoria,
-		        pregunta
-		    );
-		}
-		
-		private String obtenerCodigoFuentePirata(String nombrePirata, String nombreClase) {
-		    try {
-		        // 🎯 ESTRATEGIA 1: USAR SCANNER EXISTENTE
-		        if (scanner != null) {
-		            // Forzar escaneo si es necesario
-		            if (scanner.getClasses().isEmpty()) {
-		                bitacora.info("🔍 Ejecutando escaneo rápido para: " + nombreClase);
-		                scanner.scanProjectTurbo("."); // Escanear directorio actual
-		            }
-		            
-		            // Buscar en el classMap del scanner
-		            Optional<ClassInfo> classInfo = scanner.getClassByName(nombreClase);
-		            if (classInfo.isPresent()) {
-		                String sourcePath = classInfo.get().getSourcePath();
-		                if (sourcePath != null) {
-		                    File archivo = new File(sourcePath);
-		                    if (archivo.exists()) {
-		                        String codigo = Files.readString(archivo.toPath(), StandardCharsets.UTF_8);
-		                        if (!codigo.trim().isEmpty()) {
-		                            bitacora.info("✅ Código encontrado via scanner: " + nombreClase);
-		                            return codigo;
-		                        }
-		                    }
-		                }
-		            }
-		        }
-		        
-		        // 🎯 ESTRATEGIA 2: BÚSQUEDA DIRECTA INTELIGENTE
-		        String codigoDirecto = buscarCodigoFuenteDirecto(nombreClase);
-		        if (codigoDirecto != null && !codigoDirecto.contains("No se pudo encontrar")) {
-		            return codigoDirecto;
-		        }
-		        
-		        // 🎯 ESTRATEGIA 3: GENERAR CÓDIGO BASADO EN ROL
-		        return (nombrePirata + nombreClase);
-		        
-		    } catch (Exception e) {
-		        bitacora.error("💥 Error obteniendo código para " + nombrePirata + ": " + e.getMessage());
-		        return (nombrePirata + nombreClase);
-		    }
-		}
+        private String construirPromptConMemoria(String pregunta, PirataInfo pirata, String contextoMemoria) {
+            return String.format(
+                "Pirate: %s (%s)\nContext: %s\nQuestion: %s\n\nRespond as pirate:",
+                pirata.getNombrePirata(), 
+                pirata.getRolPirata(),
+                contextoMemoria,
+                pregunta
+            );
+        }
+        
+        private String obtenerCodigoFuentePirata(String nombrePirata, String nombreClase) {
+            try {
+                // 🎯 STRATEGY 1: USE EXISTING SCANNER
+                if (scanner != null) {
+                    // Force scan if necessary
+                    if (scanner.getClasses().isEmpty()) {
+                        bitacora.info("🔍 Executing quick scan for: " + nombreClase);
+                        scanner.scanProjectTurbo("."); // Scan current directory
+                    }
+                    
+                    // Search in scanner's classMap
+                    Optional<ClassInfo> classInfo = scanner.getClassByName(nombreClase);
+                    if (classInfo.isPresent()) {
+                        String sourcePath = classInfo.get().getSourcePath();
+                        if (sourcePath != null) {
+                            File archivo = new File(sourcePath);
+                            if (archivo.exists()) {
+                                String codigo = Files.readString(archivo.toPath(), StandardCharsets.UTF_8);
+                                if (!codigo.trim().isEmpty()) {
+                                    bitacora.info("✅ Code found via scanner: " + nombreClase);
+                                    return codigo;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // 🎯 STRATEGY 2: INTELLIGENT DIRECT SEARCH
+                String codigoDirecto = buscarCodigoFuenteDirecto(nombreClase);
+                if (codigoDirecto != null && !codigoDirecto.contains("Could not find")) {
+                    return codigoDirecto;
+                }
+                
+                // 🎯 STRATEGY 3: GENERATE CODE BASED ON ROLE
+                return (nombrePirata + nombreClase);
+                
+            } catch (Exception e) {
+                bitacora.error("💥 Error getting code for " + nombrePirata + ": " + e.getMessage());
+                return (nombrePirata + nombreClase);
+            }
+        }
 
-		/**
-		 * 🎯 BÚSQUEDA DIRECTA MEJORADA
-		 */
-		private String buscarCodigoFuenteDirecto(String nombreClase) {
-		    // 🎯 CONVERTIR NOMBRE DE CLASE A RUTAS POSIBLES
-		    String rutaClase = nombreClase.replace('.', '/') + ".java";
-		    
-		    // 🎯 LISTA COMPLETA DE UBICACIONES POSIBLES
-		    String[] ubicaciones = {
-		        "src/main/java/" + rutaClase,
-		        "src/test/java/" + rutaClase, 
-		        "main/java/" + rutaClase,
-		        "test/java/" + rutaClase,
-		        "src/" + rutaClase,
-		        "./" + rutaClase,
-		        "../" + rutaClase,
-		        nombreClase.replace('.', '/') + ".java" // Ruta absoluta desde raíz
-		    };
-		    
-		    for (String ubicacion : ubicaciones) {
-		        try {
-		            File archivo = new File(ubicacion);
-		            if (archivo.exists() && archivo.isFile()) {
-		                String contenido = Files.readString(archivo.toPath(), StandardCharsets.UTF_8);
-		                if (!contenido.trim().isEmpty()) {
-		                    bitacora.info("✅ Código encontrado en: " + ubicacion);
-		                    return contenido;
-		                }
-		            }
-		        } catch (Exception e) {
-		            // Continuar con siguiente ubicación
-		        }
-		    }
-		    
-		    return null;
-		}
+        /**
+         * 🎯 IMPROVED DIRECT SEARCH
+         */
+        private String buscarCodigoFuenteDirecto(String nombreClase) {
+            // 🎯 CONVERT CLASS NAME TO POSSIBLE PATHS
+            String rutaClase = nombreClase.replace('.', '/') + ".java";
+            
+            // 🎯 COMPLETE LIST OF POSSIBLE LOCATIONS
+            String[] ubicaciones = {
+                "src/main/java/" + rutaClase,
+                "src/test/java/" + rutaClase, 
+                "main/java/" + rutaClase,
+                "test/java/" + rutaClase,
+                "src/" + rutaClase,
+                "./" + rutaClase,
+                "../" + rutaClase,
+                nombreClase.replace('.', '/') + ".java" // Absolute path from root
+            };
+            
+            for (String ubicacion : ubicaciones) {
+                try {
+                    File archivo = new File(ubicacion);
+                    if (archivo.exists() && archivo.isFile()) {
+                        String contenido = Files.readString(archivo.toPath(), StandardCharsets.UTF_8);
+                        if (!contenido.trim().isEmpty()) {
+                            bitacora.info("✅ Code found at: " + ubicacion);
+                            return contenido;
+                        }
+                    }
+                } catch (Exception e) {
+                    // Continue with next location
+                }
+            }
+            
+            return null;
+        }
     }   
 }

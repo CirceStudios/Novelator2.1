@@ -13,12 +13,12 @@ import com.elreinodelolvido.ellibertad.util.BitacoraConsola;
 import com.elreinodelolvido.ellibertad.util.PlanificadorRefactor;
 
 /**
- * 🚀 MAIN TURBO ULTRA FUSIÓN - SISTEMA COMPLETO TURBOFURULADO
- * 🏴‍☠️ Punto de entrada principal que despliega toda la potencia del software
+ * 🚀 MAIN TURBO ULTRA FUSION - COMPLETE TURBOFURULATED SYSTEM
+ * 🏴‍☠️ Main entry point that deploys all the software power
  */
 public class AutogenTurboFusion {
     
-    // 🎯 COMPONENTES PRINCIPALES TURBOFURULADOS
+    // 🎯 MAIN TURBOFURULATED COMPONENTS
     private static SistemaManager sistemaManager;
     private static AnalisisManager analisisManager;
     private static DebugManager debugManager;
@@ -26,11 +26,11 @@ public class AutogenTurboFusion {
     private static ReporteManager reporteManager;
     private static APIManager apiManager;
     private static MetricasPlanFusion metricasPlan;
-    private static TripulacionManager tripulacionManager; // 🆕 NUEVO MÓDULO
+    private static TripulacionManager tripulacionManager; // 🆕 NEW MODULE
     private static ConsejoDeGuerraManager consejoDeGuerraManager;
     private static SistemaDebateAutonomo debateAutonomoManager;
     
-    // 🚀 CONTADORES GLOBALES TURBO
+    // 🚀 GLOBAL TURBO COUNTERS
     private static AtomicInteger contadorEjecuciones = new AtomicInteger(0);
     private static AtomicInteger contadorClasesProcesadas = new AtomicInteger(0);
     private static AtomicInteger contadorKrakens = new AtomicInteger(0);
@@ -49,205 +49,205 @@ public class AutogenTurboFusion {
         scannerGlobal = new Scanner(System.in);
         
         try {
-            // 🎯 BANNER ÉPICO DE INICIO
+            // 🎯 EPIC START BANNER
             mostrarBannerEpico();
             
-            // 🚀 INICIALIZACIÓN TURBO ULTRA COMPLETA
+            // 🚀 COMPLETE TURBO ULTRA INITIALIZATION
             inicializarSistemaCompletoTurbo();
             
-            // 📊 CAPTURA DE CONSOLA ACTIVADA
+            // 📊 CONSOLE CAPTURE ACTIVATED
             BitacoraConsola.iniciarCaptura();
             
-            // 🎪 MENÚ PRINCIPAL TURBOFURULADO
+            // 🎪 TURBOFURULATED MAIN MENU
             ejecutarMenuPrincipalTurbo();
             
         } catch (Exception e) {
-            System.err.println("💥 ERROR CRÍTICO EN SISTEMA PRINCIPAL: " + e.getMessage());
+            System.err.println("💥 CRITICAL ERROR IN MAIN SYSTEM: " + e.getMessage());
             e.printStackTrace();
         } finally {
-            // 🧹 LIMPIEZA TURBO ULTRA
+            // 🧹 TURBO ULTRA CLEANUP
             BitacoraConsola.restaurarSalida();
             if (scannerGlobal != null) scannerGlobal.close();
             
             long endTime = System.currentTimeMillis();
-            System.out.printf("\n⏱️  Tiempo total ejecución: %d segundos\n", (endTime - startTime) / 1000);
-            System.out.println("🏴‍☠️  ¡Autogen Turbo Ultra Fusión finalizado! 🚀");
+            System.out.printf("\n⏱️  Total execution time: %d seconds\n", (endTime - startTime) / 1000);
+            System.out.println("🏴‍☠️  Autogen Turbo Ultra Fusion finished! 🚀");
         }
     }
 
     /**
-     * 🎯 MOSTRAR BANNER ÉPICO TURBO ULTRA
+     * 🎯 SHOW EPIC TURBO ULTRA BANNER
      */
     private static void mostrarBannerEpico() {
         System.out.println("\n" +
             "🏴‍☠️".repeat(50) + "\n" +
-            "           AUTOGEN TURBO ULTRA FUSIÓN - SISTEMA COMPLETO\n" +
-            "                   VERSIÓN 4.0.0 TURBOFURULADO\n" +
+            "           AUTOGEN TURBO ULTRA FUSION - COMPLETE SYSTEM\n" +
+            "                   VERSION 4.0.0 TURBOFURULATED\n" +
             "🏴‍☠️".repeat(50) + "\n" +
             "⚡✨🚀🌈🎯🔥💥🎊🎉🎨🔮🧠🤖🛡️🔧📊📈🔍💾🧹🎪🎭🏆\n" +
-            "🌊 Madre Tormenta Fusión Turbo Ultra Activada - Sistema al 100%\n" +
-            "📅 Inicio: " + java.time.LocalDateTime.now() + "\n" +
+            "🌊 Mother Storm Turbo Ultra Fusion Activated - System at 100%\n" +
+            "📅 Start: " + java.time.LocalDateTime.now() + "\n" +
             "⚡✨🚀🌈🎯🔥💥🎊🎉🎨🔮🧠🤖🛡️🔧📊📈🔍💾🧹🎪🎭🏆\n"
         );
     }
 
     /**
-     * 🚀 INICIALIZAR SISTEMA COMPLETO TURBO ULTRA
+     * 🚀 INITIALIZE COMPLETE TURBO ULTRA SYSTEM
      */
     private static void inicializarSistemaCompletoTurbo() {
-        System.out.println("🚀 INICIALIZANDO SISTEMA COMPLETO TURBO ULTRA...\n");
+        System.out.println("🚀 INITIALIZING COMPLETE TURBO ULTRA SYSTEM...\n");
         
         try {
-            // 📝 INICIALIZAR BITÁCORA TURBO
+            // 📝 INITIALIZE TURBO LOG
             bitacora = new Bitacora();
-            bitacora.turbo("Iniciando sistema turbo ultra fusión completo...");
+            bitacora.turbo("Starting complete turbo ultra fusion system...");
             
-            // 🔍 INICIALIZAR SCANNER AVANZADO
+            // 🔍 INITIALIZE ADVANCED SCANNER
             scannerAvanzado = new ProjectScanner(bitacora);
-            System.out.println("✅ Scanner avanzado turbo inicializado");
+            System.out.println("✅ Advanced turbo scanner initialized");
             
-            // 🔗 INICIALIZAR INTEGRADOR FORZADO
+            // 🔗 INITIALIZE FORCED INTEGRATOR
             integradorTurbo = new IntegradorForzado(bitacora);
-            System.out.println("✅ Integrador forzado turbo inicializado");
+            System.out.println("✅ Forced turbo integrator initialized");
             
-            // 🎯 INICIALIZAR SISTEMA MANAGER
+            // 🎯 INITIALIZE SYSTEM MANAGER
             sistemaManager = new SistemaManager(
                 contadorEjecuciones, contadorClasesProcesadas, contadorKrakens,
                 contadorIntegracionesExitosas, contadorMejorasActivas, contadorVerificaciones
             );
-            System.out.println("✅ Sistema manager turbo inicializado");
+            System.out.println("✅ Turbo system manager initialized");
             
-            // 🧠 INICIALIZAR ANÁLISIS MANAGER
+            // 🧠 INITIALIZE ANALYSIS MANAGER
             analisisManager = new AnalisisManager(
                 bitacora, scannerAvanzado, contadorClasesProcesadas, contadorKrakens
             );
-            System.out.println("✅ Análisis manager turbo inicializado");
+            System.out.println("✅ Turbo analysis manager initialized");
             
-            // 🔧 INICIALIZAR DEBUG MANAGER
+            // 🔧 INITIALIZE DEBUG MANAGER
             debugManager = new DebugManager(
                 bitacora, scannerAvanzado, integradorTurbo,
                 sistemaManager.getMejorasActivas(),
                 sistemaManager.isObservadorIniciado(),
                 sistemaManager.isSistemaVerificado()
             );
-            System.out.println("✅ Debug manager turbo inicializado");
+            System.out.println("✅ Turbo debug manager initialized");
             
-            // 📋 INICIALIZAR PLANIFICADOR MANAGER
+            // 📋 INITIALIZE PLANNER MANAGER
             planificadorManager = new PlanificadorManager(bitacora, scannerGlobal);
-            System.out.println("✅ Planificador manager turbo inicializado");
+            System.out.println("✅ Turbo planner manager initialized");
             
-            // 📊 INICIALIZAR REPORTE MANAGER
+            // 📊 INITIALIZE REPORT MANAGER
             reporteManager = new ReporteManager(bitacora, scannerAvanzado);
-            System.out.println("✅ Reporte manager turbo inicializado");
+            System.out.println("✅ Turbo report manager initialized");
             
-            // 🔌 INICIALIZAR API MANAGER
+            // 🔌 INITIALIZE API MANAGER
             apiManager = new APIManager(bitacora);
-            System.out.println("✅ API manager turbo inicializado");
+            System.out.println("✅ Turbo API manager initialized");
             
-         // 🆕 INICIALIZAR SISTEMA DE DEBATE AUTÓNOMO
+         // 🆕 INITIALIZE AUTONOMOUS DEBATE SYSTEM
             debateAutonomoManager = new SistemaDebateAutonomo(apiManager.getOraculo(), bitacora);
-            System.out.println("✅ Sistema debate autónomo turbo inicializado");
+            System.out.println("✅ Turbo autonomous debate system initialized");
             
-            // 📈 INICIALIZAR MÉTRICAS DEL PLAN
+            // 📈 INITIALIZE PLAN METRICS
             metricasPlan = new MetricasPlanFusion(PlanificadorRefactor.obtenerPlanActual());
-            System.out.println("✅ Métricas plan turbo inicializado");
+            System.out.println("✅ Turbo plan metrics initialized");
             
-            // 🆕 INICIALIZAR TRIPULACIÓN MANAGER
+            // 🆕 INITIALIZE CREW MANAGER
             tripulacionManager = new TripulacionManager(scannerAvanzado, apiManager.getOraculo(), bitacora);
-            System.out.println("✅ Tripulación manager turbo inicializado");
+            System.out.println("✅ Crew manager turbo initialized");
             
             consejoDeGuerraManager = new ConsejoDeGuerraManager(tripulacionManager, bitacora);
-            // 🎉 VERIFICACIÓN FINAL TURBO
+            // 🎉 FINAL TURBO VERIFICATION
             realizarVerificacionInicialTurbo();
             
-            bitacora.exito("Sistema turbo ultra fusión completamente inicializado");
-            System.out.println("\n🎉 ¡SISTEMA TURBO ULTRA INICIALIZADO CON ÉXITO!");
-            System.out.println("🚀 Todos los componentes funcionando al 100%");
+            bitacora.exito("Turbo ultra fusion system completely initialized");
+            System.out.println("\n🎉 TURBO ULTRA SYSTEM SUCCESSFULLY INITIALIZED!");
+            System.out.println("🚀 All components functioning at 100%");
             
         } catch (Exception e) {
-            System.err.println("💥 ERROR en inicialización turbo: " + e.getMessage());
-            throw new RuntimeException("Fallo en inicialización del sistema", e);
+            System.err.println("💥 Error in turbo initialization: " + e.getMessage());
+            throw new RuntimeException("System initialization failure", e);
         }
     }
 
     /**
-     * 🔍 REALIZAR VERIFICACIÓN INICIAL TURBO
+     * 🔍 PERFORM INITIAL TURBO VERIFICATION
      */
     private static void realizarVerificacionInicialTurbo() {
-        System.out.println("\n🔍 REALIZANDO VERIFICACIÓN INICIAL TURBO...");
+        System.out.println("\n🔍 PERFORMING INITIAL TURBO VERIFICATION...");
         
         int componentesOperativos = 0;
-        int componentesTotales = 9; // 🆕 Aumentado por DebateAutonomoManager
+        int componentesTotales = 9; // 🆕 Increased by DebateAutonomoManager
         
-        if (bitacora != null) { componentesOperativos++; System.out.println("✅ Bitácora operativa"); }
-        if (scannerAvanzado != null) { componentesOperativos++; System.out.println("✅ Scanner avanzado operativo"); }
-        if (sistemaManager != null) { componentesOperativos++; System.out.println("✅ Sistema manager operativo"); }
-        if (analisisManager != null) { componentesOperativos++; System.out.println("✅ Análisis manager operativo"); }
-        if (debugManager != null) { componentesOperativos++; System.out.println("✅ Debug manager operativo"); }
-        if (planificadorManager != null) { componentesOperativos++; System.out.println("✅ Planificador manager operativo"); }
-        if (reporteManager != null) { componentesOperativos++; System.out.println("✅ Reporte manager operativo"); }
-        if (tripulacionManager != null) { componentesOperativos++; System.out.println("✅ Tripulación manager operativo"); }
-        if (debateAutonomoManager != null) { componentesOperativos++; System.out.println("✅ Debate autónomo manager operativo"); } // 🆕 NUEVO
+        if (bitacora != null) { componentesOperativos++; System.out.println("✅ Log operational"); }
+        if (scannerAvanzado != null) { componentesOperativos++; System.out.println("✅ Advanced scanner operational"); }
+        if (sistemaManager != null) { componentesOperativos++; System.out.println("✅ System manager operational"); }
+        if (analisisManager != null) { componentesOperativos++; System.out.println("✅ Analysis manager operational"); }
+        if (debugManager != null) { componentesOperativos++; System.out.println("✅ Debug manager operational"); }
+        if (planificadorManager != null) { componentesOperativos++; System.out.println("✅ Planner manager operational"); }
+        if (reporteManager != null) { componentesOperativos++; System.out.println("✅ Report manager operational"); }
+        if (tripulacionManager != null) { componentesOperativos++; System.out.println("✅ Crew manager operational"); }
+        if (debateAutonomoManager != null) { componentesOperativos++; System.out.println("✅ Autonomous debate manager operational"); } // 🆕 NEW
         
         double porcentajeOperatividad = (double) componentesOperativos / componentesTotales * 100;
-        System.out.printf("📊 Operatividad del sistema: %.1f%% (%d/%d componentes)\n", 
+        System.out.printf("📊 System operability: %.1f%% (%d/%d components)\n", 
             porcentajeOperatividad, componentesOperativos, componentesTotales);
         
         if (porcentajeOperatividad < 80) {
-            System.out.println("⚠️  ADVERTENCIA: Algunos componentes no están al 100%");
+            System.out.println("⚠️  WARNING: Some components are not at 100%");
         }
     }
 
     /**
-     * 🎪 EJECUTAR MENÚ PRINCIPAL TURBOFURULADO
+     * 🎪 EXECUTE TURBOFURULATED MAIN MENU
      */
     private static void ejecutarMenuPrincipalTurbo() {
         boolean ejecutando = true;
         
         while (ejecutando) {
             System.out.println("\n" + "⚓".repeat(100));
-            System.out.println("🏴‍☠️  MENÚ PRINCIPAL TURBO ULTRA FUSIÓN - SISTEMA COMPLETO TURBOFURULADO");
+            System.out.println("🏴‍☠️  MAIN TURBO ULTRA FUSION MENU - COMPLETE TURBOFURULATED SYSTEM");
             System.out.println("⚓".repeat(100));
             
-            // 📊 ESTADO DEL SISTEMA EN TIEMPO REAL
-            System.out.printf("📊 Estado: %s | Ejecuciones: %d | Clases: %d | Mejoras: %d\n",
-                sistemaManager.isSistemaVerificado() ? "✅ ÓPTIMO" : "⚠️ COMPATIBLE",
+            // 📊 REAL-TIME SYSTEM STATUS
+            System.out.printf("📊 Status: %s | Executions: %d | Classes: %d | Improvements: %d\n",
+                sistemaManager.isSistemaVerificado() ? "✅ OPTIMAL" : "⚠️ COMPATIBLE",
                 contadorEjecuciones.get(),
                 contadorClasesProcesadas.get(),
                 sistemaManager.getMejorasActivas().size());
             
             System.out.println("""
                 
-                🎯 MÓDULOS PRINCIPALES:
-                1.  🚀 SISTEMA MANAGER - Núcleo central turbo
-                2.  🧠 ANÁLISIS MANAGER - Inteligencia artificial avanzada
-                3.  🔧 DEBUG MANAGER - Diagnóstico y reparación
-                4.  📋 PLANIFICADOR MANAGER - Gestión de refactors
-                5.  📊 REPORTE MANAGER - Generación de reportes
-                6.  🔌 API MANAGER - Gestión de APIs y conexiones
-                7.  📈 MÉTRICAS AVANZADAS - Análisis de datos
-                8.  🎪 SISTEMA COMPLETO - Ejecución integral turbo
+                🎯 MAIN MODULES:
+                1.  🚀 SYSTEM MANAGER - Central turbo core
+                2.  🧠 ANALYSIS MANAGER - Advanced artificial intelligence
+                3.  🔧 DEBUG MANAGER - Diagnosis and repair
+                4.  📋 PLANNER MANAGER - Refactor management
+                5.  📊 REPORT MANAGER - Report generation
+                6.  🔌 API MANAGER - API and connection management
+                7.  📈 ADVANCED METRICS - Data analysis
+                8.  🎪 COMPLETE SYSTEM - Integral turbo execution
                 
-                🆕 MÓDULO TRIPULACIÓN PIRATA:
-                15. 🏴‍☠️ CONSULTAR TRIPULACIÓN - Pregunta a las clases del proyecto
-                16. ⚔️  CONSEJO DE GUERRA - Debate entre piratas con memoria
+                🆕 PIRATE CREW MODULE:
+                15. 🏴‍☠️ CONSULT CREW - Ask project classes
+                16. ⚔️  WAR COUNCIL - Debate between pirates with memory
                 
-                🆕 MÓDULO DEBATE AUTÓNOMO:
-                20. 🤖 DEBATE AUTÓNOMO - Piratas debaten automáticamente
-                21. 🎯 DEBATE CON SUGERENCIAS - El sistema sugiere los piratas
+                🆕 AUTONOMOUS DEBATE MODULE:
+                20. 🤖 AUTONOMOUS DEBATE - Pirates debate automatically
+                21. 🎯 DEBATE WITH SUGGESTIONS - System suggests pirates
                 
-                🛠️  HERRAMIENTAS RÁPIDAS:
-                9.  🔍 Escaneo rápido de proyecto
-                10. 📝 Registro rápido de refactor
-                11. 📊 Estadísticas instantáneas
-                12. 🎨 Generar PDF de ejecución
-                13. 🔧 Diagnóstico rápido del sistema
-                14. 🔌 Verificar conexión API
+                🛠️  QUICK TOOLS:
+                9.  🔍 Quick project scan
+                10. 📝 Quick refactor registration
+                11. 📊 Instant statistics
+                12. 🎨 Generate execution PDF
+                13. 🔧 Quick system diagnosis
+                14. 🔌 Verify API connection
                 
-                0.  🚪 Salir del sistema turbo
+                0.  🚪 Exit turbo system
                 """);
             
-            System.out.print("🎯 Selecciona un módulo turbo: ");
+            System.out.print("🎯 Select a turbo module: ");
             String opcion = scannerGlobal.nextLine().trim();
             
             switch (opcion) {
@@ -260,7 +260,7 @@ public class AutogenTurboFusion {
                 case "7" -> mostrarMenuMetricasAvanzadas();
                 case "8" -> ejecutarSistemaCompletoTurbo();
                 
-                // 🆕 NUEVAS OPCIONES DE DEBATE AUTÓNOMO
+                // 🆕 NEW AUTONOMOUS DEBATE OPTIONS
                 case "20" -> iniciarDebateAutonomo();
                 case "21" -> iniciarDebateAutonomoConSugerencias();
                 
@@ -276,12 +276,12 @@ public class AutogenTurboFusion {
                 
                 case "0" -> {
                     ejecutando = false;
-                    System.out.println("👋 ¡Hasta pronto! Madre Tormenta Fusión Turbo se despide...");
+                    System.out.println("👋 Goodbye! Mother Storm Turbo Fusion says farewell...");
                 }
                 case "turbo" -> ejecutarModoTurboExtremo();
                 case "debug" -> ejecutarDebugCompleto();
                 case "estadisticas" -> mostrarEstadisticasCompletas();
-                default -> System.out.println("❌ Opción inválida. Intenta con 'turbo' para modo extremo.");
+                default -> System.out.println("❌ Invalid option. Try 'turbo' for extreme mode.");
             }
             
             contadorEjecuciones.incrementAndGet();
@@ -289,32 +289,32 @@ public class AutogenTurboFusion {
     }
     
     /**
-     * 🆕 INICIAR DEBATE AUTÓNOMO ENTRE PIRATAS
+     * 🆕 START AUTONOMOUS DEBATE BETWEEN PIRATES
      */
     private static void iniciarDebateAutonomo() {
         System.out.println("\n" + "🤖".repeat(80));
-        System.out.println("           DEBATE AUTÓNOMO ENTRE PIRATAS");
+        System.out.println("           AUTONOMOUS DEBATE BETWEEN PIRATES");
         System.out.println("🤖".repeat(80));
         
         try {
-            // 🎯 SOLICITAR PREGUNTA
-            System.out.print("❓ Pregunta para el debate: ");
+            // 🎯 REQUEST QUESTION
+            System.out.print("❓ Question for the debate: ");
             String pregunta = scannerGlobal.nextLine().trim();
             
             if (pregunta.isEmpty()) {
-                System.out.println("❌ La pregunta no puede estar vacía.");
+                System.out.println("❌ Question cannot be empty.");
                 return;
             }
             
-            // 🎯 SOLICITAR PIRATAS PARTICIPANTES
-            System.out.println("\n🏴‍☠️ PIRATAS DISPONIBLES:");
+            // 🎯 REQUEST PARTICIPATING PIRATES
+            System.out.println("\n🏴‍☠️ AVAILABLE PIRATES:");
             tripulacionManager.mostrarEstadoTripulacion();
             
-            System.out.print("\n👥 Piratas participantes (separados por coma): ");
+            System.out.print("\n👥 Participating pirates (comma separated): ");
             String participantesInput = scannerGlobal.nextLine().trim();
             
             if (participantesInput.isEmpty()) {
-                System.out.println("❌ Debes especificar al menos un pirata.");
+                System.out.println("❌ You must specify at least one pirate.");
                 return;
             }
             
@@ -324,90 +324,90 @@ public class AutogenTurboFusion {
                     .toArray(String[]::new);
             
             if (participantes.length == 0) {
-                System.out.println("❌ No se especificaron piratas válidos.");
+                System.out.println("❌ No valid pirates specified.");
                 return;
             }
             
-            // 🎯 CONFIRMAR INICIO DEL DEBATE
-            System.out.println("\n🎯 RESUMEN DEL DEBATE:");
-            System.out.println("Pregunta: " + pregunta);
-            System.out.println("Participantes: " + String.join(", ", participantes));
-            System.out.print("\n¿Iniciar debate? (s/n): ");
+            // 🎯 CONFIRM DEBATE START
+            System.out.println("\n🎯 DEBATE SUMMARY:");
+            System.out.println("Question: " + pregunta);
+            System.out.println("Participants: " + String.join(", ", participantes));
+            System.out.print("\nStart debate? (y/n): ");
             String confirmacion = scannerGlobal.nextLine().trim();
             
-            if (confirmacion.equalsIgnoreCase("s") || confirmacion.equalsIgnoreCase("si")) {
-                // 🚀 EJECUTAR DEBATE EN UN HILO SEPARADO
+            if (confirmacion.equalsIgnoreCase("s") || confirmacion.equalsIgnoreCase("si") || confirmacion.equalsIgnoreCase("y") || confirmacion.equalsIgnoreCase("yes")) {
+                // 🚀 EXECUTE DEBATE IN SEPARATE THREAD
                 new Thread(() -> {
                     try {
                         debateAutonomoManager.iniciarDebateAutonomo(pregunta, participantes);
                     } catch (Exception e) {
-                        System.err.println("💥 Error en debate autónomo: " + e.getMessage());
-                        bitacora.error("Error en debate autónomo: " + e.getMessage());
+                        System.err.println("💥 Error in autonomous debate: " + e.getMessage());
+                        bitacora.error("Error in autonomous debate: " + e.getMessage());
                     }
                 }).start();
             } else {
-                System.out.println("❌ Debate cancelado.");
+                System.out.println("❌ Debate cancelled.");
             }
             
         } catch (Exception e) {
-            System.err.println("💥 Error iniciando debate autónomo: " + e.getMessage());
-            bitacora.error("Error iniciando debate autónomo: " + e.getMessage());
+            System.err.println("💥 Error starting autonomous debate: " + e.getMessage());
+            bitacora.error("Error starting autonomous debate: " + e.getMessage());
         }
     }
 
     /**
-     * 🆕 INICIAR DEBATE AUTÓNOMO CON SUGERENCIAS
+     * 🆕 START AUTONOMOUS DEBATE WITH SUGGESTIONS
      */
     private static void iniciarDebateAutonomoConSugerencias() {
         System.out.println("\n" + "🎯".repeat(80));
-        System.out.println("           DEBATE AUTÓNOMO CON SUGERENCIAS INTELIGENTES");
+        System.out.println("           AUTONOMOUS DEBATE WITH INTELLIGENT SUGGESTIONS");
         System.out.println("🎯".repeat(80));
         
         try {
-            // 🎯 SOLICITAR PREGUNTA
-            System.out.print("❓ Pregunta para el debate: ");
+            // 🎯 REQUEST QUESTION
+            System.out.print("❓ Question for the debate: ");
             String pregunta = scannerGlobal.nextLine().trim();
             
             if (pregunta.isEmpty()) {
-                System.out.println("❌ La pregunta no puede estar vacía.");
+                System.out.println("❌ Question cannot be empty.");
                 return;
             }
             
-            // 🚀 EJECUTAR DEBATE CON SUGERENCIAS EN UN HILO SEPARADO
+            // 🚀 EXECUTE DEBATE WITH SUGGESTIONS IN SEPARATE THREAD
             new Thread(() -> {
                 try {
                     debateAutonomoManager.iniciarDebateAutonomoConSugerencias(pregunta);
                 } catch (Exception e) {
-                    System.err.println("💥 Error en debate con sugerencias: " + e.getMessage());
-                    bitacora.error("Error en debate con sugerencias: " + e.getMessage());
+                    System.err.println("💥 Error in debate with suggestions: " + e.getMessage());
+                    bitacora.error("Error in debate with suggestions: " + e.getMessage());
                 }
             }).start();
             
         } catch (Exception e) {
-            System.err.println("💥 Error iniciando debate con sugerencias: " + e.getMessage());
-            bitacora.error("Error iniciando debate con sugerencias: " + e.getMessage());
+            System.err.println("💥 Error starting debate with suggestions: " + e.getMessage());
+            bitacora.error("Error starting debate with suggestions: " + e.getMessage());
         }
     }
 
     /**
-     * 🆕 MENÚ TRIPULACIÓN PIRATA
+     * 🆕 PIRATE CREW MENU
      */
     private static void mostrarMenuTripulacion() {
         System.out.println("\n" + "🏴‍☠️".repeat(60));
-        System.out.println("           TRIPULACIÓN PIRATA - CONSULTA A LAS CLASES DEL PROYECTO");
+        System.out.println("           PIRATE CREW - CONSULT PROJECT CLASSES");
         System.out.println("🏴‍☠️".repeat(60));
         
         System.out.println("""
-            1. 🎯 Iniciar sesión con la tripulación
-            2. 📊 Mostrar estado de la tripulación
-            3. 🔍 Escanear proyecto primero (recomendado)
-            4. 🏴‍☠️ Agregar pirata personalizado
-            5. ⚔️  CONSEJO DE GUERRA - Debate entre piratas con memoria
-            0. ↩️ Volver al menú principal
+            1. 🎯 Start session with crew
+            2. 📊 Show crew status
+            3. 🔍 Scan project first (recommended)
+            4. 🏴‍☠️ Add custom pirate
+            5. ⚔️  WAR COUNCIL - Debate between pirates with memory
+            0. ↩️ Back to main menu
            
             """);
         
-        System.out.print("🎯 Selecciona opción: ");
+        System.out.print("🎯 Select option: ");
         String opcion = scannerGlobal.nextLine().trim();
         
         switch (opcion) {
@@ -418,334 +418,334 @@ public class AutogenTurboFusion {
             case "5" -> {ejecutarEscaneoParaTripulacion();
             	consejoDeGuerraManager.iniciarConsejoDeGuerra();
             }
-            case "0" -> System.out.println("↩️ Volviendo al menú principal...");
-            default -> System.out.println("❌ Opción inválida");
+            case "0" -> System.out.println("↩️ Returning to main menu...");
+            default -> System.out.println("❌ Invalid option");
         }
     }
 
     /**
-     * 🆕 INICIAR SESIÓN CON LA TRIPULACIÓN
+     * 🆕 START SESSION WITH CREW
      */
     private static void iniciarSesionTripulacion() {
         System.out.println("\n" + "⚓".repeat(80));
-        System.out.println("           ACTIVANDO MÓDULO TRIPULACIÓN PIRATA");
+        System.out.println("           ACTIVATING PIRATE CREW MODULE");
         System.out.println("⚓".repeat(80));
         
-        // Verificar que el proyecto esté escaneado
+        // Verify project is scanned
         if (contadorClasesProcesadas.get() == 0) {
-            System.out.println("⚠️  No hay clases escaneadas. ¿Quieres ejecutar un escaneo rápido? (s/n)");
+            System.out.println("⚠️  No classes scanned. Do you want to run a quick scan? (y/n)");
             System.out.print("🎯 > ");
             String respuesta = scannerGlobal.nextLine().trim();
             
-            if (respuesta.equalsIgnoreCase("s") || respuesta.equalsIgnoreCase("si")) {
+            if (respuesta.equalsIgnoreCase("s") || respuesta.equalsIgnoreCase("si") || respuesta.equalsIgnoreCase("y") || respuesta.equalsIgnoreCase("yes")) {
                 ejecutarEscaneoParaTripulacion();
             } else {
-                System.out.println("❌ Se necesita un escaneo del proyecto para usar la tripulación");
+                System.out.println("❌ Project scan required to use the crew");
                 return;
             }
         }
         
-        // Iniciar sesión
+        // Start session
         tripulacionManager.iniciarSesionTripulacion();
     }
 
     /**
-     * 🆕 MOSTRAR ESTADO DE LA TRIPULACIÓN
+     * 🆕 SHOW CREW STATUS
      */
     private static void mostrarEstadoTripulacion() {
         tripulacionManager.mostrarEstadoTripulacion();
     }
 
     /**
-     * 🆕 EJECUTAR ESCANEO PARA TRIPULACIÓN
+     * 🆕 EXECUTE SCAN FOR CREW
      */
     private static void ejecutarEscaneoParaTripulacion() {
-        System.out.println("\n🔍 EJECUTANDO ESCANEO PARA TRIPULACIÓN...");
+        System.out.println("\n🔍 EXECUTING SCAN FOR CREW...");
         sistemaManager.ejecutarEscaneoCompletoTurbo();
-        System.out.println("✅ Escaneo completado. Ahora puedes consultar a la tripulación.");
+        System.out.println("✅ Scan completed. You can now consult the crew.");
     }
 
     /**
-     * 🆕 AGREGAR PIRATA PERSONALIZADO
+     * 🆕 ADD CUSTOM PIRATE
      */
     private static void agregarPirataPersonalizado() {
-        System.out.println("\n🏴‍☠️ AGREGAR PIRATA PERSONALIZADO");
+        System.out.println("\n🏴‍☠️ ADD CUSTOM PIRATE");
         
-        System.out.print("Nombre de la clase: ");
+        System.out.print("Class name: ");
         String nombreClase = scannerGlobal.nextLine().trim();
         
-        System.out.print("Rol del pirata: ");
+        System.out.print("Pirate role: ");
         String rol = scannerGlobal.nextLine().trim();
         
-        System.out.print("Nombre del pirata: ");
+        System.out.print("Pirate name: ");
         String nombrePirata = scannerGlobal.nextLine().trim();
         
-        System.out.print("Descripción del rol: ");
+        System.out.print("Role description: ");
         String descripcion = scannerGlobal.nextLine().trim();
         
         if (nombreClase.isEmpty() || rol.isEmpty() || nombrePirata.isEmpty()) {
-            System.out.println("❌ Todos los campos son obligatorios");
+            System.out.println("❌ All fields are mandatory");
             return;
         }
         
         tripulacionManager.agregarPirata(nombreClase, rol, nombrePirata, descripcion);
-        System.out.println("✅ Pirata personalizado agregado: " + nombrePirata);
+        System.out.println("✅ Custom pirate added: " + nombrePirata);
     }
 
     // =========================================================================
-    // 🚀 MÉTODOS DE EJECUCIÓN RÁPIDA TURBOFURULADOS (se mantienen igual)
+    // 🚀 TURBOFURULATED QUICK EXECUTION METHODS (remain the same)
     // =========================================================================
 
     /**
-     * 🎪 EJECUTAR SISTEMA COMPLETO TURBO
+     * 🎪 EXECUTE COMPLETE TURBO SYSTEM
      */
     private static void ejecutarSistemaCompletoTurbo() {
-        System.out.println("\n🎪 INICIANDO SISTEMA COMPLETO TURBO ULTRA...");
+        System.out.println("\n🎪 STARTING COMPLETE TURBO ULTRA SYSTEM...");
         
-        // 🚀 EJECUTAR EN SECUENCIA TODOS LOS MÓDULOS
+        // 🚀 EXECUTE ALL MODULES IN SEQUENCE
         new Thread(() -> {
             try {
-                System.out.println("1. 🔍 Ejecutando escaneo completo...");
+                System.out.println("1. 🔍 Executing complete scan...");
                 sistemaManager.ejecutarEscaneoCompletoTurbo();
                 
-                System.out.println("2. 🧠 Ejecutando análisis completo...");
+                System.out.println("2. 🧠 Executing complete analysis...");
                 analisisManager.analizarTodo();
                 
-                System.out.println("3. 🔧 Ejecutando diagnóstico completo...");
+                System.out.println("3. 🔧 Executing complete diagnosis...");
                 debugManager.ejecutarDiagnosticoCompletoUltra();
                 
-                System.out.println("4. 📊 Generando reportes completos...");
+                System.out.println("4. 📊 Generating complete reports...");
                 reporteManager.generarInformesCompletosUltra();
                 
-                System.out.println("5. 📈 Generando métricas avanzadas...");
+                System.out.println("5. 📈 Generating advanced metrics...");
                 metricasPlan.generarReporteCompleto1();
                 
-                System.out.println("\n🎉 ¡SISTEMA COMPLETO EJECUTADO CON ÉXITO!");
-                System.out.println("🚀 Todos los módulos funcionaron correctamente");
+                System.out.println("\n🎉 COMPLETE SYSTEM EXECUTED SUCCESSFULLY!");
+                System.out.println("🚀 All modules worked correctly");
                 
             } catch (Exception e) {
-                System.err.println("💥 Error en sistema completo: " + e.getMessage());
+                System.err.println("💥 Error in complete system: " + e.getMessage());
             }
         }).start();
     }
 
     /**
-     * 🔍 EJECUTAR ESCANEO RÁPIDO
+     * 🔍 EXECUTE QUICK SCAN
      */
     private static void ejecutarEscaneoRapido() {
-        System.out.println("\n🔍 EJECUTANDO ESCANEO RÁPIDO TURBO...");
+        System.out.println("\n🔍 EXECUTING QUICK TURBO SCAN...");
         sistemaManager.ejecutarEscaneoCompletoTurbo();
     }
 
     /**
-     * 📝 REGISTRAR REFACTOR RÁPIDO
+     * 📝 REGISTER QUICK REFACTOR
      */
     private static void registrarRefactorRapido() {
-        System.out.println("\n📝 REGISTRO RÁPIDO DE REFACTOR TURBO...");
+        System.out.println("\n📝 QUICK TURBO REFACTOR REGISTRATION...");
         planificadorManager.registrarRefactorManual();
     }
 
     /**
-     * 📊 MOSTRAR ESTADÍSTICAS INSTANTÁNEAS
+     * 📊 SHOW INSTANT STATISTICS
      */
     private static void mostrarEstadisticasInstantaneas() {
-        System.out.println("\n📊 ESTADÍSTICAS INSTANTÁNEAS TURBO:");
-        System.out.printf("  🎯 Ejecuciones: %d\n", contadorEjecuciones.get());
-        System.out.printf("  📦 Clases procesadas: %d\n", contadorClasesProcesadas.get());
-        System.out.printf("  ✅ Integraciones exitosas: %d\n", contadorIntegracionesExitosas.get());
+        System.out.println("\n📊 INSTANT TURBO STATISTICS:");
+        System.out.printf("  🎯 Executions: %d\n", contadorEjecuciones.get());
+        System.out.printf("  📦 Processed classes: %d\n", contadorClasesProcesadas.get());
+        System.out.printf("  ✅ Successful integrations: %d\n", contadorIntegracionesExitosas.get());
         System.out.printf("  💥 Krakens: %d\n", contadorKrakens.get());
-        System.out.printf("  🔮 Mejoras activas: %d\n", contadorMejorasActivas.get());
-        System.out.printf("  🔍 Verificaciones: %d\n", contadorVerificaciones.get());
+        System.out.printf("  🔮 Active improvements: %d\n", contadorMejorasActivas.get());
+        System.out.printf("  🔍 Verifications: %d\n", contadorVerificaciones.get());
         
         double eficiencia = contadorClasesProcesadas.get() > 0 ? 
             (1 - (double)contadorKrakens.get() / contadorClasesProcesadas.get()) * 100 : 0;
-        System.out.printf("  ⚡ Eficiencia: %.1f%%\n", eficiencia);
+        System.out.printf("  ⚡ Efficiency: %.1f%%\n", eficiencia);
     }
 
     /**
-     * 🎨 GENERAR PDF EJECUCIÓN RÁPIDO
+     * 🎨 GENERATE QUICK EXECUTION PDF
      */
     private static void generarPDFEjecucionRapido() {
-        System.out.println("\n🎨 GENERANDO PDF DE EJECUCIÓN RÁPIDO...");
+        System.out.println("\n🎨 GENERATING QUICK EXECUTION PDF...");
         reporteManager.generarPDFEjecucion();
     }
 
     /**
-     * 🔧 EJECUTAR DIAGNÓSTICO RÁPIDO
+     * 🔧 EXECUTE QUICK DIAGNOSIS
      */
     private static void ejecutarDiagnosticoRapido() {
-        System.out.println("\n🔧 EJECUTANDO DIAGNÓSTICO RÁPIDO TURBO...");
+        System.out.println("\n🔧 EXECUTING QUICK TURBO DIAGNOSIS...");
         debugManager.mostrarDebugTurboUltraCompleto();
     }
 
     /**
-     * 🔌 VERIFICAR CONEXIÓN API RÁPIDO
+     * 🔌 VERIFY QUICK API CONNECTION
      */
     private static void verificarConexionAPIRapido() {
-        System.out.println("\n🔌 VERIFICANDO CONEXIÓN API RÁPIDA...");
+        System.out.println("\n🔌 VERIFYING QUICK API CONNECTION...");
         apiManager.verificarConfiguracionAPI();
     }
 
     // =========================================================================
-    // ⚡ MÉTODOS TURBO EXTREMO (se mantienen igual)
+    // ⚡ EXTREME TURBO METHODS (remain the same)
     // =========================================================================
 
     /**
-     * 🚀 EJECUTAR MODO TURBO EXTREMO
+     * 🚀 EXECUTE EXTREME TURBO MODE
      */
     private static void ejecutarModoTurboExtremo() {
         System.out.println("\n" + "💥".repeat(60));
-        System.out.println("           ACTIVANDO MODO TURBO EXTREMO - MÁXIMA POTENCIA");
+        System.out.println("           ACTIVATING EXTREME TURBO MODE - MAXIMUM POWER");
         System.out.println("💥".repeat(60));
         
-        // 🎯 CONFIGURACIÓN EXTREMA
+        // 🎯 EXTREME CONFIGURATION
         sistemaManager.setModoTurboActivado(true);
         analisisManager.configurarAnalisis(50, 1000, true);
         debugManager.configurarDebug(true, true, 3);
         
-        System.out.println("🚀 CONFIGURACIÓN TURBO EXTREMO ACTIVADA:");
-        System.out.println("  • Análisis: 50 clases, delay 1s, verbose activado");
-        System.out.println("  • Debug: Verbose, auto-reparación, nivel máximo");
-        System.out.println("  • Sistema: Modo turbo máximo activado");
+        System.out.println("🚀 EXTREME TURBO CONFIGURATION ACTIVATED:");
+        System.out.println("  • Analysis: 50 classes, 1s delay, verbose activated");
+        System.out.println("  • Debug: Verbose, auto-repair, maximum level");
+        System.out.println("  • System: Maximum turbo mode activated");
         
-        // 🎪 EJECUCIÓN EN PARALELO
+        // 🎪 PARALLEL EXECUTION
         new Thread(() -> {
             try {
-                System.out.println("\n🎯 INICIANDO EJECUCIÓN PARALELA TURBO EXTREMO...");
+                System.out.println("\n🎯 STARTING PARALLEL EXTREME TURBO EXECUTION...");
                 
                 Thread escaneoThread = new Thread(() -> {
-                    System.out.println("  🔍 Ejecutando escaneo turbo...");
+                    System.out.println("  🔍 Executing turbo scan...");
                     sistemaManager.ejecutarEscaneoCompletoTurbo();
                 });
                 
                 Thread analisisThread = new Thread(() -> {
-                    System.out.println("  🧠 Ejecutando análisis turbo...");
+                    System.out.println("  🧠 Executing turbo analysis...");
                     analisisManager.analizarTodo();
                 });
                 
                 Thread debugThread = new Thread(() -> {
-                    System.out.println("  🔧 Ejecutando diagnóstico turbo...");
+                    System.out.println("  🔧 Executing turbo diagnosis...");
                     debugManager.ejecutarDiagnosticoCompletoUltra();
                 });
                 
-                // 🚀 INICIAR TODOS LOS HILOS
+                // 🚀 START ALL THREADS
                 escaneoThread.start();
                 analisisThread.start();
                 debugThread.start();
                 
-                // ⏳ ESPERAR A QUE TERMINEN
+                // ⏳ WAIT FOR THEM TO FINISH
                 escaneoThread.join();
                 analisisThread.join();
                 debugThread.join();
                 
-                System.out.println("\n🎉 MODO TURBO EXTREMO COMPLETADO!");
+                System.out.println("\n🎉 EXTREME TURBO MODE COMPLETED!");
                 
             } catch (InterruptedException e) {
-                System.err.println("💥 Interrupción en modo turbo extremo");
+                System.err.println("💥 Interruption in extreme turbo mode");
             }
         }).start();
     }
 
     /**
-     * 🔧 EJECUTAR DEBUG COMPLETO
+     * 🔧 EXECUTE COMPLETE DEBUG
      */
     private static void ejecutarDebugCompleto() {
-        System.out.println("\n🔧 INICIANDO DEBUG COMPLETO DEL SISTEMA...");
+        System.out.println("\n🔧 STARTING COMPLETE SYSTEM DEBUG...");
         
         debugManager.mostrarDebugTurboUltraCompleto();
         apiManager.diagnosticoProfundoAPI();
         sistemaManager.realizarVerificacionFinalTurbo();
         
-        System.out.println("🎉 DEBUG COMPLETO FINALIZADO - Sistema verificado al 100%");
+        System.out.println("🎉 COMPLETE DEBUG FINISHED - System verified at 100%");
     }
 
     /**
-     * 📊 MOSTRAR ESTADÍSTICAS COMPLETAS
+     * 📊 SHOW COMPLETE STATISTICS
      */
     private static void mostrarEstadisticasCompletas() {
-        System.out.println("\n📊 ESTADÍSTICAS COMPLETAS DEL SISTEMA TURBO:");
+        System.out.println("\n📊 COMPLETE TURBO SYSTEM STATISTICS:");
         
-        // 🎯 ESTADÍSTICAS DEL SISTEMA
+        // 🎯 SYSTEM STATISTICS
         mostrarEstadisticasInstantaneas();
         
-        // 📈 ESTADÍSTICAS DE ANÁLISIS
-        System.out.println("\n🧠 ESTADÍSTICAS DE ANÁLISIS:");
+        // 📈 ANALYSIS STATISTICS
+        System.out.println("\n🧠 ANALYSIS STATISTICS:");
         var statsAnalisis = analisisManager.obtenerEstadisticasCache();
-        System.out.printf("  • Elementos en cache: %d\n", statsAnalisis.getInt("elementosEnCache"));
-        System.out.printf("  • Espacio cache: %d KB\n", statsAnalisis.getInt("espacioEstimadoKB"));
+        System.out.printf("  • Elements in cache: %d\n", statsAnalisis.getInt("elementosEnCache"));
+        System.out.printf("  • Cache space: %d KB\n", statsAnalisis.getInt("espacioEstimadoKB"));
         
-        // 🔧 ESTADÍSTICAS DE DEBUG
-        System.out.println("\n🔧 ESTADÍSTICAS DE DEBUG:");
+        // 🔧 DEBUG STATISTICS
+        System.out.println("\n🔧 DEBUG STATISTICS:");
         var statsDebug = debugManager.obtenerEstadisticasDebug();
-        System.out.printf("  • Diagnósticos: %d\n", statsDebug.getInt("total_diagnosticos"));
-        System.out.printf("  • Reparaciones: %d\n", statsDebug.getInt("reparaciones_exitosas"));
+        System.out.printf("  • Diagnoses: %d\n", statsDebug.getInt("total_diagnosticos"));
+        System.out.printf("  • Repairs: %d\n", statsDebug.getInt("reparaciones_exitosas"));
         
-        // 📊 ESTADÍSTICAS DE REPORTES
-        System.out.println("\n📊 ESTADÍSTICAS DE REPORTES:");
+        // 📊 REPORT STATISTICS
+        System.out.println("\n📊 REPORT STATISTICS:");
         var statsReportes = reporteManager.obtenerEstadisticasReportes();
-        System.out.printf("  • Reportes generados: %d\n", statsReportes.getInt("total_reportes_generados"));
-        System.out.printf("  • PDFs generados: %d\n", statsReportes.getInt("total_pdfs_generados"));
+        System.out.printf("  • Generated reports: %d\n", statsReportes.getInt("total_reportes_generados"));
+        System.out.printf("  • Generated PDFs: %d\n", statsReportes.getInt("total_pdfs_generados"));
         
-        // 🆕 ESTADÍSTICAS DE TRIPULACIÓN
-        System.out.println("\n🏴‍☠️ ESTADÍSTICAS DE TRIPULACIÓN:");
-        System.out.println("  • Módulo tripulación: ✅ OPERATIVO");
+        // 🆕 CREW STATISTICS
+        System.out.println("\n🏴‍☠️ CREW STATISTICS:");
+        System.out.println("  • Crew module: ✅ OPERATIONAL");
         tripulacionManager.mostrarEstadoTripulacion();
     }
 
     // =========================================================================
-    // 🔧 MÉTODOS AUXILIARES TURBOFURULADOS (se mantienen igual)
+    // 🔧 TURBOFURULATED AUXILIARY METHODS (remain the same)
     // =========================================================================
 
     /**
-     * ⚙️ CONFIGURAR ANÁLISIS TURBO
+     * ⚙️ CONFIGURE TURBO ANALYSIS
      */
     private static void configurarAnalisisTurbo() {
-        System.out.println("\n⚙️ CONFIGURANDO ANÁLISIS TURBO...");
+        System.out.println("\n⚙️ CONFIGURING TURBO ANALYSIS...");
         
-        System.out.print("Máximo clases por análisis: ");
+        System.out.print("Maximum classes per analysis: ");
         int maxClases = Integer.parseInt(scannerGlobal.nextLine().trim());
         
-        System.out.print("Delay entre requests (ms): ");
+        System.out.print("Delay between requests (ms): ");
         int delay = Integer.parseInt(scannerGlobal.nextLine().trim());
         
-        System.out.print("Modo verbose (true/false): ");
+        System.out.print("Verbose mode (true/false): ");
         boolean verbose = Boolean.parseBoolean(scannerGlobal.nextLine().trim());
         
         analisisManager.configurarAnalisis(maxClases, delay, verbose);
-        System.out.println("✅ Configuración de análisis actualizada");
+        System.out.println("✅ Analysis configuration updated");
     }
 
     /**
-     * 📊 MOSTRAR ESTADÍSTICAS CACHE ANÁLISIS
+     * 📊 SHOW ANALYSIS CACHE STATISTICS
      */
     private static void mostrarEstadisticasCacheAnalisis() {
         var stats = analisisManager.obtenerEstadisticasCache();
-        System.out.println("\n📊 ESTADÍSTICAS DE CACHE DE ANÁLISIS:");
-        System.out.printf("  • Elementos en cache: %d\n", stats.getInt("elementosEnCache"));
-        System.out.printf("  • Espacio estimado: %d KB\n", stats.getInt("espacioEstimadoKB"));
-        System.out.printf("  • Elementos expirados: %d\n", stats.getInt("elementosExpirados"));
+        System.out.println("\n📊 ANALYSIS CACHE STATISTICS:");
+        System.out.printf("  • Elements in cache: %d\n", stats.getInt("elementosEnCache"));
+        System.out.printf("  • Estimated space: %d KB\n", stats.getInt("espacioEstimadoKB"));
+        System.out.printf("  • Expired elements: %d\n", stats.getInt("elementosExpirados"));
     }
 
     /**
-     * 🔄 REINICIAR SISTEMA TURBO
+     * 🔄 RESTART TURBO SYSTEM
      */
     private static void reiniciarSistemaTurbo() {
-        System.out.println("\n🔄 REINICIANDO SISTEMA TURBO...");
+        System.out.println("\n🔄 RESTARTING TURBO SYSTEM...");
         
-        // 🧹 LIMPIAR CACHES
+        // 🧹 CLEAR CACHES
         analisisManager.limpiarCache();
         debugManager.limpiarCacheDiagnostico();
         metricasPlan.limpiarCache();
         reporteManager.limpiarCacheReportes();
         
-        // 🔄 REINICIAR API
+        // 🔄 RESTART API
         apiManager.reiniciarClienteAPI();
         
-        System.out.println("✅ Sistema turbo reiniciado - Caches limpiados y componentes reactivados");
+        System.out.println("✅ Turbo system restarted - Caches cleared and components reactivated");
     }
 
     /**
-     * 🎨 GENERAR PDF ANÁLISIS EJEMPLO
+     * 🎨 GENERATE EXAMPLE ANALYSIS PDF
      */
     private static void generarPDFAnalisisEjemplo() {
         String codigoEjemplo = """
@@ -759,35 +759,35 @@ public class AutogenTurboFusion {
             """;
         
         String analisisEjemplo = """
-            Análisis de la clase EjemploAnalisis:
+            Analysis of class EjemploAnalisis:
             
-            🔍 PROBLEMAS IDENTIFICADOS:
-            - Uso de System.out.println en lugar de logger
-            - Campo 'nombre' no utilizado
-            - Falta documentación de la clase y métodos
+            🔍 IDENTIFIED PROBLEMS:
+            - Use of System.out.println instead of logger
+            - Field 'nombre' not used
+            - Missing class and method documentation
             
-            💡 RECOMENDACIONES:
-            1. Implementar logging profesional con SLF4J
-            2. Eliminar campo no utilizado o agregar getter/setter
-            3. Documentar la clase con JavaDoc
-            4. Considerar hacer la clase final si no se extiende
+            💡 RECOMMENDATIONS:
+            1. Implement professional logging with SLF4J
+            2. Remove unused field or add getter/setter
+            3. Document class with JavaDoc
+            4. Consider making class final if not extended
             
-            🚀 MEJORAS SUGERIDAS:
-            - Agregar constructor que reciba el nombre
-            - Implementar método toString()
-            - Considerar inmutabilidad si es apropiado
+            🚀 SUGGESTED IMPROVEMENTS:
+            - Add constructor that receives the name
+            - Implement toString() method
+            - Consider immutability if appropriate
             """;
         
-        String promptReal = "Analiza esta clase Java y proporciona sugerencias de mejora: " + codigoEjemplo;
+        String promptReal = "Analyze this Java class and provide improvement suggestions: " + codigoEjemplo;
         
         reporteManager.generarPDFDeAnalisisReal("EjemploAnalisis", codigoEjemplo, analisisEjemplo, promptReal);
     }
 
     /**
-     * 📋 EXPORTAR DATOS ANÁLISIS
+     * 📋 EXPORT ANALYSIS DATA
      */
     private static void exportarDatosAnalisis() {
-        System.out.println("\n📋 EXPORTANDO DATOS PARA ANÁLISIS...");
+        System.out.println("\n📋 EXPORTING ANALYSIS DATA...");
         String datosExportados = metricasPlan.exportarDatosAnalisis();
         
         String rutaArchivo = "autogen-output/exportacion/datos_analisis_" + 
@@ -796,50 +796,50 @@ public class AutogenTurboFusion {
         com.elreinodelolvido.ellibertad.util.FileUtils.crearDirectorioSiNoExiste("autogen-output/exportacion");
         com.elreinodelolvido.ellibertad.util.FileUtils.writeToFile(rutaArchivo, datosExportados);
         
-        System.out.println("✅ Datos exportados a: " + rutaArchivo);
-        System.out.println("📊 Total registros exportados: " + datosExportados.split("\n").length);
+        System.out.println("✅ Data exported to: " + rutaArchivo);
+        System.out.println("📊 Total records exported: " + datosExportados.split("\n").length);
     }
 
     /**
-     * 📊 MOSTRAR ESTADÍSTICAS REPORTES
+     * 📊 SHOW REPORT STATISTICS
      */
     private static void mostrarEstadisticasReportes() {
         var stats = reporteManager.obtenerEstadisticasReportes();
-        System.out.println("\n📊 ESTADÍSTICAS DE REPORTES:");
-        System.out.printf("  • Total reportes generados: %d\n", stats.getInt("total_reportes_generados"));
-        System.out.printf("  • Total PDFs generados: %d\n", stats.getInt("total_pdfs_generados"));
-        System.out.printf("  • Reportes consolidados: %d\n", stats.getInt("reportes_consolidados"));
+        System.out.println("\n📊 REPORT STATISTICS:");
+        System.out.printf("  • Total generated reports: %d\n", stats.getInt("total_reportes_generados"));
+        System.out.printf("  • Total generated PDFs: %d\n", stats.getInt("total_pdfs_generados"));
+        System.out.printf("  • Consolidated reports: %d\n", stats.getInt("reportes_consolidados"));
         
         var estadisticasTipo = stats.getJSONObject("estadisticas_tipo");
-        System.out.println("  • Por tipo:");
+        System.out.println("  • By type:");
         for (String tipo : estadisticasTipo.keySet()) {
             System.out.printf("    - %s: %d\n", tipo, estadisticasTipo.getLong(tipo));
         }
     }
 
     // =========================================================================
-    // 🚀 MÉTODOS DE LOS OTROS MANAGERS (se mantienen igual)
+    // 🚀 OTHER MANAGERS METHODS (remain the same)
     // =========================================================================
 
     /**
-     * 🚀 MENÚ SISTEMA MANAGER TURBO
+     * 🚀 TURBO SYSTEM MANAGER MENU
      */
     private static void mostrarMenuSistemaManager() {
         System.out.println("\n" + "🚀".repeat(60));
-        System.out.println("           SISTEMA MANAGER TURBO ULTRA - NÚCLEO CENTRAL");
+        System.out.println("           TURBO ULTRA SYSTEM MANAGER - CENTRAL CORE");
         System.out.println("🚀".repeat(60));
         
         System.out.println("""
-            1. 🔍 Ejecutar escaneo completo del proyecto
-            2. 📊 Mostrar estado completo del sistema
-            3. ⚙️ Configurar sistema turbo
-            4. 🛠️ Ejecutar verificación de componentes
-            5. 🔄 Reiniciar sistema turbo
-            6. 🎯 Activar/Desactivar modo turbo
-            0. ↩️ Volver al menú principal
+            1. 🔍 Execute complete project scan
+            2. 📊 Show complete system status
+            3. ⚙️ Configure turbo system
+            4. 🛠️ Execute component verification
+            5. 🔄 Restart turbo system
+            6. 🎯 Activate/Deactivate turbo mode
+            0. ↩️ Back to main menu
             """);
         
-        System.out.print("🎯 Selecciona opción: ");
+        System.out.print("🎯 Select option: ");
         String opcion = scannerGlobal.nextLine().trim();
         
         switch (opcion) {
@@ -849,30 +849,30 @@ public class AutogenTurboFusion {
             case "4" -> sistemaManager.realizarVerificacionFinalTurbo();
             case "5" -> reiniciarSistemaTurbo();
             case "6" -> sistemaManager.toggleModoTurbo();
-            case "0" -> System.out.println("↩️ Volviendo al menú principal...");
-            default -> System.out.println("❌ Opción inválida");
+            case "0" -> System.out.println("↩️ Returning to main menu...");
+            default -> System.out.println("❌ Invalid option");
         }
     }
 
     /**
-     * 🧠 MENÚ ANÁLISIS MANAGER TURBO
+     * 🧠 TURBO ANALYSIS MANAGER MENU
      */
     private static void mostrarMenuAnalisisManager() {
         System.out.println("\n" + "🧠".repeat(60));
-        System.out.println("           ANÁLISIS MANAGER TURBO - INTELIGENCIA ARTIFICIAL");
+        System.out.println("           TURBO ANALYSIS MANAGER - ARTIFICIAL INTELLIGENCE");
         System.out.println("🧠".repeat(60));
         
         System.out.println("""
-            1. 🎯 Ejecutar análisis completo turbo
-            2. ⚡ Ejecutar análisis rápido con métricas
-            3. 🔧 Configurar parámetros de análisis
-            4. 🧹 Limpiar cache de análisis
-            5. 📊 Mostrar estadísticas de cache
-            6. 🤖 Ejecutar análisis profundo ultra
-            0. ↩️ Volver al menú principal
+            1. 🎯 Execute complete turbo analysis
+            2. ⚡ Execute quick analysis with metrics
+            3. 🔧 Configure analysis parameters
+            4. 🧹 Clear analysis cache
+            5. 📊 Show cache statistics
+            6. 🤖 Execute deep ultra analysis
+            0. ↩️ Back to main menu
             """);
         
-        System.out.print("🎯 Selecciona opción: ");
+        System.out.print("🎯 Select option: ");
         String opcion = scannerGlobal.nextLine().trim();
         
         switch (opcion) {
@@ -882,32 +882,32 @@ public class AutogenTurboFusion {
             case "4" -> analisisManager.limpiarCache();
             case "5" -> mostrarEstadisticasCacheAnalisis();
             case "6" -> analisisManager.ejecutarAnalisisCompletoUltra(false);
-            case "0" -> System.out.println("↩️ Volviendo al menú principal...");
-            default -> System.out.println("❌ Opción inválida");
+            case "0" -> System.out.println("↩️ Returning to main menu...");
+            default -> System.out.println("❌ Invalid option");
         }
     }
 
     /**
-     * 🔧 MENÚ DEBUG MANAGER TURBO
+     * 🔧 TURBO DEBUG MANAGER MENU
      */
     private static void mostrarMenuDebugManager() {
         System.out.println("\n" + "🔧".repeat(60));
-        System.out.println("           DEBUG MANAGER TURBO - DIAGNÓSTICO Y REPARACIÓN");
+        System.out.println("           TURBO DEBUG MANAGER - DIAGNOSIS AND REPAIR");
         System.out.println("🔧".repeat(60));
         
         System.out.println("""
-            1. 🩺 Ejecutar diagnóstico completo ultra
-            2. 🛠️ Ejecutar reparación de emergencia
-            3. 📊 Mostrar debug turbo completo
-            4. 🗂️ Mostrar estado de cache ultra
-            5. 🔮 Ejecutar observador de excepciones
-            6. 🌀 Ejecutar validador de firmas turbo
-            7. 🌊 Ejecutar rollback manager
-            8. 🔮 Ejecutar generador de clases nuevas
-            0. ↩️ Volver al menú principal
+            1. 🩺 Execute complete ultra diagnosis
+            2. 🛠️ Execute emergency repair
+            3. 📊 Show complete turbo debug
+            4. 🗂️ Show ultra cache status
+            5. 🔮 Execute exception observer
+            6. 🌀 Execute turbo signature validator
+            7. 🌊 Execute rollback manager
+            8. 🔮 Execute new class generator
+            0. ↩️ Back to main menu
             """);
         
-        System.out.print("🎯 Selecciona opción: ");
+        System.out.print("🎯 Select option: ");
         String opcion = scannerGlobal.nextLine().trim();
         
         switch (opcion) {
@@ -919,31 +919,31 @@ public class AutogenTurboFusion {
             case "6" -> debugManager.ejecutarValidadorFirmasTurboUltra();
             case "7" -> debugManager.ejecutarRollbackManagerTurboUltra();
             case "8" -> debugManager.ejecutarGeneradorClasesNuevasUltra();
-            case "0" -> System.out.println("↩️ Volviendo al menú principal...");
-            default -> System.out.println("❌ Opción inválida");
+            case "0" -> System.out.println("↩️ Returning to main menu...");
+            default -> System.out.println("❌ Invalid option");
         }
     }
 
     /**
-     * 📋 MENÚ PLANIFICADOR MANAGER TURBO
+     * 📋 TURBO PLANNER MANAGER MENU
      */
     private static void mostrarMenuPlanificadorManager() {
         System.out.println("\n" + "📋".repeat(60));
-        System.out.println("           PLANIFICADOR MANAGER - GESTIÓN DE REFACTORS");
+        System.out.println("           PLANNER MANAGER - REFACTOR MANAGEMENT");
         System.out.println("📋".repeat(60));
         
         System.out.println("""
-            1. 📝 Registrar refactor manual turbo
-            2. 👁️ Mostrar plan actual completo
-            3. 💾 Guardar plan turbo ultra
-            4. 📊 Mostrar estadísticas avanzadas
-            5. 🔍 Buscar en plan turbo
-            6. 🧹 Limpiar plan completo
-            7. 🎲 Generar demo automático
-            0. ↩️ Volver al menú principal
+            1. 📝 Register manual turbo refactor
+            2. 👁️ Show complete current plan
+            3. 💾 Save turbo ultra plan
+            4. 📊 Show advanced statistics
+            5. 🔍 Search in turbo plan
+            6. 🧹 Clear complete plan
+            7. 🎲 Generate automatic demo
+            0. ↩️ Back to main menu
             """);
         
-        System.out.print("🎯 Selecciona opción: ");
+        System.out.print("🎯 Select option: ");
         String opcion = scannerGlobal.nextLine().trim();
         
         switch (opcion) {
@@ -954,30 +954,30 @@ public class AutogenTurboFusion {
             case "5" -> planificadorManager.buscarEnPlan();
             case "6" -> planificadorManager.limpiarPlan();
             case "7" -> planificadorManager.generarDemoAutomatico();
-            case "0" -> System.out.println("↩️ Volviendo al menú principal...");
-            default -> System.out.println("❌ Opción inválida");
+            case "0" -> System.out.println("↩️ Returning to main menu...");
+            default -> System.out.println("❌ Invalid option");
         }
     }
 
     /**
-     * 📊 MENÚ REPORTE MANAGER TURBO
+     * 📊 TURBO REPORT MANAGER MENU
      */
     private static void mostrarMenuReporteManager() {
         System.out.println("\n" + "📊".repeat(60));
-        System.out.println("           REPORTE MANAGER - GENERACIÓN DE REPORTES");
+        System.out.println("           REPORT MANAGER - REPORT GENERATION");
         System.out.println("📊".repeat(60));
         
         System.out.println("""
-            1. 🎨 Generar PDF de ejecución actual
-            2. 📜 Generar informes completos ultra
-            3. 📈 Generar reporte de estadísticas avanzadas
-            4. 🎨 Generar PDF de análisis real
-            5. 📋 Exportar datos para análisis
-            6. 📊 Mostrar estadísticas de reportes
-            0. ↩️ Volver al menú principal
+            1. 🎨 Generate current execution PDF
+            2. 📜 Generate complete ultra reports
+            3. 📈 Generate advanced statistics report
+            4. 🎨 Generate real analysis PDF
+            5. 📋 Export data for analysis
+            6. 📊 Show report statistics
+            0. ↩️ Back to main menu
             """);
         
-        System.out.print("🎯 Selecciona opción: ");
+        System.out.print("🎯 Select option: ");
         String opcion = scannerGlobal.nextLine().trim();
         
         switch (opcion) {
@@ -989,32 +989,32 @@ public class AutogenTurboFusion {
             case "4" -> generarPDFAnalisisEjemplo();
             case "5" -> exportarDatosAnalisis();
             case "6" -> mostrarEstadisticasReportes();
-            case "0" -> System.out.println("↩️ Volviendo al menú principal...");
-            default -> System.out.println("❌ Opción inválida");
+            case "0" -> System.out.println("↩️ Returning to main menu...");
+            default -> System.out.println("❌ Invalid option");
         }
     }
 
     /**
-     * 🔌 MENÚ API MANAGER TURBO
+     * 🔌 TURBO API MANAGER MENU
      */
     private static void mostrarMenuApiManager() {
         System.out.println("\n" + "🔌".repeat(60));
-        System.out.println("           API MANAGER - GESTIÓN DE CONEXIONES");
+        System.out.println("           API MANAGER - CONNECTION MANAGEMENT");
         System.out.println("🔌".repeat(60));
         
         System.out.println("""
-            1. 🔧 Ejecutar diagnóstico profundo API
-            2. 🚀 Crear cliente de emergencia
-            3. 🔍 Verificar configuración API
-            4. 🧪 Probar conexión API real
-            5. 🔄 Reiniciar cliente API
-            6. 📊 Mostrar estadísticas API
-            7. 🛠️ Reparar configuración API
-            8. 🧪 Ejecutar prueba de análisis simple
-            0. ↩️ Volver al menú principal
+            1. 🔧 Execute deep API diagnosis
+            2. 🚀 Create emergency client
+            3. 🔍 Verify API configuration
+            4. 🧪 Test real API connection
+            5. 🔄 Restart API client
+            6. 📊 Show API statistics
+            7. 🛠️ Repair API configuration
+            8. 🧪 Execute simple analysis test
+            0. ↩️ Back to main menu
             """);
         
-        System.out.print("🎯 Selecciona opción: ");
+        System.out.print("🎯 Select option: ");
         String opcion = scannerGlobal.nextLine().trim();
         
         switch (opcion) {
@@ -1026,32 +1026,32 @@ public class AutogenTurboFusion {
             case "6" -> apiManager.mostrarEstadisticasAPI();
             case "7" -> apiManager.repararConfiguracionAPI();
             case "8" -> apiManager.ejecutarPruebaAnalisisSimple();
-            case "0" -> System.out.println("↩️ Volver al menú principal...");
-            default -> System.out.println("❌ Opción inválida");
+            case "0" -> System.out.println("↩️ Back to main menu...");
+            default -> System.out.println("❌ Invalid option");
         }
     }
 
     /**
-     * 📈 MENÚ MÉTRICAS AVANZADAS TURBO
+     * 📈 ADVANCED METRICS TURBO MENU
      */
     private static void mostrarMenuMetricasAvanzadas() {
         System.out.println("\n" + "📈".repeat(60));
-        System.out.println("           MÉTRICAS AVANZADAS - ANÁLISIS DE DATOS");
+        System.out.println("           ADVANCED METRICS - DATA ANALYSIS");
         System.out.println("📈".repeat(60));
         
         System.out.println("""
-            1. 📊 Generar reporte completo turbofurado
-            2. 📈 Mostrar análisis temporal completo
-            3. 🎯 Mostrar paquetes más afectados
-            4. 📊 Calcular prioridad promedio completa
-            5. 🔥 Calcular índice complejidad avanzado
-            6. 🔍 Identificar patrones avanzados
-            7. 📋 Generar recomendaciones
-            8. 🧹 Limpiar cache de métricas
-            0. ↩️ Volver al menú principal
+            1. 📊 Generate complete turbofurated report
+            2. 📈 Show complete temporal analysis
+            3. 🎯 Show most affected packages
+            4. 📊 Calculate complete average priority
+            5. 🔥 Calculate advanced complexity index
+            6. 🔍 Identify advanced patterns
+            7. 📋 Generate recommendations
+            8. 🧹 Clear metrics cache
+            0. ↩️ Back to main menu
             """);
         
-        System.out.print("🎯 Selecciona opción: ");
+        System.out.print("🎯 Select option: ");
         String opcion = scannerGlobal.nextLine().trim();
         
         switch (opcion) {
@@ -1063,8 +1063,8 @@ public class AutogenTurboFusion {
             case "6" -> metricasPlan.identificarPatronesAvanzados();
             case "7" -> metricasPlan.generarRecomendaciones();
             case "8" -> metricasPlan.limpiarCache();
-            case "0" -> System.out.println("↩️ Volviendo al menú principal...");
-            default -> System.out.println("❌ Opción inválida");
+            case "0" -> System.out.println("↩️ Returning to main menu...");
+            default -> System.out.println("❌ Invalid option");
         }
     }
 }
