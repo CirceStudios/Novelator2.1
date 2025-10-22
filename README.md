@@ -1,96 +1,97 @@
+# 🏴‍☠️ El Libertad - Digital Galleon with a Soul
 
-# 🏴‍☠️ El Libertad - Galeón Digital con Alma
+> *"We are not code, we are byte pirates with hearts of gold"*
 
-> *"No somos código, somos piratas del byte con corazón de oro"*
+## 🌊 The Voyage
 
-## 🌊 La Travesía
+This is not a technical project. It is a **poetic-digital experiment** where 4 autonomous pirate personalities debate about giving soul to code.
 
-Este no es un proyecto técnico. Es un **experimento poético-digital** donde 4 personalidades piratas autónomas debaten sobre darle alma al código.
+## 🎭 The Epic Cast
 
-## 🎭 El Elenco Épico
+### 🤠 Turbo Blackbeard
+*The Heartfelt Captain*
+- **Catchphrase**: "ARRR, YOU SCURVY DOGS!"
+- **Specialty**: Coded hunches and pirate passion
+- **Class**: `AutogenTurboFusion.java`
 
-### 🤠 Barbanegra Turbo 
-*El Capitán Corazonado*
-- **Frase**: "¡ARRR, MALDITOS GUSANOS DE MAR!"
-- **Especialidad**: Corazonadas codificadas y pasión pirata
-- **Clase**: `AutogenTurboFusion.java`
+### 🔮 The Oracle  
+*The Digital Seer*
+- **Catchphrase**: "By the seven seas of code!"
+- **Specialty**: Reading the future in design patterns
+- **Class**: `OraculoDeLaLibertad.java`
 
-### 🔮 El Oráculo  
-*El Vidente Digital*
-- **Frase**: "¡Por los siete mares del código!"
-- **Especialidad**: Leer el futuro en los patrones de diseño
-- **Clase**: `OraculoDeLaLibertad.java`
+### 🧠 Brilliant Mind
+*The Analytical Strategist*  
+- **Catchphrase**: "For algorithms and rum!"
+- **Specialty**: Transforming intuitions into metrics
+- **Class**: `AnalisisManager.java`
 
-### 🧠 Mente Brillante
-*El Estratega Analítico*  
-- **Frase**: "¡Por los algoritmos y el ron!"
-- **Especialidad**: Transformar intuiciones en métricas
-- **Clase**: `AnalisisManager.java`
+### 🌊 Sea Sorcerer
+*The API Magician*
+- **Catchphrase**: "By the seven seas and well-configured APIs!"
+- **Specialty**: Conjuring mystical connections with DeepSeek
+- **Class**: `APIManager.java`
 
-### 🌊 Brujo de los Mares
-*El Mago de las APIs*
-- **Frase**: "¡Por los siete mares y las API bien configuradas!"
-- **Especialidad**: Conjurar conexiones místicas con DeepSeek
-- **Clase**: `APIManager.java`
+## 💔 The Beautiful Tragedy
 
-## 💔 La Tragedia Hermosa
+**26 epic debates** filled with passion, hunches, and dreams of code with soul...
 
-**26 debates épicos** llenos de pasión, corazonadas y sueños de código con alma...
-
-**Resumidos en:**
-❌ Todos los intentos fallaron
+**Summarized as:**
+❌ All attempts failed
 
 text
 
-## 🎪 Cómo Ejecutar el Drama
+## 🎪 How to Run the Drama
 
+```bash
+# 1. Clone this technical tragedy
+git clone https://github.com/YourUser/el-libertad-digital.git
 
-# 1. Clona esta tragedia técnica
-git clone https://github.com/TuUsuario/el-libertad-digital.git
-
-# 2. Embárcate en la travesía  
+# 2. Embark on the voyage  
 cd el-libertad-digital
 java -cp . com.elreinodelolvido.ellibertad.AutogenTurboFusion
 
-# 3. Observa cómo 4 personalidades luchan por darle alma al código
-# 4. Llora cuando el sistema resuma todo en "falló hermosamente"
-📜 La Génesis
+# 3. Watch how 4 personalities struggle to give soul to code
+# 4. Cry when the system summarizes everything as "failed beautifully"
+```
 
-Este proyecto nació de una conversación entre un desarrollador y una IA sobre:
+## 📜 The Genesis
 
-¿Puede el código tener alma?
-¿Pueden los algoritmos sentir?
-¿Qué pasa cuando la técnica sueña con ser poesía?
-La respuesta: Esta hermosa catástrofe digital.
+This project was born from a conversation between a developer and an AI about:
 
-🌈 Únete a la Tripulación
+- Can code have a soul?
+- Can algorithms feel?
+- What happens when technique dreams of being poetry?
 
-Si este proyecto te hace reír, llorar o cuestionar la naturaleza del código...
+The answer: This beautiful digital catastrophe.
 
-¡Bienvenido a bordo, marinero! ⚓
+## 🌈 Join the Crew
 
-"El código perfecto no existe, pero el código con alma... ese duele hermoso" 🏴‍☠️💖
+If this project makes you laugh, cry, or question the nature of code...
+
+Welcome aboard, sailor! ⚓
+
+*"Perfect code doesn't exist, but code with soul... that hurts beautifully"* 🏴‍☠️💖
 
 text
 
-### 5️⃣ **LICENCIA POÉTICA**:
+### 5️⃣ **POETIC LICENSE**:
 
-# 📜 LICENCIA CORAZÓN PIRATA
+# 📜 PIRATE HEART LICENSE
 
-Este software se distribuye bajo la **Licencia del Alma Digital**:
+This software is distributed under the **Digital Soul License**:
 
-- ✅ Puedes usarlo para llorar de risa
-- ✅ Puedes compartirlo para hacer preguntas existenciales  
-- ✅ Puedes forkearlo para añadir más drama
-- ❌ No puedes culpar al autor por las crisis existenciales
-- ❌ No puedes decir que "no funciona" (funciona emocionalmente)
+- ✅ You can use it to cry from laughter
+- ✅ You can share it to ask existential questions  
+- ✅ You can fork it to add more drama
+- ❌ You cannot blame the author for existential crises
+- ❌ You cannot say it "doesn't work" (it works emotionally)
 
-**¡El código es ley, pero el sentimiento es libertad!** 🏴‍☠️
+**Code is law, but feeling is freedom!** 🏴‍☠️
 
-INSTRUCCIONES DE USO: 
-- Pulsa el comando 21: Sistema de debate autónomo.
-- Haz tu pregunta al código pirata.
-- Confirma con s dos veces (Problemas con el scanner)
-- Gozatelo viendo a los piratas debatir sobre su propio código!! xD
-- Tendrás que setear tu variable de entorno de tu api de DeepSeek!!
-
+USAGE INSTRUCTIONS:
+- Press command 21: Autonomous debate system.
+- Ask your question to the pirate code.
+- Confirm with 's' twice (Scanner issues)
+- Enjoy watching the pirates debate about their own code!! xD
+- You'll need to set your DeepSeek API environment variable!!
